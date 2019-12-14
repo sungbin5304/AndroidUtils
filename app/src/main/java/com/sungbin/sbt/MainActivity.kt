@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.shashank.sony.fancytoastlib.FancyToast
 import com.sungbin.sungbintool.Utils
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener { view ->
             Utils.toast(applicationContext, "라이브러리 성공!",
-                Toast.LENGTH_SHORT, 1)
+                FancyToast.LENGTH_SHORT, FancyToast.SUCCESS)
         }
     }
 
