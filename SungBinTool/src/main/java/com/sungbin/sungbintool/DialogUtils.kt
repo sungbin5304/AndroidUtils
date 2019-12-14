@@ -7,7 +7,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 
 object DialogUtils {
-    fun makeMarginLayout(res: Resources, ctx: Context, layout: LinearLayout): FrameLayout{
+    fun makeMarginLayout(ctx: Context, layout: LinearLayout): FrameLayout{
         val container = FrameLayout(ctx)
         val params = FrameLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
