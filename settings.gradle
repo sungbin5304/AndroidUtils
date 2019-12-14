@@ -1,0 +1,2 @@
+include ':app', ':SungBinTool'
+rootProject.name='SBT'
