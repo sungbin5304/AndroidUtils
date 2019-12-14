@@ -58,4 +58,6 @@ dependencies {
 - getHtml(adress: String): String? (use jsoup)
 ```
 
+-----
+
 # Happy Coding :)
