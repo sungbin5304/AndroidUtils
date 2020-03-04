@@ -8,7 +8,7 @@ import android.content.Context.MODE_PRIVATE
 import android.os.Environment
 import android.os.StrictMode
 import android.util.Log
-import com.shashank.sony.fancytoastlib.FancyToast
+import android.widget.Toast
 import org.jsoup.Jsoup
 import java.io.*
 
@@ -88,19 +88,14 @@ object Utils {
         val clipboard = ctx.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText("label", text)
         clipboard.primaryClip = clip
-        toast(ctx, "클립보드에 복사되었습니다.", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS)
+        //toast(ctx, "클립보드에 복사되었습니다.")
     }
 
     fun error(ctx: Context, e: Exception, at: String) {
         val data = "Error: $e\nLineNumber: ${e.stackTrace[0].lineNumber}\nAt: $at"
-        toast(ctx, data, FancyToast.LENGTH_SHORT, FancyToast.ERROR)
+        //toast(ctx, data)
         copy(ctx, data)
         Log.e("Error", data)
-    }
-
-    @JvmStatic
-    fun toast(ctx: Context, txt: String, length: Int, type: Int) {
-        FancyToast.makeText(ctx, txt, length, type, false).show()
     }
 
     fun getHtml(adress: String): String? {

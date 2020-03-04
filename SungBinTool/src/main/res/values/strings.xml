@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SBT</string>
+    <string name="desc_toast">This is Toast.</string>
 </resources>
