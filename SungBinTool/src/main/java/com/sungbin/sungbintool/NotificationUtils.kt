@@ -5,10 +5,11 @@ package com.sungbin.sungbintool
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationChannelGroup
+import android.app.NotificationManager
 import android.content.Context
 import androidx.core.app.NotificationManagerCompat
 
-object NotificationManager {
+object NotificationUtils {
 
     private var GROUP_NAME = "undefined"
 
@@ -22,7 +23,7 @@ object NotificationManager {
             getManager(context).createNotificationChannelGroup(group1)
 
             val channelMessage =
-                NotificationChannel(Channel.NAME, name, android.app.NotificationManager.IMPORTANCE_DEFAULT)
+                NotificationChannel(Channel.NAME, name, NotificationManager.IMPORTANCE_DEFAULT)
             channelMessage.description = description
             channelMessage.group = GROUP_NAME
             channelMessage.enableVibration(true)
@@ -31,8 +32,8 @@ object NotificationManager {
         }
     }
 
-    private fun getManager(context: Context): android.app.NotificationManager {
-        return context.getSystemService(Context.NOTIFICATION_SERVICE) as android.app.NotificationManager
+    private fun getManager(context: Context): NotificationManager {
+        return context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
 
     fun showNormalNotification(context: Context, id: Int, title: String, content: String, icon: Int) {
@@ -73,7 +74,6 @@ object NotificationManager {
             }
 
             builder.style = inboxStyle
-
             getManager(context).notify(id, builder.build())
         } else {
             val builder = Notification.Builder(context)
@@ -90,7 +90,6 @@ object NotificationManager {
             }
 
             builder.style = inboxStyle
-
             getManager(context).notify(id, builder.build())
         }
     }
