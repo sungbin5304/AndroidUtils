@@ -13,4 +13,11 @@ object ColorUtils {
             window.statusBarColor = color
         }
     }
+    
+    fun setNavigationBarColor(act: Activity, color: Int){
+        val window = act.window
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.navigationBarColor = color
+        }
+    }
 }
