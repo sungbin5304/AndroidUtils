@@ -53,6 +53,12 @@ dependencies {
 ## PermissionUtils
 ```Kotlin
 - request(act: Activity, message: String, permission: Array<String>)
+- requestReadNotification(act: Activity)
+```
+
+## ColorUtils
+```Kotlin
+- setStatusBarColor(act: Activity, color: Int)
 ```
 
 ## StorageUtils
