@@ -3,9 +3,9 @@ package com.sungbin.sungbintool
 import android.content.Context
 
 object DataUtils {
-    fun readData(ctx: Context, name: String, _null: String): String? {
+    fun readData(ctx: Context, name: String, _null: String): String {
         val pref = ctx.getSharedPreferences("pref", Context.MODE_PRIVATE)
-        return pref.getString(name, _null)
+        return pref.getString(name, _null)!!
     }
 
     fun saveData(ctx: Context, name: String, value: String) {
