@@ -60,6 +60,7 @@ dependencies {
 ```Kotlin
 - setStatusBarColor(act: Activity, color: Int)
 - setNavigationBarColor(act: Activity, color: Int)
+- setStatusBarIconColorGray(act: Activity)
 ```
 
 ## StorageUtils
