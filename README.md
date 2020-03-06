@@ -1,11 +1,11 @@
 # AndroidUtils
-Android Utils by SungBin.
+> Android Utils by SungBin.
 
-![Logo](https://raw.githubusercontent.com/sungbin5304/SBT/master/sbt.png)
+![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/AndroidUtils.png)
 
 -----
 
-# Download [![gitpack](https://jitpack.io/v/sungbin5304/SBT.svg)](https://jitpack.io/#sungbin5304/SBT)
+# Download [![](https://jitpack.io/v/sungbin5304/AndroidUtils.svg)](https://jitpack.io/#sungbin5304/AndroidUtils)
 
 ```Gradle
 repositories {
@@ -17,23 +17,18 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.sungbin5304:SBT:{version}'
-  implementation 'com.github.Shashank02051997:FancyToast-Android:0.1.6'
-  implementation 'org.jsoup:jsoup:1.12.1'
+  implementation 'com.github.sungbin5304:AndroidUtils:{version}'
+  implementation 'org.jsoup:jsoup:1.12.1' (optional)
 }
 ```
 
-### Use Library
-[[jsoup: Java HTML Parser]](https://github.com/jhy/jsoup) <br>
-[[FancyToast-Android]](https://github.com/Shashank02051997/FancyToast-Android)
-
 # Usage
-## DialogUtils
+## LayoutUtils
 ```kotlin
-- makeMarginLayout(ctx: Context, layout: LinearLayout): FrameLayout
+- putMargin(ctx: Context, layout: ViewGroup): FrameLayout
 ```
 
-## NotificationManager [[GitHub Page]](https://github.com/sungbin5304/NotificationManager)
+## NotificationUtils [[Help Page]](https://github.com/sungbin5304/NotificationManager)
 ```kotlin
 - setGroupName(name: String)
 - createChannel(context: Context, name: String, description: String)
@@ -42,20 +37,53 @@ dependencies {
 - deleteNotification(context: Context, id: Int)
 ```
 
-## Utils
+## DataUtils (SharedPreferencesUtils)
 ```kotlin
-- sdcard (return external storage path string)
+- readData(ctx: Context, name: String, _null: String): String
+- saveData(ctx: Context, name: String, value: String)
+- clearData(ctx: Context)
+```
+ 
+## DialogUtils
+```kotlin
+- show(ctx: Context, title: String, message: String, listener: DialogInterface.OnClickListener?)
+- showOnce(ctx: Context, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?)
+```
+
+## PermissionUtils
+```Kotlin
+- request(act: Activity, message: String, permission: Array<String>)
+```
+
+## StorageUtils
+```Kotlin
 - createFolder(name: String)
 - read(name: String, _null: String): String
 - save(name: String, content: String)
 - delete(name: String)
-- readData(ctx: Context, name: String, _null: String): String?
-- saveData(ctx: Context, name: String, value: String)
-- clearData(ctx: Context)
+```
+
+## ToastUtils
+```Kotlin
+- show(context: Context, message: String, duration: Int, type: Int)
+
++ Duration List
+- SHORT
+- LONG
+
++ Type List
+- INFO
+- SUCCESS
+- WARNING
+- ERROR 
+```
+
+## Utils
+```Kotlin
 - copy(ctx: Context, text: String)
 - error(ctx: Context, e: Exception, at: String)
-- toast(ctx: Context, txt: String, length: Int, type: Int) (use fancytoast)
-- getHtml(adress: String): String? (use jsoup)
+- setUserAgent(agent: String)
+- getHtml(address: String): String? (need implementation jsoup library)
 ```
 
 -----
