@@ -17,7 +17,10 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.sungbin5304:AndroidUtils:{version}'
+  //implementation 'com.github.sungbin5304:AndroidUtils:{version}'
+  
+  //noinspection GradleDependency
+  implementation 'com.github.sungbin5304:AndroidUtils:2.7.2'
   implementation 'org.jsoup:jsoup:1.12.1' (optional)
 }
 ```
