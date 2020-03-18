@@ -26,6 +26,7 @@ dependencies {
 ```
 
 # Usage
+> Some functions may not work. (All functions have not been tested.)
 ## LayoutUtils
 ```kotlin
 - putMargin(ctx: Context, layout: ViewGroup): FrameLayout
