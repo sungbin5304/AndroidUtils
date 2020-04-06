@@ -16,7 +16,7 @@ object Utils {
     fun copy(ctx: Context, text: String) {
         val clipboard = ctx.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText("label", text)
-        clipboard.primaryClip = clip
+        clipboard.setPrimaryClip(clip)
         ToastUtils.show(ctx, ctx.getString(R.string.copy_clipboard), ToastUtils.SHORT, ToastUtils.SUCCESS)
     }
 
