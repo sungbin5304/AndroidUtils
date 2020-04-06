@@ -17,12 +17,16 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.sungbin5304:AndroidUtils:{version}'
+  //implementation 'com.github.sungbin5304:AndroidUtils:{version}'
+  
+  //noinspection GradleDependency
+  implementation 'com.github.sungbin5304:AndroidUtils:2.7.2'
   implementation 'org.jsoup:jsoup:1.12.1' (optional)
 }
 ```
 
 # Usage
+> Some functions may not work. (All functions have not been tested.)
 ## LayoutUtils
 ```kotlin
 - putMargin(ctx: Context, layout: ViewGroup): FrameLayout
@@ -60,6 +64,7 @@ dependencies {
 ```Kotlin
 - setStatusBarColor(act: Activity, color: Int)
 - setNavigationBarColor(act: Activity, color: Int)
+- setStatusBarIconColorGray(act: Activity)
 ```
 
 ## StorageUtils
