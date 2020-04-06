@@ -16,7 +16,7 @@ import java.io.*
 @Suppress("DEPRECATION")
 @SuppressLint("MissingPermission", "HardwareIds")
 object StorageUtils {
-    private val sdcard = Environment.getExternalStorageDirectory().absolutePath!!
+    val sdcard = Environment.getExternalStorageDirectory().absolutePath!!
 
     fun createFolder(name: String) {
         File("$sdcard/$name/").mkdirs()

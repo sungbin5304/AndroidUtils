@@ -1,2 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sungbin.sungbintool" />
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sungbin.sungbintool" >
+
+    <application android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true" />
+
+</manifest>
