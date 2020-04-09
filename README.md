@@ -1,6 +1,3 @@
-# AndroidUtils
-> AndroidUtils by SungBin.
-
 ![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/AndroidUtils.png)
 
 -----
