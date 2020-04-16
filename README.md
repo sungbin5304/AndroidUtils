@@ -62,6 +62,7 @@ dependencies {
 
 ## StorageUtils
 ```Kotlin
+- sdcard
 - createFolder(name: String)
 - read(name: String, _null: String): String
 - save(name: String, content: String)
