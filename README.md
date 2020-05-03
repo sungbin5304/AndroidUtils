@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/AndroidUtils.png)
+![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/banner%20(1).png)
 
 -----
 
