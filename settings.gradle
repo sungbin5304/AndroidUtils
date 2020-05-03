@@ -1,2 +1,2 @@
-include ':app', ':SungBinTool'
+include ':app', ':library'
 rootProject.name='SBT'

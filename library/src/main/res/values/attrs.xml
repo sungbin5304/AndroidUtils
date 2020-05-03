@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TagableRoundImageView">
+        <attr name="triv_tagGravity">
+            <flag name="top" value="0x00000030" />
+            <flag name="bottom" value="0x00000050" />
+            <flag name="left" value="0x00000003" />
+            <flag name="right" value="0x00000005" />
+            <flag name="start" value="0x00800003" />
+            <flag name="end" value="0x00800005" />
+        </attr>
+        <attr name="triv_tagTextStyle">
+            <flag name="italic" value="0x00000002" />
+            <flag name="normal" value="0x00000000" />
+        </attr>
+        <attr name="triv_imageRadius" format="dimension|reference" />
+        <attr name="triv_tagRadius" format="dimension|reference"/>
+        <attr name="triv_tagPadding" format="dimension|reference"/>
+        <attr name="triv_tagTextSize" format="dimension|reference"/>
+        <attr name="triv_tagText" format="string"/>
+        <attr name="triv_tagBackgroundColor" format="color"/>
+    </declare-styleable>
+</resources>
