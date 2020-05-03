@@ -34,7 +34,7 @@ dependencies {
 - deleteNotification(context: Context, id: Int)
 ```
 
-## DataUtils (SharedPreferencesUtils)
+## DataUtils
 ```kotlin
 - readData(ctx: Context, name: String, _null: String): String
 - saveData(ctx: Context, name: String, value: String)
