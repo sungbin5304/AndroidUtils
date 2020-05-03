@@ -128,6 +128,10 @@ dependencies {
       imageRadius: Int = 16dp)
 ```
 
+### Tip
+TagableRoundImageView is supported GIF images.
+You can set GIF image from [[Glide]](https://github.com/bumptech/glide) library.
+
 -----
 
 # License
