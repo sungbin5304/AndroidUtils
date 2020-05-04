@@ -44,8 +44,8 @@ dependencies {
  
 ## DialogUtils
 ```kotlin
-- show(ctx: Context, title: String, message: String, listener: DialogInterface.OnClickListener?)
-- showOnce(ctx: Context, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?)
+- show(ctx: Context, title: String, message: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
+- showOnce(ctx: Context, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
 ```
 
 ## PermissionUtils
