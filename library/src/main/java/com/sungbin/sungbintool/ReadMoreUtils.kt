@@ -8,7 +8,6 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 
 object ReadMoreUtils {
     fun setReadMoreLine(view: TextView, text: String, maxLine: Int,
