@@ -91,6 +91,7 @@ dependencies {
 - error(ctx: Context, e: Exception, at: String)
 - setUserAgent(agent: String)
 - getHtml(address: String): String? (need implementation jsoup library)
+- makeRandomUUID(): String
 ```
 
 # UI
