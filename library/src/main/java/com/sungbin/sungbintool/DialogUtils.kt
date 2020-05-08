@@ -6,7 +6,8 @@ import android.content.DialogInterface
 
 object DialogUtils {
     fun show(ctx: Context, title: String, message: String,
-             listener: DialogInterface.OnClickListener?, cancelable: Boolean = true){
+             listener: DialogInterface.OnClickListener?,
+             cancelable: Boolean = true){
         val dialog = AlertDialog.Builder(ctx)
         dialog.setTitle(title)
         dialog.setMessage(message)

@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.Toast
 import org.jsoup.Jsoup
 import java.io.IOException
+import java.util.*
 
 object Utils {
     private var USER_AGENT =
@@ -42,5 +43,9 @@ object Utils {
         } catch (e: IOException) {
             e.toString()
         }
+    }
+
+    fun makeRandomUUID(): String{
+        return UUID.randomUUID().toString().replace("-", "")
     }
 }
