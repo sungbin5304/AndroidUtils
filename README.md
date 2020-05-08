@@ -19,7 +19,7 @@ dependencies {
 }
 ```
 
-# Usage
+# **Usage**
 # Utils
 ## LayoutUtils
 ```kotlin
@@ -139,7 +139,7 @@ dependencies {
 ```
 
 ### tip
-`TagableRoundImageView` is supported GIF images.
+`TagableRoundImageView` is supported GIF images.<br>
 You can set GIF image from [Glide](https://github.com/bumptech/glide) library.
 
 -----
