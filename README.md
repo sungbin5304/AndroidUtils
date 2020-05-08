@@ -94,6 +94,12 @@ dependencies {
 - makeRandomUUID(): String
 ```
 
+## ReadMoreUtils
+```kotlin
+- setReadMoreLine(view: TextView, text: String, maxLine: Int, expanedText: String = "...더보기", expanedTextColor: Int = Color.parseColor("#9E9E9E"))
+- setReadMoreLength(view: TextView, text: String, maxLength: Int,expanedText: String = "...더보기", expanedTextColor: Int = Color.parseColor("#9E9E9E"))
+```
+
 # UI
 ## TagableRoundImageView
 ### preview
