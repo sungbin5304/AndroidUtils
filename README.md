@@ -19,7 +19,7 @@ dependencies {
 }
 ```
 
-# Usage
+# **Usage**
 # Utils
 ## LayoutUtils
 ```kotlin
@@ -94,6 +94,12 @@ dependencies {
 - makeRandomUUID(): String
 ```
 
+## ReadMoreUtils
+```kotlin
+- setReadMoreLine(view: TextView, text: String, maxLine: Int, expanedText: String = "...더보기", expanedTextColor: Int = Color.parseColor("#9E9E9E"))
+- setReadMoreLength(view: TextView, text: String, maxLength: Int,expanedText: String = "...더보기", expanedTextColor: Int = Color.parseColor("#9E9E9E"))
+```
+
 # UI
 ## TagableRoundImageView
 ### preview
@@ -133,8 +139,10 @@ dependencies {
 ```
 
 ### tip
-`TagableRoundImageView` is supported GIF images.
+1. `TagableRoundImageView` is supported GIF images.<br>
 You can set GIF image from [Glide](https://github.com/bumptech/glide) library.
+
+2. If you not set `triv_tagText` parameter, `TagableRoundImageView` will be only rounding image.
 
 -----
 
