@@ -38,7 +38,11 @@ object StorageUtils {
         fis.close()
         isr.close()
         br.close()
-        return str
+        return if(str == null) {
+            _null
+        } else {
+            str + ""
+        }
     }
 
     fun save(name: String, content: String) {
