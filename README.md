@@ -68,6 +68,7 @@ dependencies {
 - read(name: String, _null: String): String
 - save(name: String, content: String)
 - delete(name: String)
+- deleteAll(name: String)
 ```
 
 ## ToastUtils
@@ -92,6 +93,12 @@ dependencies {
 - setUserAgent(agent: String)
 - getHtml(address: String): String? (need implementation jsoup library)
 - makeRandomUUID(): String
+- getAppVersionName(act: Activity): String
+```
+
+## StringUtils
+```kotlin
+- toEditable(string: String): Editable
 ```
 
 ## ReadMoreUtils
