@@ -61,4 +61,18 @@ object StorageUtils {
     fun delete(name: String) {
         File("$sdcard/$name").delete()
     }
+
+    fun deleteAll(name: String) {
+        val dir = File(name)
+        if (dir.exists() && dir.listFiles() != null) {
+            for (childFile in dir.listFiles()!!) {
+                if (childFile.isDirectory) {
+                    deleteAll(childFile.absolutePath)
+                } else {
+                    childFile.delete()
+                }
+            }
+            dir.delete()
+        }
+    }
 }
