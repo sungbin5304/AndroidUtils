@@ -142,7 +142,7 @@ dependencies {
 1. `TagableRoundImageView` is supported GIF images.<br>
 You can set GIF image from [Glide](https://github.com/bumptech/glide) library.
 
-2. If you set `triv_tagText` value is empty, `TagableRoundImageView` will be only rounding image.
+2. If you not set `triv_tagText` parameter, `TagableRoundImageView` will be only rounding image.
 
 -----
 
