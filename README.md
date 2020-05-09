@@ -30,8 +30,8 @@ dependencies {
 ```kotlin
 - setGroupName(name: String)
 - createChannel(context: Context, name: String, description: String)
-- showNormalNotification(context: Context, id: Int, title: String, content: String, icon: Int)
-- showInboxStyleNotification(context: Context, id: Int, title: String, content: String, boxText: List<String>, icon: Int)
+- showNormalNotification(context: Context, id: Int, title: String, content: String, icon: Int, isOnGoing: Boolean = false)
+- showInboxStyleNotification(context: Context, id: Int, title: String, content: String, boxText: List<String>, icon: Int, isOnGoing: Boolean = false)
 - deleteNotification(context: Context, id: Int)
 ```
 
