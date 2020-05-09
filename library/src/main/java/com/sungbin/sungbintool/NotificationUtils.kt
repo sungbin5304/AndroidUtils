@@ -1,33 +1,39 @@
-@file:Suppress("DEPRECATION")
-
 package com.sungbin.sungbintool
 
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationChannelGroup
-import android.app.NotificationManager
+import android.app.*
 import android.content.Context
 import android.os.Build
 import android.util.Log
+import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 
 object NotificationUtils {
 
-    private var GROUP_NAME = "undefined"
+    private var groupName = "undefined"
+    private var actions = arrayOf<Notification.Action>()
+    private var pendingIntent: PendingIntent? = null
 
     fun setGroupName(name: String) {
-        GROUP_NAME = name
+        groupName = name
+    }
+
+    fun addAction(action: Notification.Action){
+        actions.plus(action)
+    }
+
+    fun setPendingIntent(pendingIntent: PendingIntent){
+        this.pendingIntent = pendingIntent
     }
 
     fun createChannel(context: Context, name: String, description: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val group1 = NotificationChannelGroup(GROUP_NAME, GROUP_NAME)
+            val group1 = NotificationChannelGroup(groupName, groupName)
             getManager(context).createNotificationChannelGroup(group1)
 
             val channelMessage =
                 NotificationChannel(name, name, NotificationManager.IMPORTANCE_DEFAULT)
             channelMessage.description = description
-            channelMessage.group = GROUP_NAME
+            channelMessage.group = groupName
             channelMessage.enableVibration(true)
             channelMessage.vibrationPattern = longArrayOf(0, 0)
             getManager(context).createNotificationChannel(channelMessage)
@@ -48,9 +54,19 @@ object NotificationUtils {
                 .setShowWhen(true)
                 .setOngoing(isOnGoing)
                 .setAutoCancel(true)
+
+            for(action in actions) {
+                builder.addAction(action)
+            }
+
+            if(pendingIntent != null) {
+                builder.setContentIntent(pendingIntent)
+            }
+
             getManager(context).notify(id, builder.build())
         }
         else {
+            @Suppress("DEPRECATION")
             val builder = Notification.Builder(context)
                 .setContentTitle(title)
                 .setContentText(content)
@@ -58,6 +74,15 @@ object NotificationUtils {
                 .setAutoCancel(true)
                 .setOngoing(isOnGoing)
                 .setShowWhen(true)
+
+            for(action in actions) {
+                builder.addAction(action)
+            }
+
+            if(pendingIntent != null) {
+                builder.setContentIntent(pendingIntent)
+            }
+
             getManager(context).notify(id, builder.build())
         }
     }
@@ -80,10 +105,19 @@ object NotificationUtils {
                 inboxStyle.addLine(str)
             }
 
+            for(action in actions) {
+                builder.addAction(action)
+            }
+
+            if(pendingIntent != null) {
+                builder.setContentIntent(pendingIntent)
+            }
+
             builder.style = inboxStyle
             getManager(context).notify(id, builder.build())
         }
         else {
+            @Suppress("DEPRECATION")
             val builder = Notification.Builder(context)
                 .setContentTitle(title)
                 .setContentText(content)
@@ -96,6 +130,14 @@ object NotificationUtils {
 
             for (str in boxText) {
                 inboxStyle.addLine(str)
+            }
+
+            for(action in actions) {
+                builder.addAction(action)
+            }
+
+            if(pendingIntent != null) {
+                builder.setContentIntent(pendingIntent)
             }
 
             builder.style = inboxStyle
