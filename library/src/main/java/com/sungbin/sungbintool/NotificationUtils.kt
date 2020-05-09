@@ -7,6 +7,8 @@ import android.app.NotificationChannel
 import android.app.NotificationChannelGroup
 import android.app.NotificationManager
 import android.content.Context
+import android.os.Build
+import android.util.Log
 import androidx.core.app.NotificationManagerCompat
 
 object NotificationUtils {
@@ -18,12 +20,12 @@ object NotificationUtils {
     }
 
     fun createChannel(context: Context, name: String, description: String) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val group1 = NotificationChannelGroup(GROUP_NAME, GROUP_NAME)
             getManager(context).createNotificationChannelGroup(group1)
 
             val channelMessage =
-                NotificationChannel(Channel.NAME, name, NotificationManager.IMPORTANCE_DEFAULT)
+                NotificationChannel(name, name, NotificationManager.IMPORTANCE_DEFAULT)
             channelMessage.description = description
             channelMessage.group = GROUP_NAME
             channelMessage.enableVibration(true)
@@ -36,34 +38,39 @@ object NotificationUtils {
         return context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
 
-    fun showNormalNotification(context: Context, id: Int, title: String, content: String, icon: Int) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            val builder = Notification.Builder(context, Channel.NAME)
+    fun showNormalNotification(context: Context, id: Int, title: String,
+                               content: String, icon: Int, isOnGoing: Boolean = false) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val builder = Notification.Builder(context, title)
                 .setContentTitle(title)
                 .setContentText(content)
                 .setSmallIcon(icon)
                 .setShowWhen(true)
+                .setOngoing(isOnGoing)
                 .setAutoCancel(true)
-                .setOngoing(true)
             getManager(context).notify(id, builder.build())
-        } else {
+        }
+        else {
             val builder = Notification.Builder(context)
                 .setContentTitle(title)
                 .setContentText(content)
                 .setSmallIcon(icon)
                 .setAutoCancel(true)
-                .setOngoing(true)
+                .setOngoing(isOnGoing)
                 .setShowWhen(true)
             getManager(context).notify(id, builder.build())
         }
     }
 
-    fun showInboxStyleNotification(context: Context, id: Int, title: String, content: String, boxText: List<String>, icon: Int) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            val builder = Notification.Builder(context, Channel.NAME)
+    fun showInboxStyleNotification(context: Context, id: Int, title: String,
+                                   content: String, boxText: List<String>,
+                                   icon: Int, isOnGoing: Boolean = false) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val builder = Notification.Builder(context, title)
                 .setContentTitle(title)
                 .setContentText(content)
                 .setSmallIcon(icon)
+                .setOngoing(isOnGoing)
                 .setAutoCancel(true)
             val inboxStyle = Notification.InboxStyle()
             inboxStyle.setBigContentTitle(title)
@@ -75,11 +82,13 @@ object NotificationUtils {
 
             builder.style = inboxStyle
             getManager(context).notify(id, builder.build())
-        } else {
+        }
+        else {
             val builder = Notification.Builder(context)
                 .setContentTitle(title)
                 .setContentText(content)
                 .setSmallIcon(icon)
+                .setOngoing(isOnGoing)
                 .setAutoCancel(true)
             val inboxStyle = Notification.InboxStyle()
             inboxStyle.setBigContentTitle(title)
@@ -98,12 +107,8 @@ object NotificationUtils {
         try {
             NotificationManagerCompat.from(context).cancel(id)
         }
-        catch (e: java.lang.Exception){ }
-    }
-
-    annotation class Channel {
-        companion object {
-            const val NAME = "CHANNEL"
+        catch (e: Exception){
+            Log.e("delete notification", e.toString())
         }
     }
 }

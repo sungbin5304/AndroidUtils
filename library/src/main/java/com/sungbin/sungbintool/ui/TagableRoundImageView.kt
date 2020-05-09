@@ -110,10 +110,13 @@ class TagableRoundImageView : AppCompatImageView{
         try {
             clipPath = Path()
             clipPath!!.reset()
-            if(bitmapRect == null)
-                bitmapRect = RectF(0f, 0f,
+            if(bitmapRect == null) {
+                bitmapRect = RectF(
+                    0f, 0f,
                     width.toFloat(),
-                    height.toFloat())
+                    height.toFloat()
+                )
+            }
             clipPath!!.addRoundRect(
                 bitmapRect!!,
                 imageRadius.toFloat(),
@@ -122,8 +125,8 @@ class TagableRoundImageView : AppCompatImageView{
             )
             canvas.clipPath(clipPath!!)
             super.draw(canvas)
-            tag!!.draw(canvas)
             if (tag != null) {
+                tag!!.draw(canvas)
                 if (!tagBoundsSet) {
                     layoutTag()
                 }
