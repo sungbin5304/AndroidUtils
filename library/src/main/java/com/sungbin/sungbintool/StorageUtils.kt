@@ -16,46 +16,35 @@ import java.io.*
 @Suppress("DEPRECATION")
 @SuppressLint("MissingPermission", "HardwareIds")
 object StorageUtils {
-    val sdcard = Environment.getExternalStorageDirectory().absolutePath!!
+    val sdcard = Environment.getExternalStorageDirectory().absolutePath
 
     fun createFolder(name: String) {
         File("$sdcard/$name/").mkdirs()
     }
 
     fun read(name: String, _null: String): String {
-        try {
-            val file = File("$sdcard/$name/")
-            if (!file.exists()) return _null
-            val fis = FileInputStream(file)
-            val isr = InputStreamReader(fis)
-            val br = BufferedReader(isr)
-            var str = br.readLine()
+        val file = File("$sdcard/$name/")
+        if (!file.exists()) return _null
+        val fis = FileInputStream(file)
+        val isr = InputStreamReader(fis)
+        val br = BufferedReader(isr)
+        var str = br.readLine()
 
-            while (true) {
-                val inputLine = br.readLine() ?: break
-                str += "\n" + inputLine
-            }
-            fis.close()
-            isr.close()
-            br.close()
-            return str.toString()
-        } catch (e: Exception) {
-            Log.e("READ", e.toString())
+        while (true) {
+            val inputLine = br.readLine() ?: break
+            str += "\n" + inputLine
         }
-
-        return _null
+        fis.close()
+        isr.close()
+        br.close()
+        return str.toString()
     }
 
     fun save(name: String, content: String) {
-        try {
-            val file = File("$sdcard/$name")
-            val fos = FileOutputStream(file)
-            fos.write(content.toByteArray())
-            fos.close()
-        } catch (e: Exception) {
-            Log.e("SAVE", e.toString())
-        }
-
+        val file = File("$sdcard/$name")
+        val fos = FileOutputStream(file)
+        fos.write(content.toByteArray())
+        fos.close()
     }
 
     fun delete(name: String) {
@@ -63,7 +52,7 @@ object StorageUtils {
     }
 
     fun deleteAll(name: String) {
-        val dir = File(name)
+        val dir = File("$sdcard/$name")
         if (dir.exists() && dir.listFiles() != null) {
             for (childFile in dir.listFiles()!!) {
                 if (childFile.isDirectory) {
