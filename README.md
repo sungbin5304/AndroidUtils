@@ -29,6 +29,8 @@ dependencies {
 ## NotificationUtils [[Help Page]](https://github.com/sungbin5304/NotificationManager)
 ```kotlin
 - setGroupName(name: String)
+- addAction(action: Notification.Action)
+- setPendingIntent(pendingIntent: PendingIntent)
 - createChannel(context: Context, name: String, description: String)
 - showNormalNotification(context: Context, id: Int, title: String, content: String, icon: Int, isOnGoing: Boolean = false)
 - showInboxStyleNotification(context: Context, id: Int, title: String, content: String, boxText: List<String>, icon: Int, isOnGoing: Boolean = false)
