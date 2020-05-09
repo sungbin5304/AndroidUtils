@@ -19,11 +19,11 @@ object StorageUtils {
     val sdcard = Environment.getExternalStorageDirectory().absolutePath
 
     fun createFolder(name: String) {
-        File("$sdcard/$name/").mkdirs()
+        File("$sdcard/$name").mkdirs()
     }
 
     fun read(name: String, _null: String): String {
-        val file = File("$sdcard/$name/")
+        val file = File("$sdcard/$name")
         if (!file.exists()) return _null
         val fis = FileInputStream(file)
         val isr = InputStreamReader(fis)
@@ -34,10 +34,11 @@ object StorageUtils {
             val inputLine = br.readLine() ?: break
             str += "\n" + inputLine
         }
+
         fis.close()
         isr.close()
         br.close()
-        return str.toString()
+        return str
     }
 
     fun save(name: String, content: String) {
