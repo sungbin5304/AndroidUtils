@@ -26,7 +26,7 @@ dependencies {
 - putMargin(ctx: Context, layout: ViewGroup): FrameLayout
 ```
 
-## NotificationUtils [[Help Page]](https://github.com/sungbin5304/NotificationManager)
+## ~~NotificationUtils [[Help Page]](https://github.com/sungbin5304/NotificationManager)~~
 ```kotlin
 - setGroupName(name: String)
 - addAction(action: Notification.Action)
