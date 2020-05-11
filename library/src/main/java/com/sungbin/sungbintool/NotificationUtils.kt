@@ -15,9 +15,6 @@ object NotificationUtils {
 
     private var GROUP_NAME = "undefined"
 
-    private val smallIcon: Int
-        get() = R.drawable.ic_check_white_24dp
-
     fun setGroupName(name: String) {
         GROUP_NAME = name
     }
@@ -42,12 +39,13 @@ object NotificationUtils {
         return context.getSystemService(Context.NOTIFICATION_SERVICE) as android.app.NotificationManager
     }
 
-    fun showNormalNotification(context: Context, id: Int, title: String, content: String) {
+    fun showNormalNotification(context: Context, id: Int, title: String,
+                               content: String, icon: Int) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             val builder = Notification.Builder(context, Channel.NAME)
                 .setContentTitle(title)
                 .setContentText(content)
-                .setSmallIcon(smallIcon)
+                .setSmallIcon(icon)
                 .setAutoCancel(true)
                 .setOngoing(true)
             getManager(context).notify(id, builder.build())
@@ -55,19 +53,21 @@ object NotificationUtils {
             val builder = Notification.Builder(context)
                 .setContentTitle(title)
                 .setContentText(content)
-                .setSmallIcon(smallIcon)
+                .setSmallIcon(icon)
                 .setAutoCancel(true)
                 .setOngoing(true)
             getManager(context).notify(id, builder.build())
         }
     }
 
-    fun showInboxStyleNotification(context: Context, id: Int, title: String, content: String, boxText: Array<String>) {
+    fun showInboxStyleNotification(context: Context, id: Int,
+                                   title: String, content: String,
+                                   boxText: Array<String>, icon: Int) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             val builder = Notification.Builder(context, Channel.NAME)
                 .setContentTitle(title)
                 .setContentText(content)
-                .setSmallIcon(smallIcon)
+                .setSmallIcon(icon)
                 .setAutoCancel(true)
                 .setOngoing(true)
             val inboxStyle = Notification.InboxStyle()
@@ -85,7 +85,7 @@ object NotificationUtils {
             val builder = Notification.Builder(context)
                 .setContentTitle(title)
                 .setContentText(content)
-                .setSmallIcon(smallIcon)
+                .setSmallIcon(icon)
                 .setAutoCancel(true)
                 .setOngoing(true)
             val inboxStyle = Notification.InboxStyle()
