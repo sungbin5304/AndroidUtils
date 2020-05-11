@@ -18,55 +18,71 @@ import java.io.*
 object StorageUtils {
     val sdcard = Environment.getExternalStorageDirectory().absolutePath
 
-    fun createFolder(name: String) {
-        File("$sdcard/$name").mkdirs()
+    fun createFolder(name: String): Boolean {
+        return File("$sdcard/$name").mkdirs()
     }
 
-    fun read(name: String, _null: String): String {
-        val file = File("$sdcard/$name")
-        if (!file.exists()) return _null
-        val fis = FileInputStream(file)
-        val isr = InputStreamReader(fis)
-        val br = BufferedReader(isr)
-        var str = br.readLine()
+    fun read(name: String, _null: String?): String? {
+        return try {
+            val file = File("$sdcard/$name")
+            if (!file.exists()) return _null
+            val fis = FileInputStream(file)
+            val isr = InputStreamReader(fis)
+            val br = BufferedReader(isr)
+            var str = br.readLine()
 
-        while (true) {
-            val inputLine = br.readLine() ?: break
-            str += "\n" + inputLine
-        }
-
-        fis.close()
-        isr.close()
-        br.close()
-        return if(str == null) {
-            _null
-        } else {
-            str + ""
-        }
-    }
-
-    fun save(name: String, content: String) {
-        val file = File("$sdcard/$name")
-        val fos = FileOutputStream(file)
-        fos.write(content.toByteArray())
-        fos.close()
-    }
-
-    fun delete(name: String) {
-        File("$sdcard/$name").delete()
-    }
-
-    fun deleteAll(name: String) {
-        val dir = File("$sdcard/$name")
-        if (dir.exists() && dir.listFiles() != null) {
-            for (childFile in dir.listFiles()!!) {
-                if (childFile.isDirectory) {
-                    deleteAll(childFile.absolutePath)
-                } else {
-                    childFile.delete()
-                }
+            while (true) {
+                val inputLine = br.readLine() ?: break
+                str += "\n" + inputLine
             }
-            dir.delete()
+
+            fis.close()
+            isr.close()
+            br.close()
+            if (str == null) {
+                _null
+            } else {
+                str + ""
+            }
+        }
+        catch (e: Exception){
+            _null
+        }
+    }
+
+    fun save(name: String, content: String): Boolean {
+        return try {
+            val file = File("$sdcard/$name")
+            val fos = FileOutputStream(file)
+            fos.write(content.toByteArray())
+            fos.close()
+            true
+        } catch (e: Exception){
+            false
+        }
+    }
+
+    fun delete(name: String): Boolean {
+        return File("$sdcard/$name").delete()
+    }
+
+    fun deleteAll(name: String): Boolean {
+        return try {
+            val dir = File("$sdcard/$name")
+            if (dir.exists() && dir.listFiles() != null) {
+                for (childFile in dir.listFiles()!!) {
+                    if (childFile.isDirectory) {
+                        deleteAll(childFile.absolutePath)
+                    } else {
+                        childFile.delete()
+                    }
+                }
+                dir.delete()
+            }
+            true
+        }
+        catch (e: Exception){
+            false
         }
     }
 }
