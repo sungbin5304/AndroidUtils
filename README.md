@@ -66,11 +66,11 @@ dependencies {
 ## StorageUtils
 ```Kotlin
 - sdcard
-- createFolder(name: String)
-- read(name: String, _null: String): String
-- save(name: String, content: String)
-- delete(name: String)
-- deleteAll(name: String)
+- createFolder(name: String): Boolean
+- read(name: String, _null: String?): String?
+- save(name: String, content: String): Boolean
+- delete(name: String): Boolean
+- deleteAll(name: String): Boolean
 ```
 
 ## ToastUtils
