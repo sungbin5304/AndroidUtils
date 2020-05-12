@@ -11,6 +11,9 @@ import android.util.Log
 import android.widget.Toast
 import org.jsoup.Jsoup
 import java.io.*
+import kotlin.math.log10
+import java.text.DecimalFormat
+import kotlin.math.pow
 
 
 @Suppress("DEPRECATION")
@@ -20,6 +23,16 @@ object StorageUtils {
 
     fun createFolder(name: String): Boolean {
         return File("$sdcard/$name").mkdirs()
+    }
+
+    fun getFileSize(file: File): String {
+        val size = file.length()
+        if (size <= 0) return "0"
+        val units = arrayOf("B", "KB", "MB", "GB", "TB")
+        val digitGroups = (log10(size.toDouble()) / log10(1000.0)).toInt()
+        return DecimalFormat("#,##0.#").format(
+            size / 1000.0.pow(digitGroups.toDouble())
+        ).toString() + " " + units[digitGroups]
     }
 
     fun read(name: String, _null: String?): String? {
