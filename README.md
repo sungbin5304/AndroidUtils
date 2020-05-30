@@ -69,6 +69,7 @@ dependencies {
 - save(name: String, content: String): Boolean
 - delete(name: String): Boolean
 - deleteAll(name: String): Boolean
+- getFileSize(file: File): String
 ```
 
 ## ToastUtils
