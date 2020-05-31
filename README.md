@@ -1,7 +1,5 @@
 ![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/banner%20(1).png)
 <p align="center">
-  <a href="https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache2-blue"/></a>
-  <a href="https://jitpack.io/#sungbin5304/AndroidUtils"><img alt="Title" src="https://jitpack.io/v/sungbin5304/AndroidUtils.svg"/></a>
 <a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-NOTIFICATION-green"/></a>
 <a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-DATA-yellow"/></a>
 <a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-DIALOG-orange"/></a>
@@ -17,7 +15,7 @@
 
 -----
 
-# Download
+# Download [![](https://jitpack.io/v/sungbin5304/SBT.svg)](https://jitpack.io/#sungbin5304/SBT)
 
 ```Gradle
 repositories {
