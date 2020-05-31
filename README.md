@@ -53,7 +53,7 @@ dependencies {
 ```
 
 ## LogUtils
-You can see some guide at [this](https://github.com/sungbin5304/PrettyLogger/edit/master/README.md) page.
+You can see some guide at [this](https://github.com/sungbin5304/PrettyLogger/blob/master/README.md) page.
 
 ## PermissionUtils
 ```Kotlin
