@@ -3,6 +3,7 @@
   <a href="https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache2-blue"/></a>
   <a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-ANDROID-ff69b4"/></a>
 </p><br>
+
 -----
 
 # Download [![](https://jitpack.io/v/sungbin5304/AndroidUtils.svg)](https://jitpack.io/#sungbin5304/AndroidUtils)
@@ -52,7 +53,7 @@ dependencies {
 ```
 
 ## LogUtils
-You can see some guide at [this](https://github.com/sungbin5304/PrettyLogger/edit/master/README.md).
+You can see some guide at [this](https://github.com/sungbin5304/PrettyLogger/edit/master/README.md) page.
 
 ## PermissionUtils
 ```Kotlin
