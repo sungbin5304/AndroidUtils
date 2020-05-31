@@ -1,14 +1,8 @@
 package com.sungbin.sbt
 
-import android.Manifest
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.sungbin.sungbintool.LogUtils
-import com.sungbin.sungbintool.PermissionUtils
-import com.sungbin.sungbintool.ToastUtils
-
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,12 +16,13 @@ class MainActivity : AppCompatActivity() {
         map["A"] = "ABC"
         map["B"] = "BCD"
         map["C"] = "CDE"
+        map["D"] = ""
         LogUtils.d(map)
 
-        LogUtils.d(arrayListOf("T", "E", "S", "T"))
+        LogUtils.d("ArrayList", arrayListOf("T", "", "E", "", "S", "T", ""))
 
-        LogUtils.d("오!! 이쁜로그!!")
+        LogUtils.e(null)
 
-        Log.d(TAG, "일반로그")
+        LogUtils.d("This is my Pretty Log.")
     }
 }
