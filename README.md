@@ -1,21 +1,18 @@
 ![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/banner%20(1).png)
 <p align="center">
-<a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-NOTIFICATION-green"/></a>
-<a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-DATA-yellow"/></a>
-<a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-DIALOG-orange"/></a>
-<a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-LOG-9cf"/></a>
-<a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-PERMISSION-blueviolet"/></a>
-<a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-COLOR-lightgray"/></a>
-<a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-STORAGE-ff69b4"/></a>
-<a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-TOAST-68f2e7"/></a>
-<a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-STRING-d487b8"/></a>
-<a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-READMORE-62ba09"/></a>
-<a href="https://github.com/sungbin5304/AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/UI-TagableImageView-8fddff"/></a>
+    <a href="https://github.com/sungbin5304/
+AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache2-important"/></a>
+  <a href="https://jitpack.io/#sungbin5304/SBT"><img alt="Title" src="https://jitpack.io/v/sungbin5304/SBT.svg"/></a>
+  <a href="https://github.com/sungbin5304/
+AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-ANDROID-blueviolet"/></a>
+  <a href="https://github.com/sungbin5304/
+AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/UI-ANDROID-9cf"/></a>
+</p><br>
 </p><br>
 
 -----
 
-# Download [![](https://jitpack.io/v/sungbin5304/SBT.svg)](https://jitpack.io/#sungbin5304/SBT)
+# Download
 
 ```Gradle
 repositories {
