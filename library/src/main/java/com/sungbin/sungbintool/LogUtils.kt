@@ -92,6 +92,9 @@ object LogUtils {
             value += "\n│${"\t".repeat(5)}$element"
             if(index == splitData.size - 1){
                 value += "\n${"─".repeat(50)}"
+                if(element.length >= 30)  {
+                    value += "─".repeat(element.length - 20)
+                }
             }
             logData += value
         }
