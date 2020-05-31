@@ -54,7 +54,7 @@ dependencies {
 
 ## LogUtils
 
-<img src="https://raw.githubusercontent.com/sungbin5304/PrettyLogger/master/images/log.png" width="50%" align="right"/>
+<img src="https://raw.githubusercontent.com/sungbin5304/PrettyLogger/master/images/log.png" width="70%" align="right"/>
 
 ``` Kotlin
 w(any: Any?)
@@ -63,7 +63,7 @@ d(any: Any?)
 e(any: Any?)
 i(any: Any?)
 ```
-You can see some guide at [this](https://github.com/sungbin5304/PrettyLogger/blob/master/README.md) page.
+You can see more guide at [this](https://github.com/sungbin5304/PrettyLogger/blob/master/README.md) page.
 
 ## PermissionUtils
 ```Kotlin
