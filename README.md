@@ -62,8 +62,7 @@ dependencies {
 ```
 
 ## LogUtils
-# Usage
-## Logging with Default Tag
+### Logging with Default Tag
 ``` Kotlin
 w(any: Any?)
 v(any: Any?)
@@ -72,7 +71,7 @@ e(any: Any?)
 i(any: Any?)
 ```
 
-## Logging with Custom Tag
+### Logging with Custom Tag
 ``` Kotlin
 w(tag: String, any: Any?)
 v(tag: String, any: Any?)
@@ -81,16 +80,16 @@ e(tag: String, any: Any?)
 i(tag: String, any: Any?)
 ```
 
-# Option
-## Default Tag
+### Option
+##### Default Tag
 Default tag is `TAG`.<br>
 You can set your Tag with `setTag(tag: String)` method.
 
-## ShowLogControl
+##### ShowLogControl
 You can control show log with `showLog(showLog: Boolean)` method.
 
-# Tip
-## 1. PrettyLogger is supported `Iterable` and `Map` logging.
+### Tip
+#### 1. PrettyLogger is supported `Iterable` and `Map` logging.
 ``` Kotlin
 val map = HashMap<String, String>()
 map["A"] = "BCD"
@@ -105,11 +104,12 @@ LogUtils.v("Change Tag.")
 ```
 ![preview](https://github.com/sungbin5304/PrettyLogger/blob/master/images/PrettyLogger.png)
 
-## 2. Change Android Studio logcat color.
+#### 2. Change Android Studio logcat color.
 1. File -> Settings -> Search `android logcat`
 2. Unchecked `Inherit values from:`
 3. Input your logcat color.
-### Suggest logcat color
+
+#### Suggest logcat color
 Debug : `6897BB`<br>
 Info : `6A8759`<br>
 Warn : `BBB529`<br>
