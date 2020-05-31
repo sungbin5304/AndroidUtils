@@ -144,7 +144,7 @@ LogUtils.v("Change Tag.")
 ```
 
 # UI
-## TagableRoundImageView
+## TagableRoundImageView [[More Guide]](https://github.com/sungbin5304/TagableRoundImageView)
 ### preview
 ![image](https://raw.githubusercontent.com/sungbin5304/TagableRoundImageView/master/banner.png)
 
@@ -161,31 +161,7 @@ LogUtils.v("Change Tag.")
         app:triv_tagGravity="end|bottom" />
 ```
 
-### all attribute
-| Attribute | Description| Default |
-| ------------- | ------------- | ------------- |
-| `triv_tagGravity` | Set tag gravity (`top`, `bottom`, `left`, `right`, `start`, `end`) | `Gravity.END` and `Gravity.BOTTOM` |
-| `triv_tagTextStyle` | Set tag text style (`italic`, `normal`) | `NORMAL` |
-| `triv_imageRadius` | Set imageview radius | `16dp` |
-| `triv_tagRadius` | Set tag layout radius | `2dp` |
-| `triv_tagPadding` | Set tag layout padding | `8dp` |
-| `triv_tagTextSize` | Set tag text size| `15dp` |
-| `triv_tagText` | Set tag text | No value |
-| `triv_tagBackgroundColor` | Set tag layout background color | `Color.WHITE` |
-
-### method
-```kotlin
-- set(text: String, tagBackgroundColor: Int = Color.WHITE,
-      tagTextSize: Int = 15dp, tagTextPadding: Int = 8dp,
-      tagTextStyle: Int = Typeface.NORMAL, tagRadius: Int = 2dp,
-      imageRadius: Int = 16dp)
-```
-
-### tip
-1. `TagableRoundImageView` is supported GIF images.<br>
-You can set GIF image from [Glide](https://github.com/bumptech/glide) library.
-
-2. If you not set `triv_tagText` parameter, `TagableRoundImageView` will be only rounding image.
+### `TagableRoundImageView` is supported GIF images.
 
 -----
 
