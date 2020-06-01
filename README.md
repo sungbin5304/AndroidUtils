@@ -61,11 +61,11 @@ dependencies {
 ## LogUtils [[More Guide]](https://github.com/sungbin5304/PrettyLogger)
 ### Logging with Default Tag
 ``` Kotlin
-w(any: Any?)
-v(any: Any?)
-d(any: Any?)
-e(any: Any?)
-i(any: Any?)
+- w(any: Any?)
+- v(any: Any?)
+- d(any: Any?)
+- e(any: Any?)
+- i(any: Any?)
 ```
 ### PrettyLogger is supported `Iterable` and `Map` logging.
 ``` Kotlin
