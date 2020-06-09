@@ -163,6 +163,17 @@ LogUtils.v("Change Tag.")
 
 ### `TagableRoundImageView` is supported GIF images.
 
+
+# Gradle Error
+If you error at gradle `More than one file was found with OS independent path 'META-INF/library_release.kotlin_module'` this, add below code at your gradle.
+```gradle
+android {
+  packagingOptions {
+      exclude 'META-INF/library_release.kotlin_module'
+  }
+}
+```
+
 -----
 
 # License
