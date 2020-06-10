@@ -1,8 +1,18 @@
 ![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/banner%20(1).png)
+<p align="center">
+    <a href="https://github.com/sungbin5304/
+AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache2-important"/></a>
+  <a href="https://jitpack.io/#sungbin5304/SBT"><img alt="Title" src="https://jitpack.io/v/sungbin5304/SBT.svg"/></a>
+  <a href="https://github.com/sungbin5304/
+AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-ANDROID-blueviolet"/></a>
+  <a href="https://github.com/sungbin5304/
+AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/UI-ANDROID-9cf"/></a>
+</p><br>
+</p><br>
 
 -----
 
-# Download [![](https://jitpack.io/v/sungbin5304/AndroidUtils.svg)](https://jitpack.io/#sungbin5304/AndroidUtils)
+# Download
 
 ```Gradle
 repositories {
@@ -47,6 +57,31 @@ dependencies {
 - show(ctx: Context, title: String, message: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
 - showOnce(ctx: Context, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
 ```
+
+## LogUtils [[More Guide]](https://github.com/sungbin5304/PrettyLogger)
+### Logging with Default Tag
+``` Kotlin
+- w(any: Any?)
+- v(any: Any?)
+- d(any: Any?)
+- e(any: Any?)
+- i(any: Any?)
+```
+### PrettyLogger is supported `Iterable` and `Map` logging.
+``` Kotlin
+val map = HashMap<String, String>()
+map["A"] = "BCD"
+map["E"] = "FGH"
+map["I"] = "JKL"
+LogUtils.d("Map Content", map)
+LogUtils.i("Iterable Content", arrayListOf("T", "", "E", "", "S", "T", "", "above data is empty value."))
+LogUtils.e(null)
+LogUtils.w("This is my Pretty Log.")
+LogUtils.setTag("Custom Tag")
+LogUtils.v("Change Tag.")
+```
+![preview](https://github.com/sungbin5304/PrettyLogger/blob/master/images/PrettyLogger.png)
+
 
 ## PermissionUtils
 ```Kotlin
@@ -109,7 +144,7 @@ dependencies {
 ```
 
 # UI
-## TagableRoundImageView
+## TagableRoundImageView [[More Guide]](https://github.com/sungbin5304/TagableRoundImageView)
 ### preview
 ![image](https://raw.githubusercontent.com/sungbin5304/TagableRoundImageView/master/banner.png)
 
@@ -126,33 +161,20 @@ dependencies {
         app:triv_tagGravity="end|bottom" />
 ```
 
-### all attribute
-| Attribute | Description| Default |
-| ------------- | ------------- | ------------- |
-| `triv_tagGravity` | Set tag gravity (`top`, `bottom`, `left`, `right`, `start`, `end`) | `Gravity.END` and `Gravity.BOTTOM` |
-| `triv_tagTextStyle` | Set tag text style (`italic`, `normal`) | `NORMAL` |
-| `triv_imageRadius` | Set imageview radius | `16dp` |
-| `triv_tagRadius` | Set tag layout radius | `2dp` |
-| `triv_tagPadding` | Set tag layout padding | `8dp` |
-| `triv_tagTextSize` | Set tag text size| `15dp` |
-| `triv_tagText` | Set tag text | No value |
-| `triv_tagBackgroundColor` | Set tag layout background color | `Color.WHITE` |
+### `TagableRoundImageView` is supported GIF images.
 
-### method
-```kotlin
-- set(text: String, tagBackgroundColor: Int = Color.WHITE,
-      tagTextSize: Int = 15dp, tagTextPadding: Int = 8dp,
-      tagTextStyle: Int = Typeface.NORMAL, tagRadius: Int = 2dp,
-      imageRadius: Int = 16dp)
-```
-
-### tip
-1. `TagableRoundImageView` is supported GIF images.<br>
-You can set GIF image from [Glide](https://github.com/bumptech/glide) library.
-
-2. If you not set `triv_tagText` parameter, `TagableRoundImageView` will be only rounding image.
 
 -----
+
+# Gradle Error
+If you error at gradle `More than one file was found with OS independent path 'META-INF/library_release.kotlin_module'` this, add below code at your gradle.
+```gradle
+android {
+  packagingOptions {
+      exclude 'META-INF/library_release.kotlin_module'
+  }
+}
+```
 
 # License
 ```
