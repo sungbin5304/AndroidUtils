@@ -30,6 +30,15 @@ dependencies {
 ```
 
 # **Usage**
+# Extensions
+## EditText
+```kotlin
+beforeTextChange(s: CharSequence?, start: Int, count: Int, after: Int) 
+afterTextChanged(s: Editable?)
+onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int)
+clear()
+```
+
 # Utils
 ## LayoutUtils
 ```kotlin
@@ -67,7 +76,7 @@ dependencies {
 - e(any: Any?)
 - i(any: Any?)
 ```
-### PrettyLogger is supported `Iterable` and `Map` logging.
+### PrettyLogger is supported `Iterable`, `Array` and `Map` logging.
 ``` Kotlin
 val map = HashMap<String, String>()
 map["A"] = "BCD"
@@ -81,7 +90,6 @@ LogUtils.setTag("Custom Tag")
 LogUtils.v("Change Tag.")
 ```
 ![preview](https://github.com/sungbin5304/PrettyLogger/blob/master/images/PrettyLogger.png)
-
 
 ## PermissionUtils
 ```Kotlin
