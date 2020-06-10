@@ -83,6 +83,12 @@ object LogUtils {
                     data += "\n[$index] ${element.key} - ${element.value}"
                 }
             }
+            is Array<*> -> {
+                data = ""
+                for((index, element) in this.asIterable().withIndex()){
+                    data += "\n[$index] $element"
+                }
+            }
             else -> data = this.toString()
         }
         var logData = ""
