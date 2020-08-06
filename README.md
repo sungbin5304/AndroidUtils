@@ -32,7 +32,6 @@ dependencies {
 
 # Usage
 # Extensions
-## EditText
 ```kotlin
 - View.hide(isGone: Boolean = false)
 - View.show()
