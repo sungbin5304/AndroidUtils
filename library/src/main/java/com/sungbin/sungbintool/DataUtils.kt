@@ -10,16 +10,17 @@ object DataUtils {
 
     fun saveData(ctx: Context, name: String, value: String) {
         val pref = ctx.getSharedPreferences("pref", Context.MODE_PRIVATE)
-        val editor = pref.edit()
-
-        editor.putString(name, value)
-        editor.apply()
+        pref.edit().apply {
+            putString(name, value)
+            apply()
+        }
     }
 
     fun clearData(ctx: Context) {
         val pref = ctx.getSharedPreferences("pref", Context.MODE_PRIVATE)
-        val editor = pref.edit()
-        editor.clear()
-        editor.apply()
+        pref.edit().apply {
+            clear()
+            apply()
+        }
     }
 }

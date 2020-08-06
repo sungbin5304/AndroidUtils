@@ -1,11 +1,11 @@
 package com.sungbin.sungbintool
 
+import android.app.Activity
 import android.app.AlertDialog
-import android.content.Context
 import android.content.DialogInterface
 
 object DialogUtils {
-    fun show(ctx: Context, title: String, message: String,
+    fun show(ctx: Activity, title: String, message: String,
              listener: DialogInterface.OnClickListener?,
              cancelable: Boolean = true){
         val dialog = AlertDialog.Builder(ctx)
@@ -16,7 +16,7 @@ object DialogUtils {
         dialog.show()
     }
 
-    fun showOnce(ctx: Context, title: String, message: String,
+    fun showOnce(ctx: Activity, title: String, message: String,
                  id: String, listener: DialogInterface.OnClickListener?,
                  cancelable: Boolean = true){
         if(!DataUtils.readData(ctx, "$id - dialog", "false").toBoolean()){

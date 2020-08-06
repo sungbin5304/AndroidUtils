@@ -1,18 +1,10 @@
 package com.sungbin.sungbintool
 
 import android.annotation.SuppressLint
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
-import android.content.Context.MODE_PRIVATE
 import android.os.Environment
-import android.os.StrictMode
-import android.util.Log
-import android.widget.Toast
-import org.jsoup.Jsoup
 import java.io.*
-import kotlin.math.log10
 import java.text.DecimalFormat
+import kotlin.math.log10
 import kotlin.math.pow
 
 
@@ -21,12 +13,9 @@ import kotlin.math.pow
 object StorageUtils {
     val sdcard = Environment.getExternalStorageDirectory().absolutePath
 
-    fun createFolder(name: String): Boolean {
-        return File("$sdcard/$name").mkdirs()
-    }
+    fun createFolder(name: String) = File("$sdcard/$name").mkdirs()
 
-    fun getFileSize(file: File): String {
-        val size = file.length()
+    fun getSize(size: Long): String {
         if (size <= 0) return "0"
         val units = arrayOf("B", "KB", "MB", "GB", "TB")
         val digitGroups = (log10(size.toDouble()) / log10(1000.0)).toInt()
@@ -34,6 +23,8 @@ object StorageUtils {
             size / 1000.0.pow(digitGroups.toDouble())
         ).toString() + " " + units[digitGroups]
     }
+
+    fun getFileSize(file: File) = getSize(file.length())
 
     fun read(name: String, _null: String?): String? {
         return try {
@@ -75,9 +66,7 @@ object StorageUtils {
         }
     }
 
-    fun delete(name: String): Boolean {
-        return File("$sdcard/$name").delete()
-    }
+    fun delete(name: String) = File("$sdcard/$name").delete()
 
     fun deleteAll(name: String): Boolean {
         return try {

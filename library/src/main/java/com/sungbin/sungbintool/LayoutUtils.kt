@@ -1,20 +1,21 @@
 package com.sungbin.sungbintool
 
-import android.content.Context
 import android.view.ViewGroup
 import android.widget.FrameLayout
 
 object LayoutUtils {
-    fun putMargin(ctx: Context, layout: ViewGroup): FrameLayout{
-        val container = FrameLayout(ctx)
+    fun putMargin(layout: ViewGroup): FrameLayout{
+        val container = FrameLayout(layout.context)
         val params = FrameLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
-        params.leftMargin = R.dimen.normal_margin
-        params.rightMargin = R.dimen.normal_margin
-        params.topMargin = R.dimen.normal_margin
-        params.bottomMargin = R.dimen.normal_margin
+        R.dimen.margin_default.apply {
+            params.marginEnd
+            params.marginStart
+            params.topMargin
+            params.bottomMargin
+        }
 
         layout.layoutParams = params
         container.addView(layout)

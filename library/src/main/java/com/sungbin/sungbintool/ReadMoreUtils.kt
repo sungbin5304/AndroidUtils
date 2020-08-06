@@ -11,7 +11,7 @@ import android.widget.TextView
 
 object ReadMoreUtils {
     fun setReadMoreLine(view: TextView, text: String, maxLine: Int,
-                        expanedText: String = "...더보기",
+                        expanedText: String = view.context.getString(R.string.show_more),
                         expanedTextColor: Int = Color.parseColor("#9E9E9E")) {
         view.text = text
         view.post {
