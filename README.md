@@ -30,14 +30,20 @@ dependencies {
 }
 ```
 
-# **Usage**
+# Usage
 # Extensions
 ## EditText
 ```kotlin
-beforeTextChange(s: CharSequence?, start: Int, count: Int, after: Int) 
-afterTextChanged(s: Editable?)
-onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int)
-clear()
+View.hide(isGone: Boolean = false)
+View.show()
+TextView += String (TextView.text = String)
+TextView.clear() (TextView.text = "")
+TextView.beforeTextChange(s: CharSequence?, start: Int, count: Int, after: Int) 
+TextView.afterTextChanged(s: Editable?)
+TextView.onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int)
+View.get(@IdRes id: Int) (View.findViewById(id))
+EditText.setEndDrawableClickEvent(action: (View) -> Unit)
+String?.toEditable()
 ```
 
 # Utils
@@ -171,6 +177,17 @@ LogUtils.v("Change Tag.")
 ```
 
 ### `TagableRoundImageView` is supported GIF images.
+
+-----
+
+# Dimen
+- `margin_twice_half` (4dp)
+- `margin_half` (8dp)
+- `margin_default` (16dp)
+- `margin_twice` (32dp)
+- `margin_twice_and_half` (56dp)
+
+# Colors
 
 
 -----
