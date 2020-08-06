@@ -188,7 +188,7 @@ LogUtils.v("Change Tag.")
 - `margin_twice_and_half` (56dp)
 
 # Colors
-
+![colors](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/colors.png)
 
 -----
 
