@@ -30,20 +30,25 @@ dependencies {
 }
 ```
 
-# **Usage**
+# Usage
 # Extensions
-## EditText
 ```kotlin
-beforeTextChange(s: CharSequence?, start: Int, count: Int, after: Int) 
-afterTextChanged(s: Editable?)
-onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int)
-clear()
+- View.hide(isGone: Boolean = false)
+- View.show()
+- TextView += String (TextView.text = String)
+- TextView.clear() (TextView.text = "")
+- TextView.beforeTextChange(s: CharSequence?, start: Int, count: Int, after: Int) 
+- TextView.afterTextChanged(s: Editable?)
+- TextView.onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int)
+- View.get(@IdRes id: Int): View (View.findViewById(id))
+- EditText.setEndDrawableClickEvent(action: (View) -> Unit)
+- String?.toEditable(): Editable
 ```
 
 # Utils
 ## LayoutUtils
 ```kotlin
-- putMargin(ctx: Context, layout: ViewGroup): FrameLayout
+- putMargin(layout: ViewGroup): FrameLayout
 ```
 
 ## NotificationUtils [[Help Page]](https://github.com/sungbin5304/NotificationManager)
@@ -94,7 +99,7 @@ LogUtils.v("Change Tag.")
 
 ## PermissionUtils
 ```Kotlin
-- request(act: Activity, message: String, permission: Array<String>)
+- request(act: Activity, message: String?, permission: Array<String>)
 - requestReadNotification(act: Activity)
 ```
 
@@ -133,17 +138,17 @@ LogUtils.v("Change Tag.")
 
 ## Utils
 ```Kotlin
-- copy(ctx: Context, text: String)
+- copy(ctx: Context, text: String, showToast: Boolean = true)
 - error(ctx: Context, e: Exception, at: String)
 - setUserAgent(agent: String)
 - getHtml(address: String): String? (need implementation jsoup library)
-- makeRandomUUID(): String
+- makeRandomUUID(numberOnly: Boolean = true): String
 - getAppVersionName(act: Activity): String
 ```
 
 ## StringUtils
 ```kotlin
-- toEditable(string: String): Editable
+- toEditable(string: String): Editable (support string extensions; String.toEditable())
 ```
 
 ## ReadMoreUtils
@@ -172,6 +177,17 @@ LogUtils.v("Change Tag.")
 
 ### `TagableRoundImageView` is supported GIF images.
 
+-----
+
+# Dimens
+- `margin_twice_half` (4dp)
+- `margin_half` (8dp)
+- `margin_default` (16dp)
+- `margin_twice` (32dp)
+- `margin_twice_and_half` (56dp)
+
+# Colors
+![colors](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/colors.png)
 
 -----
 
