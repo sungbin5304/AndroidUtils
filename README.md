@@ -71,6 +71,7 @@ dependencies {
 ```kotlin
 - show(ctx: Context, title: String, message: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
 - showOnce(ctx: Context, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
+- showLicense() //todo
 ```
 
 ## LogUtils [[More Guide]](https://github.com/sungbin5304/PrettyLogger)
