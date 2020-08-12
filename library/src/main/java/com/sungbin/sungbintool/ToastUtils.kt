@@ -3,7 +3,6 @@ package com.sungbin.sungbintool
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -25,7 +24,7 @@ object ToastUtils {
         duration: Int,
         type: Int) {
         val toast = Toast(context)
-        val toastLayout = LayoutInflater.from(context).inflate(R.layout.toast_layout, null, false)
+        val toastLayout = LayoutInflater.from(context).inflate(R.layout.layout_toast, null, false)
         val text = toastLayout.findViewById(R.id.toast_text) as TextView
         val layout = toastLayout.findViewById(R.id.toast_type) as LinearLayout
         val icon = layout.findViewById(R.id.toast_icon) as ImageView

@@ -24,4 +24,8 @@ object DialogUtils {
             DataUtils.saveData(ctx, "$id - dialog", "true")
         }
     }
+
+    fun showLicense(){
+        //todo: add license interface and dialog.
+    }
 }

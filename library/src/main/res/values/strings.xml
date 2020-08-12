@@ -4,5 +4,5 @@
     <string name="copy_clipboard">클립보드에 복사되었습니다.</string>
     <string name="string_ok">확인</string>
     <string name="need_permission">권한 필요</string>
-    <string name="show_more">...더보기</string>
+    <string name="show_more">…더보기</string>
 </resources>

@@ -7,10 +7,10 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="20dp"
     android:background="@drawable/success_layout"
-    android:paddingStart="@dimen/normal_margin"
-    android:paddingTop="@dimen/half_margin"
-    android:paddingEnd="@dimen/normal_margin"
-    android:paddingBottom="@dimen/half_margin">
+    android:paddingStart="@dimen/margin_default"
+    android:paddingTop="@dimen/margin_half"
+    android:paddingEnd="@dimen/margin_default"
+    android:paddingBottom="@dimen/margin_half">
 
     <ImageView
         android:id="@+id/toast_icon"
@@ -24,7 +24,7 @@
         android:id="@+id/toast_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/half_margin"
-        android:text="@string/desc_toast"
-        android:textColor="#FFFFFF" />
+        android:layout_marginStart="@dimen/margin_default"
+        android:textColor="#FFFFFF"
+        tools:text="@string/desc_toast"/>
 </LinearLayout>
