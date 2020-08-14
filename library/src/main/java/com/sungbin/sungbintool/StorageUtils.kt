@@ -13,7 +13,13 @@ import kotlin.math.pow
 object StorageUtils {
     val sdcard = Environment.getExternalStorageDirectory().absolutePath
 
-    fun createFolder(name: String) = File("$sdcard/$name").mkdirs()
+    private fun String.parsePath() = if (this.contains(sdcard)) this else "$sdcard/$this"
+
+    fun createFolder(path: String, autoInputSdcard: Boolean = false) =
+        File(if (autoInputSdcard) path.parsePath() else path).mkdirs()
+
+    fun createFile(path: String, autoInputSdcard: Boolean = false) =
+        File(if (autoInputSdcard) path.parsePath() else path).createNewFile()
 
     fun getSize(size: Long): String {
         if (size <= 0) return "0"
@@ -26,9 +32,9 @@ object StorageUtils {
 
     fun getFileSize(file: File) = getSize(file.length())
 
-    fun read(name: String, _null: String?): String? {
+    fun read(path: String, _null: String?, autoInputSdcard: Boolean = false): String? {
         return try {
-            val file = File("$sdcard/$name")
+            val file = File(if (autoInputSdcard) path.parsePath() else path)
             if (!file.exists()) return _null
             val fis = FileInputStream(file)
             val isr = InputStreamReader(fis)
@@ -48,29 +54,29 @@ object StorageUtils {
             } else {
                 str + ""
             }
-        }
-        catch (e: Exception){
+        } catch (ignored: Exception) {
             _null
         }
     }
 
-    fun save(name: String, content: String): Boolean {
+    fun save(path: String, content: String, autoInputSdcard: Boolean = false): Boolean {
         return try {
-            val file = File("$sdcard/$name")
+            val file = File(if (autoInputSdcard) path.parsePath() else path)
             val fos = FileOutputStream(file)
             fos.write(content.toByteArray())
             fos.close()
             true
-        } catch (e: Exception){
+        } catch (ignored: Exception) {
             false
         }
     }
 
-    fun delete(name: String) = File("$sdcard/$name").delete()
+    fun delete(path: String, autoInputSdcard: Boolean = false) =
+        File(if (autoInputSdcard) path.parsePath() else path).delete()
 
-    fun deleteAll(name: String): Boolean {
+    fun deleteAll(path: String, autoInputSdcard: Boolean = false): Boolean {
         return try {
-            val dir = File("$sdcard/$name")
+            val dir = File(if (autoInputSdcard) path.parsePath() else path)
             if (dir.exists() && dir.listFiles() != null) {
                 for (childFile in dir.listFiles()!!) {
                     if (childFile.isDirectory) {
@@ -82,8 +88,7 @@ object StorageUtils {
                 dir.delete()
             }
             true
-        }
-        catch (e: Exception){
+        } catch (ignored: Exception) {
             false
         }
     }

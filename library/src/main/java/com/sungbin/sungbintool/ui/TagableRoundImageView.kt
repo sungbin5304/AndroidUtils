@@ -39,11 +39,11 @@ class TagableRoundImageView : AppCompatImageView{
      * @param attrs provided by layout
      */
     constructor(
-        context: Context?,
+        context: Context,
         attrs: AttributeSet?
     ) : super(context, attrs){
         clipPath = Path()
-        val a = context!!.obtainStyledAttributes(attrs,
+        val a = context.obtainStyledAttributes(attrs,
             R.styleable.TagableRoundImageView,
             0,
             0
