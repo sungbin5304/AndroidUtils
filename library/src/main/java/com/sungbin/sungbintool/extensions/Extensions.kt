@@ -10,7 +10,6 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.IdRes
-import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import com.sungbin.sungbintool.StringUtils
 
@@ -21,14 +20,11 @@ import com.sungbin.sungbintool.StringUtils
 fun ImageView.setTint(color: Int) = ImageViewCompat.setImageTintList(
     this,
     ColorStateList.valueOf(
-        ContextCompat.getColor(
-            this.context,
-            color
-        )
+        color
     )
 )
 
-fun View.hide(isGone: Boolean = false){
+fun View.hide(isGone: Boolean = false) {
     this.visibility = if (isGone) View.GONE else View.INVISIBLE
 }
 
@@ -47,7 +43,7 @@ fun TextView.clear() {
 operator fun View.get(@IdRes id: Int) = this.findViewById<View>(id)!!
 
 @SuppressLint("ClickableViewAccessibility")
-fun EditText.setEndDrawableClickEvent(action: (View) -> Unit){
+fun EditText.setEndDrawableClickEvent(action: (View) -> Unit) {
     this.setOnTouchListener(View.OnTouchListener { view, event ->
         if (event.action == MotionEvent.ACTION_UP) {
             if (event.rawX >= this.right - this.compoundDrawables[2].bounds.width()
