@@ -43,6 +43,7 @@ dependencies {
 - View.get(@IdRes id: Int): View (View.findViewById(id))
 - EditText.setEndDrawableClickEvent(action: (View) -> Unit)
 - String?.toEditable(): Editable
+- ImageView.setTint(color: Int)
 ```
 
 # Utils
