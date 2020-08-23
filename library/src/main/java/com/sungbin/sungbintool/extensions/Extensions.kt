@@ -1,18 +1,32 @@
 package com.sungbin.sungbintool.extensions
 
 import android.annotation.SuppressLint
+import android.content.res.ColorStateList
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.IdRes
+import androidx.core.content.ContextCompat
+import androidx.core.widget.ImageViewCompat
 import com.sungbin.sungbintool.StringUtils
 
 /**
  * Created by SungBin on 2020-06-10.
  */
+
+fun ImageView.setTint(color: Int) = ImageViewCompat.setImageTintList(
+    this,
+    ColorStateList.valueOf(
+        ContextCompat.getColor(
+            this.context,
+            color
+        )
+    )
+)
 
 fun View.hide(isGone: Boolean = false){
     this.visibility = if (isGone) View.GONE else View.INVISIBLE
