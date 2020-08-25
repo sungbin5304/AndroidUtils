@@ -1,17 +1,20 @@
 package com.sungbin.sungbintool.extensions
 
 import android.annotation.SuppressLint
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.res.ColorStateList
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.IdRes
 import androidx.core.widget.ImageViewCompat
 import com.sungbin.sungbintool.StringUtils
+
 
 /**
  * Created by SungBin on 2020-06-10.
@@ -23,6 +26,16 @@ fun ImageView.setTint(color: Int) = ImageViewCompat.setImageTintList(
         color
     )
 )
+
+fun EditText.showKeyboard() {
+    val imm = this.context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.showSoftInput(this, 0)
+}
+
+fun EditText.hideKeyboard() {
+    val imm = this.context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(this.windowToken, 0)
+}
 
 fun View.hide(isGone: Boolean = false) {
     this.visibility = if (isGone) View.GONE else View.INVISIBLE
