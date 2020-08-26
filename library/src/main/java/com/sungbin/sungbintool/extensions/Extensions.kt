@@ -27,6 +27,12 @@ fun ImageView.setTint(color: Int) = ImageViewCompat.setImageTintList(
     )
 )
 
+fun String.toChar() = this[0]
+
+fun String.isUpperCase() = Character.isUpperCase(this.toChar())
+
+fun String.isLowerCase() = Character.isLowerCase(this.toChar())
+
 fun EditText.showKeyboard() {
     val imm = this.context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
     imm.showSoftInput(this, 0)
