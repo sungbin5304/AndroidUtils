@@ -27,6 +27,15 @@ fun ImageView.setTint(color: Int) = ImageViewCompat.setImageTintList(
     )
 )
 
+fun String.replaceLast(a: String, b: String): String {
+    return if (this.contains(a)) {
+        val lastIndex = this.lastIndexOf(a)
+        val string1 = this.substring(0, lastIndex)
+        val string2 = this.substring((lastIndex + a.length), this.length)
+        string1 + b + string2
+    } else this
+}
+
 fun String.toChar() = this[0]
 
 fun String.isUpperCase() = Character.isUpperCase(this.toChar())

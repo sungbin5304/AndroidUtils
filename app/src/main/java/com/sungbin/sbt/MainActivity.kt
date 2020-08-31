@@ -3,6 +3,7 @@ package com.sungbin.sbt
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sungbin.sungbintool.LogUtils
+import com.sungbin.sungbintool.extensions.replaceLast
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,6 +11,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-      LogUtils.d(arrayOf("test", "test2", "test3"))
+      LogUtils.d("안녕녕녕녕녕녕녕".replaceLast("녕", "!"))
     }
 }
