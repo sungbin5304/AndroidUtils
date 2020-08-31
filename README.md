@@ -45,6 +45,7 @@ dependencies {
 - String?.toEditable(): Editable
 - String.isUpperCase(): Boolean
 - String.isLowerCase(): Boolean
+- String.replaceLast(origin: String, replaceMent: String): String
 - ImageView.setTint(color: Int)
 ```
 
