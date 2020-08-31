@@ -35,12 +35,12 @@ dependencies {
 ```kotlin
 - View.hide(isGone: Boolean = false)
 - View.show()
+- View.get(@IdRes id: Int): View (View.findViewById(id))
 - TextView += String (TextView.text = String)
 - TextView.clear() (TextView.text = "")
 - TextView.beforeTextChange(s: CharSequence?, start: Int, count: Int, after: Int) 
 - TextView.afterTextChanged(s: Editable?)
 - TextView.onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int)
-- View.get(@IdRes id: Int): View (View.findViewById(id))
 - EditText.setEndDrawableClickEvent(action: (View) -> Unit)
 - String?.toEditable(): Editable
 - String.isUpperCase(): Boolean
