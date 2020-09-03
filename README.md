@@ -47,6 +47,20 @@ dependencies {
 - String.isLowerCase(): Boolean
 - String.replaceLast(origin: String, replaceMent: String): String
 - ImageView.setTint(color: Int)
+- view.setOnTouchListener(object : OnSwipeListener(context!!) {
+    override fun onSwipeLeftToRight() {
+      //TODO
+    }
+    override fun onSwipeRightToLeft() {
+      //TODO
+    }
+    override fun onSwipeBottomToTop() {
+      //TODO
+    }
+    override fun onSwipeTopToBottom() {
+      //TODO
+    }
+  })
 ```
 
 # Utils
