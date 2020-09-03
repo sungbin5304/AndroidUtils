@@ -26,7 +26,6 @@ repositories {
 
 dependencies {
   implementation 'com.github.sungbin5304:AndroidUtils:{version}'
-  implementation 'org.jsoup:jsoup:1.12.1' (optional)
 }
 ```
 
@@ -36,18 +35,7 @@ dependencies {
 - View.hide(isGone: Boolean = false)
 - View.show()
 - View.get(@IdRes id: Int): View (View.findViewById(id))
-- TextView += String (TextView.text = String)
-- TextView.clear() (TextView.text = "")
-- TextView.beforeTextChange(s: CharSequence?, start: Int, count: Int, after: Int) 
-- TextView.afterTextChanged(s: Editable?)
-- TextView.onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int)
-- EditText.setEndDrawableClickEvent(action: (View) -> Unit)
-- String?.toEditable(): Editable
-- String.isUpperCase(): Boolean
-- String.isLowerCase(): Boolean
-- String.replaceLast(origin: String, replaceMent: String): String
-- ImageView.setTint(color: Int)
-- view.setOnTouchListener(object : OnSwipeListener(context!!) {
+- View.setOnTouchListener(object : OnSwipeListener(context!!) {
     override fun onSwipeLeftToRight() {
       //TODO
     }
@@ -61,6 +49,17 @@ dependencies {
       //TODO
     }
   })
+- TextView += String (TextView.text = String)
+- TextView.clear() (TextView.text = "")
+- TextView.beforeTextChange(s: CharSequence?, start: Int, count: Int, after: Int) 
+- TextView.afterTextChanged(s: Editable?)
+- TextView.onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int)
+- EditText.setEndDrawableClickEvent(action: (View) -> Unit)
+- String?.toEditable(): Editable
+- String.isUpperCase(): Boolean
+- String.isLowerCase(): Boolean
+- String.replaceLast(origin: String, replaceMent: String): String
+- ImageView.setTint(color: Int)
 ```
 
 # Utils
@@ -160,7 +159,7 @@ LogUtils.v("Change Tag.")
 - copy(ctx: Context, text: String, showToast: Boolean = true)
 - error(ctx: Context, e: Exception, at: String)
 - setUserAgent(agent: String)
-- getHtml(address: String): String? (need implementation jsoup library)
+- getHtml(address: String): String?
 - makeRandomUUID(numberOnly: Boolean = true): String
 - getAppVersionName(act: Activity): String
 ```
