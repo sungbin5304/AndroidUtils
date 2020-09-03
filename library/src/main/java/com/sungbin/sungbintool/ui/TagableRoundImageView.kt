@@ -9,7 +9,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.sungbin.sungbintool.R
 
 
-class TagableRoundImageView : AppCompatImageView{
+class TagableRoundImageView : AppCompatImageView {
     private var tagBoundsSet = false
     private var tag: TagableDrawable? = null
 
@@ -41,9 +41,10 @@ class TagableRoundImageView : AppCompatImageView{
     constructor(
         context: Context,
         attrs: AttributeSet?
-    ) : super(context, attrs){
+    ) : super(context, attrs) {
         clipPath = Path()
-        val a = context.obtainStyledAttributes(attrs,
+        val a = context.obtainStyledAttributes(
+            attrs,
             R.styleable.TagableRoundImageView,
             0,
             0
@@ -94,12 +95,16 @@ class TagableRoundImageView : AppCompatImageView{
      * @param imageRadius radius for image (Default: 16dp)
      */
     @Suppress("DEPRECATION")
-    fun set(text: String, tagBackgroundColor: Int = this.tagBackgroundColor,
-            tagTextSize: Int = this.tagTextSize, tagTextPadding: Int = this.tagTextPadding,
-            tagTextStyle: Int = this.tagTextStyle, tagRadius: Int = this.tagRadius,
-            imageRadius: Int = this.imageRadius) {
-        tag = TagableDrawable(text, tagBackgroundColor, tagTextSize,
-            tagTextPadding, tagTextStyle, tagRadius)
+    fun set(
+        text: String, tagBackgroundColor: Int = this.tagBackgroundColor,
+        tagTextSize: Int = this.tagTextSize, tagTextPadding: Int = this.tagTextPadding,
+        tagTextStyle: Int = this.tagTextStyle, tagRadius: Int = this.tagRadius,
+        imageRadius: Int = this.imageRadius
+    ) {
+        tag = TagableDrawable(
+            text, tagBackgroundColor, tagTextSize,
+            tagTextPadding, tagTextStyle, tagRadius
+        )
         tag!!.setColorFilter(tagBackgroundColor, PorterDuff.Mode.SRC_IN)
         this.imageRadius = imageRadius
         tagBoundsSet = false
@@ -110,7 +115,7 @@ class TagableRoundImageView : AppCompatImageView{
         try {
             clipPath = Path()
             clipPath!!.reset()
-            if(bitmapRect == null) {
+            if (bitmapRect == null) {
                 bitmapRect = RectF(
                     0f, 0f,
                     width.toFloat(),
@@ -132,8 +137,7 @@ class TagableRoundImageView : AppCompatImageView{
                 }
                 tag!!.draw(canvas)
             }
-        }
-        catch (e: Exception){
+        } catch (e: Exception) {
             Log.e("TagableRoundImageView", "Error at image draw!\n$e")
         }
     }
@@ -160,8 +164,5 @@ class TagableRoundImageView : AppCompatImageView{
         tagBoundsSet = true
     }
 
-    fun dp2px(dp: Int): Int {
-        val scale: Float = context.resources.displayMetrics.density
-        return (dp * scale + 0.5f).toInt()
-    }
+    private fun dp2px(dp: Int) = (dp * context.resources.displayMetrics.density + 0.5f).toInt()
 }

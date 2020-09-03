@@ -1,23 +1,20 @@
 @file:Suppress("DEPRECATION")
 
-package com.sungbin.sungbintool
+package com.sungbin.sungbintool.util
 
 import android.os.AsyncTask
 import java.io.FileOutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 
-@Deprecated(
-    message = "`Utils` is deprecated.\nPlease use `Util` instead of `Utils`.",
-    replaceWith = ReplaceWith("DownloadUtil")
-)
-object DownloadUtils {
+
+object DownloadUtil {
 
     fun download(path: String, url: String) {
         DownloadTask(path, url).execute()
     }
 
-    private class DownloadTask constructor(
+    private class DownloadTask(
         private val path: String,
         private val url: String
     ) :

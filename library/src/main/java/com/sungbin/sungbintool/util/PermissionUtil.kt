@@ -1,4 +1,4 @@
-package com.sungbin.sungbintool
+package com.sungbin.sungbintool.util
 
 import android.app.Activity
 import android.content.DialogInterface
@@ -6,12 +6,10 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.sungbin.sungbintool.R
 
-@Deprecated(
-    message = "`Utils` is deprecated.\nPlease use `Util` instead of `Utils`.",
-    replaceWith = ReplaceWith("PermissionUtil")
-)
-object PermissionUtils {
+
+object PermissionUtil {
     fun request(act: Activity, message: String?, permission: Array<String>) {
         var isShowDialog = false
         for (element in permission) {

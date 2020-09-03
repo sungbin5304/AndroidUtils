@@ -1,4 +1,4 @@
-package com.sungbin.sungbintool
+package com.sungbin.sungbintool.util
 
 import android.os.Environment
 import java.io.*
@@ -6,11 +6,8 @@ import java.text.DecimalFormat
 import kotlin.math.log10
 import kotlin.math.pow
 
-@Deprecated(
-    message = "`Utils` is deprecated.\nPlease use `Util` instead of `Utils`.",
-    replaceWith = ReplaceWith("StorageUtil")
-)
-object StorageUtils {
+object StorageUtil {
+    @Suppress("DEPRECATION")
     val sdcard = Environment.getExternalStorageDirectory().absolutePath
 
     private fun String.parsePath() = if (this.contains(sdcard)) this else "$sdcard/$this"

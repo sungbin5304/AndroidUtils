@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.res.ColorStateList
 import android.text.Editable
+import android.text.SpannableStringBuilder
 import android.text.TextWatcher
 import android.view.MotionEvent
 import android.view.View
@@ -13,7 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.IdRes
 import androidx.core.widget.ImageViewCompat
-import com.sungbin.sungbintool.StringUtils
+import java.util.regex.Pattern
 
 
 /**
@@ -27,20 +28,20 @@ fun ImageView.setTint(color: Int) = ImageViewCompat.setImageTintList(
     )
 )
 
-fun String.replaceLast(a: String, b: String): String {
-    return if (this.contains(a)) {
-        val lastIndex = this.lastIndexOf(a)
+fun Int.toColorStateList() = ColorStateList.valueOf(this)
+
+fun String.replaceLast(findText: String, replaceText: String): String {
+    return if (this.contains(findText)) {
+        val lastIndex = this.lastIndexOf(findText)
         val string1 = this.substring(0, lastIndex)
-        val string2 = this.substring((lastIndex + a.length), this.length)
-        string1 + b + string2
+        val string2 = this.substring((lastIndex + findText.length), this.length)
+        string1 + replaceText + string2
     } else this
 }
 
-fun String.toChar() = this[0]
+fun String.isUpperCase() = Pattern.matches("[A-Z]*$", this)
 
-fun String.isUpperCase() = Character.isUpperCase(this.toChar())
-
-fun String.isLowerCase() = Character.isLowerCase(this.toChar())
+fun String.isLowerCase() = Pattern.matches("[a-z]*$", this)
 
 fun EditText.showKeyboard() {
     val imm = this.context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
@@ -84,7 +85,7 @@ fun EditText.setEndDrawableClickEvent(action: (View) -> Unit) {
     })
 }
 
-fun String?.toEditable() = StringUtils.toEditable(this.toString())
+fun String?.toEditable() = SpannableStringBuilder(this.toString())
 
 interface TextWatcherListener : TextWatcher {
     override fun afterTextChanged(s: Editable?) {}

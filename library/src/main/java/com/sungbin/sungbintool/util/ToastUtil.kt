@@ -1,4 +1,4 @@
-package com.sungbin.sungbintool
+package com.sungbin.sungbintool.util
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,12 +7,10 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.sungbin.sungbintool.R
+import com.sungbin.sungbintool.extensions.get
 
-@Deprecated(
-    message = "`Utils` is deprecated.\nPlease use `Util` instead of `Utils`.",
-    replaceWith = ReplaceWith("ToastUtil")
-)
-object ToastUtils {
+object ToastUtil {
     const val INFO = 0
     const val SUCCESS = 1
     const val WARNING = 2
@@ -30,9 +28,9 @@ object ToastUtils {
     ) {
         val toast = Toast(context)
         val toastLayout = LayoutInflater.from(context).inflate(R.layout.layout_toast, null, false)
-        val text = toastLayout.findViewById(R.id.toast_text) as TextView
-        val layout = toastLayout.findViewById(R.id.toast_type) as LinearLayout
-        val icon = layout.findViewById(R.id.toast_icon) as ImageView
+        val text = toastLayout[R.id.toast_text] as TextView
+        val layout = toastLayout[R.id.toast_type] as LinearLayout
+        val icon = layout[R.id.toast_icon] as ImageView
         text.text = message
         when (type) {
             0 -> {
@@ -52,9 +50,11 @@ object ToastUtils {
                 icon.setImageResource(R.drawable.ic_clear_white_24dp)
             }
         }
-        toast.duration = if (duration == 0) Toast.LENGTH_SHORT
-        else Toast.LENGTH_LONG
-        toast.view = layout
-        toast.show()
+        toast.apply {
+            setDuration(if (duration == 0) Toast.LENGTH_SHORT else Toast.LENGTH_LONG)
+            @Suppress("DEPRECATION")
+            view = layout
+            show()
+        }
     }
 }

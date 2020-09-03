@@ -7,10 +7,12 @@ import android.os.Build
 import android.text.TextPaint
 
 
-class TagableDrawable(text: String,
-                      tagBackgroundColor: Int, tagTextSize: Int,
-                      tagTextPadding: Int, tagTextStyle: Int,
-                      tagRadius: Int) : Drawable() {
+class TagableDrawable(
+    text: String,
+    tagBackgroundColor: Int, tagTextSize: Int,
+    tagTextPadding: Int, tagTextStyle: Int,
+    tagRadius: Int
+) : Drawable() {
 
     private val bitmap: Bitmap
     private val width: Int
@@ -52,13 +54,13 @@ class TagableDrawable(text: String,
         paint = Paint()
     }
 
-    override fun getIntrinsicWidth(): Int {
-        return this.width
-    }
+    override fun getIntrinsicWidth() = this.width
 
-    override fun getIntrinsicHeight(): Int {
-        return this.height
-    }
+    override fun getIntrinsicHeight() = this.height
+
+    override fun getOpacity() = PixelFormat.UNKNOWN
+
+    override fun setAlpha(alpha: Int) {}
 
     override fun draw(canvas: Canvas) {
         canvas.drawBitmap(
@@ -69,12 +71,7 @@ class TagableDrawable(text: String,
         )
     }
 
-    override fun setAlpha(alpha: Int) {}
     override fun setColorFilter(cf: ColorFilter?) {
         paint.colorFilter = cf
-    }
-
-    override fun getOpacity(): Int {
-        return PixelFormat.UNKNOWN
     }
 }

@@ -1,13 +1,13 @@
-package com.sungbin.sungbintool
+package com.sungbin.sungbintool.util
 
 import android.content.Context
 import android.media.MediaScannerConnection
 import android.media.MediaScannerConnection.MediaScannerConnectionClient
 import android.net.Uri
 
-class MediaScanningUtils constructor(private val ctx: Context) {
+object MediaScanningUtil {
 
-    fun scanning(path: String) {
+    fun scanning(context: Context, path: String) {
         var mediaScanner: MediaScannerConnection? = null
         val mediaScannerClient = object : MediaScannerConnectionClient {
             override fun onMediaScannerConnected() {
@@ -22,12 +22,8 @@ class MediaScanningUtils constructor(private val ctx: Context) {
             }
         }
 
-        mediaScanner = MediaScannerConnection(ctx, mediaScannerClient)
+        mediaScanner = MediaScannerConnection(context, mediaScannerClient)
         mediaScanner.connect()
-    }
-
-    companion object {
-        fun instance(context: Context) = MediaScanningUtils(context)
     }
 
 }

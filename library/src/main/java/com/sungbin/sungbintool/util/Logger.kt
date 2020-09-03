@@ -1,22 +1,11 @@
-package com.sungbin.sungbintool
+package com.sungbin.sungbintool.util
 
 import android.util.Log
 
-@Deprecated(
-    message = "`LogUtils` is deprecated.\nPlease use `Logger` instead of `LogUtils`.",
-    replaceWith = ReplaceWith("Logger")
-)
-object LogUtils {
+
+object Logger {
     var TAG = "TAG"
-    private var showLog = true
-
-    fun setTag(tag: String) {
-        this.TAG = tag
-    }
-
-    fun showLog(showLog: Boolean) {
-        this.showLog = showLog
-    }
+    var showLog = true
 
     fun w(tag: String, any: Any?) {
         log(tag, "w", any.getLogContent())
@@ -58,7 +47,7 @@ object LogUtils {
         log(TAG, "i", any.getLogContent())
     }
 
-    fun log(tag: String, type: String, content: Any?) {
+    private fun log(tag: String, type: String, content: Any?) {
         if (!showLog) return
         else {
             when (type) {

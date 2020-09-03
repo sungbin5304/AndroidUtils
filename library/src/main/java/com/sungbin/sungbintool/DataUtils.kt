@@ -2,6 +2,10 @@ package com.sungbin.sungbintool
 
 import android.content.Context
 
+@Deprecated(
+    message = "`Utils` is deprecated.\nPlease use `Util` instead of `Utils`.",
+    replaceWith = ReplaceWith("DataUtil")
+)
 object DataUtils {
     fun readData(ctx: Context, name: String, _null: String): String {
         val pref = ctx.getSharedPreferences("pref", Context.MODE_PRIVATE)

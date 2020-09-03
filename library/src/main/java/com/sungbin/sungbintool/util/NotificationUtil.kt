@@ -1,57 +1,47 @@
-package com.sungbin.sungbintool
+package com.sungbin.sungbintool.util
 
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationChannelGroup
+import android.app.NotificationManager
 import android.content.Context
+import android.os.Build
 import androidx.core.app.NotificationManagerCompat
 
-@Deprecated(
-    message = "`Utils` is deprecated.\nPlease use `Util` instead of `Utils`.",
-    replaceWith = ReplaceWith("NotificationUtil")
-)
-object NotificationUtils {
+
+object NotificationUtil {
 
     /**
      * Created by SungBin on 2018. 01. 07.
      */
 
-    private var GROUP_NAME = "undefined"
-
-    fun setGroupName(name: String) {
-        GROUP_NAME = name
-    }
-
     fun createChannel(context: Context, name: String, description: String) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            val group1 = NotificationChannelGroup(GROUP_NAME, GROUP_NAME)
-            getManager(context).createNotificationChannelGroup(group1)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            getManager(context).createNotificationChannelGroup(
+                NotificationChannelGroup(
+                    name,
+                    name
+                )
+            )
 
             val channelMessage =
-                NotificationChannel(
-                    Channel.NAME,
-                    name,
-                    android.app.NotificationManager.IMPORTANCE_DEFAULT
-                )
+                NotificationChannel(name, name, NotificationManager.IMPORTANCE_DEFAULT)
             channelMessage.description = description
-            channelMessage.group = GROUP_NAME
-            //channelMessage.lightColor = R.color.colorAccent
-            channelMessage.enableVibration(true)
-            channelMessage.vibrationPattern = longArrayOf(0, 0)
+            channelMessage.group = name
+            channelMessage.enableVibration(false)
             getManager(context).createNotificationChannel(channelMessage)
         }
     }
 
-    private fun getManager(context: Context): android.app.NotificationManager {
-        return context.getSystemService(Context.NOTIFICATION_SERVICE) as android.app.NotificationManager
-    }
+    private fun getManager(context: Context) =
+        context.getSystemService(Context.NOTIFICATION_SERVICE) as android.app.NotificationManager
 
     fun showNormalNotification(
         context: Context, id: Int, title: String,
         content: String, icon: Int
     ) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            val builder = Notification.Builder(context, Channel.NAME)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val builder = Notification.Builder(context, title)
                 .setContentTitle(title)
                 .setContentText(content)
                 .setSmallIcon(icon)
@@ -74,8 +64,8 @@ object NotificationUtils {
         title: String, content: String,
         boxText: Array<String>, icon: Int
     ) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            val builder = Notification.Builder(context, Channel.NAME)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val builder = Notification.Builder(context, title)
                 .setContentTitle(title)
                 .setContentText(content)
                 .setSmallIcon(icon)
@@ -85,8 +75,8 @@ object NotificationUtils {
             inboxStyle.setBigContentTitle(title)
             inboxStyle.setSummaryText(content)
 
-            for (str in boxText) {
-                inboxStyle.addLine(str)
+            for (element in boxText) {
+                inboxStyle.addLine(element)
             }
 
             builder.style = inboxStyle
@@ -115,12 +105,6 @@ object NotificationUtils {
 
     fun deleteNotification(context: Context, id: Int) {
         NotificationManagerCompat.from(context).cancel(id)
-    }
-
-    annotation class Channel {
-        companion object {
-            const val NAME = "CHANNEL"
-        }
     }
 
 }

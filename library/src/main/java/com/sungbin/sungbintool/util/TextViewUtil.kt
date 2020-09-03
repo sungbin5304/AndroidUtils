@@ -1,4 +1,4 @@
-package com.sungbin.sungbintool
+package com.sungbin.sungbintool.util
 
 import android.graphics.Color
 import android.text.SpannableString
@@ -8,16 +8,36 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.TextView
+import com.sungbin.sungbintool.R
 
-@Deprecated(
-    message = "`ReadMoreUtils` is deprecated.\nPlease use `TextViewUtil` instead of `ReadMoreUtils`.",
-    replaceWith = ReplaceWith("TextViewUtil")
-)
-object ReadMoreUtils {
-    fun setReadMoreLine(
-        view: TextView, text: String, maxLine: Int,
-        expendText: String = view.context.getString(R.string.show_more),
+object TextViewUtil {
+    fun setReadMore(
+        type: ReadMoreType, view: TextView, text: String,
+        max: Int, expendText: String = view.context.getString(R.string.show_more),
         expendTextColor: Int = Color.parseColor("#9E9E9E")
+    ) {
+        when (type) {
+            ReadMoreType.LINE -> setReadMoreForLine(
+                view,
+                text,
+                max,
+                expendText,
+                expendTextColor
+            )
+            ReadMoreType.LENGTH -> setReadMoreForLength(
+                view,
+                text,
+                max,
+                expendText,
+                expendTextColor
+            )
+        }
+    }
+
+    private fun setReadMoreForLine(
+        view: TextView, text: String, maxLine: Int,
+        expendText: String,
+        expendTextColor: Int
     ) {
         view.text = text
         view.post {
@@ -61,10 +81,10 @@ object ReadMoreUtils {
         }
     }
 
-    fun setReadMoreLength(
+    private fun setReadMoreForLength(
         view: TextView, text: String, maxLength: Int,
-        expendText: String = "...더보기",
-        expendTextColor: Int = Color.parseColor("#9E9E9E")
+        expendText: String,
+        expendTextColor: Int
     ) {
         view.post {
             if (view.length() > maxLength) {
