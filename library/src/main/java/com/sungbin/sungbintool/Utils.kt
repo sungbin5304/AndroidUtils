@@ -4,19 +4,17 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.os.StrictMode
 import android.util.Log
-import org.jsoup.Jsoup
-import java.io.IOException
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.net.URL
 import java.util.*
 
 object Utils {
     private var USER_AGENT =
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36"
 
-    fun getAppVersionName(act: Activity): String {
-        return act.packageManager.getPackageInfo(act.packageName, 0).versionName
-    }
+    fun getAppVersionName(act: Activity) = act.packageManager.getPackageInfo(act.packageName, 0).versionName
 
     fun copy(ctx: Context, text: String, showToast: Boolean = true) {
         val clipboard = ctx.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -43,14 +41,25 @@ object Utils {
 
     fun getHtml(address: String): String? {
         return try {
-            val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
-            StrictMode.setThreadPolicy(policy)
-
-            val conn = Jsoup.connect(address).userAgent(USER_AGENT)
-            val doc = conn.get()
-            doc.toString()
-        } catch (e: IOException) {
-            e.toString()
+            val url = URL(address)
+            val con = url.openConnection()
+            if (con != null) {
+                con.connectTimeout = 5000
+                con.useCaches = false
+                val isr = InputStreamReader(con.getInputStream())
+                val br = BufferedReader(isr)
+                var str = br.readLine()
+                var line: String? = ""
+                while ({ line = br.readLine(); line }() != null) {
+                    str += "\n" + line
+                }
+                br.close()
+                isr.close()
+                return str
+            }
+            null
+        } catch (e: Exception) {
+            null
         }
     }
 

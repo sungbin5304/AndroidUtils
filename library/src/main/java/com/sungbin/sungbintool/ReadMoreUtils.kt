@@ -11,8 +11,8 @@ import android.widget.TextView
 
 object ReadMoreUtils {
     fun setReadMoreLine(view: TextView, text: String, maxLine: Int,
-                        expanedText: String = view.context.getString(R.string.show_more),
-                        expanedTextColor: Int = Color.parseColor("#9E9E9E")) {
+                        expendText: String = view.context.getString(R.string.show_more),
+                        expendTextColor: Int = Color.parseColor("#9E9E9E")) {
         view.text = text
         view.post {
             if (view.lineCount >= maxLine) {
@@ -25,10 +25,10 @@ object ReadMoreUtils {
                 for (item in split) {
                     splitLength += item.length + 1
                     if (splitLength >= lineEndIndex) {
-                        lessText += if (item.length >= expanedText.length) {
-                            item.substring(0, item.length - expanedText.length) + expanedText
+                        lessText += if (item.length >= expendText.length) {
+                            item.substring(0, item.length - expendText.length) + expendText
                         } else {
-                            item + expanedText
+                            item + expendText
                         }
                         break
                     }
@@ -42,10 +42,10 @@ object ReadMoreUtils {
                         }
 
                         override fun updateDrawState(ds: TextPaint) {
-                            ds.color = expanedTextColor
+                            ds.color = expendTextColor
                         }
                     },
-                    spannableString.length - expanedText.length,
+                    spannableString.length - expendText.length,
                     spannableString.length,
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
@@ -56,11 +56,11 @@ object ReadMoreUtils {
     }
 
     fun setReadMoreLength(view: TextView, text: String, maxLength: Int,
-                          expanedText: String = "...더보기",
-                          expanedTextColor: Int = Color.parseColor("#9E9E9E")) {
+                          expendText: String = "...더보기",
+                          expendTextColor: Int = Color.parseColor("#9E9E9E")) {
         view.post {
             if (view.length() > maxLength) {
-                val lestText = text.substring(0, maxLength) + expanedText
+                val lestText = text.substring(0, maxLength) + expendText
                 val spannableString = SpannableString(lestText)
                 spannableString.setSpan(
                     object : ClickableSpan() {
@@ -69,10 +69,10 @@ object ReadMoreUtils {
                         }
 
                         override fun updateDrawState(ds: TextPaint) {
-                            ds.color = expanedTextColor
+                            ds.color = expendTextColor
                         }
                     },
-                    spannableString.length - expanedText.length,
+                    spannableString.length - expendText.length,
                     spannableString.length,
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
