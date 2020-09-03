@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/banner%20(1).png)
+![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/banner.png)
 <p align="center">
     <a href="https://github.com/sungbin5304/
 AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache2-important"/></a>
