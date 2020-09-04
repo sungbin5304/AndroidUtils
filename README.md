@@ -36,7 +36,7 @@ dependencies {
 # Listener
 
 ```kotlin
-OnSwipeListener(ctx: Context) : View.OnTouchListener
+OnSwipeListener(ctx: Context): View.OnTouchListener
     - fun onSwipeLeftToRight()
     - fun onSwipeRightToLeft()
     - fun onSwipeBottomToTop()
@@ -63,14 +63,142 @@ EditText.beforeTextChange(action: (s: CharSequence?, start: Int, count: Int, aft
 EditText.afterTextChanged(action: (s: Editable?) -> Unit)
 EditText.onTextChanged(action: (s: CharSequence?, start: Int, before: Int, count: Int) -> Unit)
 
-
-[operator] TextView.plusAssign(text: String)
 TextView.clear()
 
 View.show()
 View.hide(isGone: Boolean = false)
+
 [operator] View.get(@IdRes id: Int): View
+[operator] TextView.plusAssign(text: String)
 ```
+
+-----
+
+# DataUtil
+
+```kotlin
+readData(ctx: Context, name: String, _null: String?
+saveData(ctx: Context, name: String, value: String)
+clearData(ctx: Context)
+```
+
+# DialogUtil
+
+```kotlin
+show(ctx: Activity, title: String, message: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
+showOnce(ctx: Activity, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
+showLicense() // todo
+```
+
+# DownloadUtil
+
+```kotlin
+download(path: String, url: String)
+```
+
+# Logger [[More Guide](https://github.com/sungbin5304/PrettyLogger)]
+
+![Preview](https://raw.githubusercontent.com/sungbin5304/PrettyLogger/master/images/PrettyLogger.png)
+
+## Logging with Default Tag
+
+``` Kotlin
+w(any: Any?)
+v(any: Any?)
+d(any: Any?)
+e(any: Any?)
+i(any: Any?)
+```
+
+> `Logger` is supported `Iterable`, `Array` and `Map` logging.
+
+# MarginUtil
+
+```kotlin
+put(layout: ViewGroup): FrameLayout
+```
+
+# MediaScanningUtil
+
+```kotlin
+scanning(context: Context, path: String)
+```
+
+# NetworkUtil
+
+```kotlin
+isNetworkAvailable(context: Context): Boolean
+```
+
+# NotificationUtil
+
+```kotlin
+createChannel(context: Context, name: String, description: String)
+getManager(context: Context): NotificationManager
+showNormalNotification(context: Context, id: Int, title: String, content: String, icon: Int)
+showInboxStyleNotification(context: Context, id: Int, title: String, content: String, boxText: Array<String>, icon: Int)
+deleteNotification(context: Context, id: Int)
+```
+
+# PermissionUtil
+
+```kotlin
+request(act: Activity, message: String?, permission: Array<String>)
+requestReadNotification(act: Activity)
+```
+
+# StorageUtil
+
+```kotlin
+[getter] sdcard
+createFolder(path: String, autoInputSdcard: Boolean = false): Boolean
+createFile(path: String, autoInputSdcard: Boolean = false): Boolean
+getSize(size: Long): String
+getFileSize(file: File): String
+read(path: String, _null: String?, autoInputSdcard: Boolean = false): String?
+save(path: String, content: String, autoInputSdcard: Boolean = false): Boolean
+delete(path: String, autoInputSdcard: Boolean = false): Boolean
+deleteAll(path: String, autoInputSdcard: Boolean = false): Boolean
+```
+
+# TextViewUtil
+
+```kotlin
+setReadMore(type: ReadMoreType, view: TextView, text: String, max: Int, expendText: String = "...더보기", expendTextColor: Int = Color.parseColor("#9E9E9E"))
+```
+
+### ReadMoreType
+
+```kotlin
+- LINE
+- LENGTH
+```
+
+# ToastUtil
+
+```kotlin
+show(context: Context, message: String, duration: Int, type: Int)
+```
+
+### ToastUtil Option `(ex_ToastUtil.INFO / ToastUtil.LONG)`
+
+```
+- INFO
+- SUCCESS
+- WARNING
+- ERROR
+
+- SHORT
+- LONG
+```
+
+# Util
+
+```kotlin
+getAppVersionName(act: Activity): String
+```
+
+
 
 -----
 
@@ -153,6 +281,5 @@ android {
    See the License for the specific language governing permissions and
    limitations under the License.
 ```
-
 
 # Happy Coding :)
