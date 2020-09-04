@@ -3,6 +3,7 @@ package com.sungbin.sungbintool
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
+import com.sungbin.sungbintool.util.DataUtil
 
 @Deprecated(
     message = "`Utils` is deprecated.\nPlease use `Util` instead of `Utils`.",
@@ -27,7 +28,7 @@ object DialogUtils {
         id: String, listener: DialogInterface.OnClickListener?,
         cancelable: Boolean = true
     ) {
-        if (!DataUtil.readData(ctx, "$id - dialog", "false").toBoolean()) {
+        if (!DataUtil.readData(ctx, "$id - dialog", "false")!!.toBoolean()) {
             show(ctx, title, message, listener, cancelable)
             DataUtil.saveData(ctx, "$id - dialog", "true")
         }

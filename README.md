@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/banner%20(1).png)
+![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/banner.png)
 <p align="center">
     <a href="https://github.com/sungbin5304/
 AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache2-important"/></a>
@@ -30,157 +30,31 @@ dependencies {
 ```
 
 # Usage
-# Extensions
+
+> goto [v1~v3](https://github.com/sungbin5304/AndroidUtils/blob/master/v1-3_usage.md) usage **[deprecated version]**
+
+# Listener
+
 ```kotlin
-- View.hide(isGone: Boolean = false)
-- View.show()
-- View.get(@IdRes id: Int): View (View.findViewById(id))
-- View.setOnTouchListener(object : OnSwipeListener(context!!) {
-    override fun onSwipeLeftToRight() {
-      //TODO
-    }
-    override fun onSwipeRightToLeft() {
-      //TODO
-    }
-    override fun onSwipeBottomToTop() {
-      //TODO
-    }
-    override fun onSwipeTopToBottom() {
-      //TODO
-    }
-  })
-- TextView += String (TextView.text = String)
-- TextView.clear() (TextView.text = "")
-- TextView.beforeTextChange(s: CharSequence?, start: Int, count: Int, after: Int) 
-- TextView.afterTextChanged(s: Editable?)
-- TextView.onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int)
-- EditText.setEndDrawableClickEvent(action: (View) -> Unit)
-- String?.toEditable(): Editable
-- String.isUpperCase(): Boolean
-- String.isLowerCase(): Boolean
-- String.replaceLast(origin: String, replaceMent: String): String
-- ImageView.setTint(color: Int)
+OnSwipeListener(ctx: Context) : View.OnTouchListener
+    - fun onSwipeLeftToRight()
+    - fun onSwipeRightToLeft()
+    - fun onSwipeBottomToTop()
+    - fun onSwipeTopToBottom()
 ```
 
-# Utils
-## LayoutUtils
-```kotlin
-- putMargin(layout: ViewGroup): FrameLayout
-```
-
-## NotificationUtils [[Help Page]](https://github.com/sungbin5304/NotificationManager)
-```kotlin
-- setGroupName(name: String)
-- createChannel(context: Context, name: String, description: String)
-- showNormalNotification(context: Context, id: Int, title: String, content: String, icon: Int)
-- showInboxStyleNotification(context: Context, id: Int, title: String, content: String, boxText: List<String>, icon: Int)
-- deleteNotification(context: Context, id: Int)
-```
-
-## DataUtils
-```kotlin
-- readData(ctx: Context, name: String, _null: String): String
-- saveData(ctx: Context, name: String, value: String)
-- clearData(ctx: Context)
-```
- 
-## DialogUtils
-```kotlin
-- show(ctx: Context, title: String, message: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
-- showOnce(ctx: Context, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
-- showLicense() //todo
-```
-
-## LogUtils [[More Guide]](https://github.com/sungbin5304/PrettyLogger)
-### Logging with Default Tag
-``` Kotlin
-- w(any: Any?)
-- v(any: Any?)
-- d(any: Any?)
-- e(any: Any?)
-- i(any: Any?)
-```
-### PrettyLogger is supported `Iterable`, `Array` and `Map` logging.
-``` Kotlin
-val map = HashMap<String, String>()
-map["A"] = "BCD"
-map["E"] = "FGH"
-map["I"] = "JKL"
-LogUtils.d("Map Content", map)
-LogUtils.i("Iterable Content", arrayListOf("T", "", "E", "", "S", "T", "", "above data is empty value."))
-LogUtils.e(null)
-LogUtils.w("This is my Pretty Log.")
-LogUtils.setTag("Custom Tag")
-LogUtils.v("Change Tag.")
-```
-![preview](https://github.com/sungbin5304/PrettyLogger/blob/master/images/PrettyLogger.png)
-
-## PermissionUtils
-```Kotlin
-- request(act: Activity, message: String?, permission: Array<String>)
-- requestReadNotification(act: Activity)
-```
-
-## ColorUtils
-```Kotlin
-- setStatusBarColor(act: Activity, color: Int)
-- setNavigationBarColor(act: Activity, color: Int)
-- setStatusBarIconColorGray(act: Activity)
-```
-
-## StorageUtils
-```Kotlin
-- sdcard
-- createFolder(name: String): Boolean
-- read(name: String, _null: String?): String?
-- save(name: String, content: String): Boolean
-- delete(name: String): Boolean
-- deleteAll(name: String): Boolean
-- getFileSize(file: File): String
-```
-
-## ToastUtils
-```Kotlin
-- show(context: Context, message: String, duration: Int, type: Int)
-
-+ Duration List
-- SHORT
-- LONG
-
-+ Type List
-- INFO
-- SUCCESS
-- WARNING
-- ERROR 
-```
-
-## Utils
-```Kotlin
-- copy(ctx: Context, text: String, showToast: Boolean = true)
-- error(ctx: Context, e: Exception, at: String)
-- setUserAgent(agent: String)
-- getHtml(address: String): String?
-- makeRandomUUID(numberOnly: Boolean = true): String
-- getAppVersionName(act: Activity): String
-```
-
-## StringUtils
-```kotlin
-- toEditable(string: String): Editable (support string extensions; String.toEditable())
-```
-
-## ReadMoreUtils
-```kotlin
-- setReadMoreLine(view: TextView, text: String, maxLine: Int, expanedText: String = "...더보기", expanedTextColor: Int = Color.parseColor("#9E9E9E"))
-- setReadMoreLength(view: TextView, text: String, maxLength: Int,expanedText: String = "...더보기", expanedTextColor: Int = Color.parseColor("#9E9E9E"))
-```
+-----
 
 # UI
-## TagableRoundImageView [[More Guide]](https://github.com/sungbin5304/TagableRoundImageView)
-### preview
-![image](https://raw.githubusercontent.com/sungbin5304/TagableRoundImageView/master/banner.png)
+
+## TagableRoundImageView [[More Guide](https://github.com/sungbin5304/TagableRoundImageView)]
+
+![banner](https://raw.githubusercontent.com/sungbin5304/TagableRoundImageView/master/banner.png)
+
+
 
 ### xml
+
 ```xml
 <com.sungbin.sungbintool.ui.TagableRoundImageView
         android:id="@+id/image"
@@ -193,11 +67,43 @@ LogUtils.v("Change Tag.")
         app:triv_tagGravity="end|bottom" />
 ```
 
-### `TagableRoundImageView` is supported GIF images.
+### all attribute
+
+| Attribute                 | Description                                                  | Default                            |
+| ------------------------- | :----------------------------------------------------------- | ---------------------------------- |
+| `triv_tagGravity`         | Set tag gravity (`top`, `bottom`, `left`, `right`, `start`, `end`) | `Gravity.END` and `Gravity.BOTTOM` |
+| `triv_tagTextStyle`       | Set tag text style (`italic`, `normal`)                      | `NORMAL`                           |
+| `triv_imageRadius`        | Set imageview radius                                         | `16dp`                             |
+| `triv_tagRadius`          | Set tag layout radius                                        | `2dp`                              |
+| `triv_tagPadding`         | Set tag layout padding                                       | `8dp`                              |
+| `triv_tagTextSize`        | Set tag text size                                            | `15dp`                             |
+| `triv_tagText`            | Set tag text                                                 | No value                           |
+| `triv_tagBackgroundColor` | Set tag layout background color                              | `Color.WHITE`                      |
+
+> `TagableRoundImageView` is supported GIF images.
 
 -----
 
+# Extensions
+
+```kotlin
+ImageView.setTint(color: Int)
+
+Int.toColorStateList()
+
+String.replaceLast(findText: String, replaceText: String): String
+String.isUpperCase(): Boolean
+String.isLowerCase(): Boolean
+
+EditText.showKeyboard()
+```
+
+
+
+
+
 # Dimens
+
 - `margin_twice_half` (4dp)
 - `margin_half` (8dp)
 - `margin_default` (16dp)
@@ -210,6 +116,7 @@ LogUtils.v("Change Tag.")
 -----
 
 # Gradle Error
+
 If you error at gradle `More than one file was found with OS independent path 'META-INF/library_release.kotlin_module'` this, add below code at your gradle.
 ```gradle
 android {
@@ -234,7 +141,7 @@ android {
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-   ```
+```
 
 
 # Happy Coding :)

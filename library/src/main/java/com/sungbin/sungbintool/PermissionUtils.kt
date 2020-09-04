@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.sungbin.sungbintool.util.DialogUtil
 
 @Deprecated(
     message = "`Utils` is deprecated.\nPlease use `Util` instead of `Utils`.",
