@@ -17,7 +17,7 @@ AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/UI-ANDROID-9cf"
 
 ```Gradle
 repositories {
-  mavenCentral()
+  mavenCentral()s
   google()
   maven { 
     url 'https://jitpack.io' 
@@ -29,7 +29,7 @@ dependencies {
 }
 ```
 
-# Usage
+# v4 Usage
 
 > goto [v1~v3](https://github.com/sungbin5304/AndroidUtils/blob/master/v1-3_usage.md) usage **[deprecated version]**
 
@@ -151,6 +151,7 @@ requestReadNotification(act: Activity)
 
 ```kotlin
 [getter] sdcard
+
 createFolder(path: String, autoInputSdcard: Boolean = false): Boolean
 createFile(path: String, autoInputSdcard: Boolean = false): Boolean
 getSize(size: Long): String
@@ -180,7 +181,7 @@ setReadMore(type: ReadMoreType, view: TextView, text: String, max: Int, expendTe
 show(context: Context, message: String, duration: Int, type: Int)
 ```
 
-### ToastUtil Option `(ex_ToastUtil.INFO / ToastUtil.LONG)`
+### ToastUtil Option `(ex: ToastUtil.SHORT / ToastUtil.SUCCESS)`
 
 ```
 - INFO
@@ -196,9 +197,11 @@ show(context: Context, message: String, duration: Int, type: Int)
 
 ```kotlin
 getAppVersionName(act: Activity): String
+copy(context: Context, text: String, showToast: Boolean = true)
+error(ctx: Context, e: Exception, at: String)
+getHtml(address: String): String?
+makeRandomUUID(onlyNumber: Boolean = true): String
 ```
-
-
 
 -----
 
