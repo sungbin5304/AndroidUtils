@@ -34,7 +34,7 @@ object NotificationUtil {
     }
 
     private fun getManager(context: Context) =
-        context.getSystemService(Context.NOTIFICATION_SERVICE) as android.app.NotificationManager
+        context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
     fun showNormalNotification(
         context: Context, id: Int, title: String,

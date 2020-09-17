@@ -5,6 +5,8 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.util.Log
+import com.sungbin.sungbintool.util.ToastLength
+import com.sungbin.sungbintool.util.ToastType
 import com.sungbin.sungbintool.util.ToastUtil
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -29,14 +31,14 @@ object Utils {
         if (showToast) ToastUtil.show(
             ctx,
             ctx.getString(R.string.copy_clipboard),
-            ToastUtil.SHORT,
-            ToastUtil.SUCCESS
+            ToastLength.SHORT,
+            ToastType.SUCCESS
         )
     }
 
     fun error(ctx: Context, e: Exception, at: String) {
         val data = "Error: $e\nLineNumber: ${e.stackTrace[0].lineNumber}\nAt: $at"
-        ToastUtil.show(ctx, data, ToastUtil.LONG, ToastUtil.ERROR)
+        ToastUtil.show(ctx, data, ToastLength.LONG, ToastType.ERROR)
         copy(ctx, data)
         Log.e("Error", data)
     }

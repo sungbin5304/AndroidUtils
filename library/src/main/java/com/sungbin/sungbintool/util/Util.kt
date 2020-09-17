@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import com.sungbin.sungbintool.R
 import java.io.BufferedReader
@@ -21,14 +23,14 @@ object Util {
         if (showToast) ToastUtil.show(
             context,
             context.getString(R.string.copy_clipboard),
-            ToastUtil.SHORT,
-            ToastUtil.SUCCESS
+            ToastLength.SHORT,
+            ToastType.SUCCESS
         )
     }
 
     fun error(ctx: Context, e: Exception, at: String) {
         val data = "Error: $e\nLineNumber: ${e.stackTrace[0].lineNumber}\nAt: $at"
-        ToastUtil.show(ctx, data, ToastUtil.LONG, ToastUtil.ERROR)
+        ToastUtil.show(ctx, data, ToastLength.LONG, ToastType.ERROR)
         copy(ctx, data)
         Log.e("Error", data)
     }
@@ -51,12 +53,16 @@ object Util {
                 return string
             }
             null
-        } catch (e: Exception) {
+        } catch (ignored: Exception) {
             null
         }
     }
 
-    fun makeRandomUUID(onlyNumber: Boolean = true) = UUID.randomUUID().toString().apply {
-        if (onlyNumber) replace("-", "")
+    fun makeRandomUUID() = UUID.randomUUID().toString()
+
+    fun doDelay(action: () -> Unit, ms: Long) {
+        Handler(Looper.getMainLooper()).postDelayed({
+            action()
+        }, ms)
     }
 }
