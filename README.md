@@ -178,19 +178,21 @@ setReadMore(type: ReadMoreType, view: TextView, text: String, max: Int, expendTe
 # ToastUtil
 
 ```kotlin
-show(context: Context, message: String, duration: Int, type: Int)
+show(context: Context, message: String, duration: ToastLength, type: ToastType)
 ```
 
-### ToastUtil Option `(ex: ToastUtil.SHORT / ToastUtil.SUCCESS)`
-
+### ToastLength
+``` kotlin
+SHORT
+LONG
 ```
-- INFO
-- SUCCESS
-- WARNING
-- ERROR
 
-- SHORT
-- LONG
+### ToastType
+``` kotlin
+INFO
+SUCCESS
+WARNING
+ERROR
 ```
 
 # Util
@@ -201,6 +203,7 @@ copy(context: Context, text: String, showToast: Boolean = true)
 error(ctx: Context, e: Exception, at: String)
 getHtml(address: String): String?
 makeRandomUUID(onlyNumber: Boolean = true): String
+doDelay(action: () -> Unit, ms: Long)
 ```
 
 -----
