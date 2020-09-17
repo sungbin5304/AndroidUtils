@@ -1,14 +1,14 @@
-![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/banner%20(1).png)
+![Logo](https://raw.githubusercontent.com/sungbin5304/AndroidUtils/master/banner.png)
 <p align="center">
     <a href="https://github.com/sungbin5304/
 AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache2-important"/></a>
-  <a href="https://jitpack.io/#sungbin5304/SBT"><img alt="Title" src="https://jitpack.io/v/sungbin5304/SBT.svg"/></a>
-  <a href="https://github.com/sungbin5304/
+    <a href="https://jitpack.io/#sungbin5304/SBT"><img alt="Title" src="https://jitpack.io/v/sungbin5304/SBT.svg"/></a>
+    <a href="https://github.com/sungbin5304/
 AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-ANDROID-blueviolet"/></a>
-  <a href="https://github.com/sungbin5304/
+    <a href="https://github.com/sungbin5304/
 AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/UI-ANDROID-9cf"/></a>
-    <a href="https://codebeat.co/projects/github-com-sungbin5304-androidutils-master"><img alt="codebeat badge" src="https://codebeat.co/badges/213185fa-52cb-43c6-9d69-86bd57e19c03" /></a>
-</p><br>
+    <a href="https://codebeat.co/projects/github-com-sungbin5304-androidutils-master"><img alt="codebeat badge" src="https://codebeat.co/badges/213185fa-52cb-43c6-9d69-86bd57e19c03" /></a><br/><br/>
+    <code>iOS</code> version will be open ;)
 </p><br>
 
 -----
@@ -29,158 +29,192 @@ dependencies {
 }
 ```
 
-# Usage
+# v4 Usage
+
+> goto [v1~v3](https://github.com/sungbin5304/AndroidUtils/blob/master/v1-3_usage.md) usage **[deprecated version]**
+
+# Listener
+
+```kotlin
+OnSwipeListener(ctx: Context): View.OnTouchListener
+    - fun onSwipeLeftToRight()
+    - fun onSwipeRightToLeft()
+    - fun onSwipeBottomToTop()
+    - fun onSwipeTopToBottom()
+```
+
+-----
+
 # Extensions
+
 ```kotlin
-- View.hide(isGone: Boolean = false)
-- View.show()
-- View.get(@IdRes id: Int): View (View.findViewById(id))
-- View.setOnTouchListener(object : OnSwipeListener(context!!) {
-    override fun onSwipeLeftToRight() {
-      //TODO
-    }
-    override fun onSwipeRightToLeft() {
-      //TODO
-    }
-    override fun onSwipeBottomToTop() {
-      //TODO
-    }
-    override fun onSwipeTopToBottom() {
-      //TODO
-    }
-  })
-- TextView += String (TextView.text = String)
-- TextView.clear() (TextView.text = "")
-- TextView.beforeTextChange(s: CharSequence?, start: Int, count: Int, after: Int) 
-- TextView.afterTextChanged(s: Editable?)
-- TextView.onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int)
-- EditText.setEndDrawableClickEvent(action: (View) -> Unit)
-- String?.toEditable(): Editable
-- String.isUpperCase(): Boolean
-- String.isLowerCase(): Boolean
-- String.replaceLast(origin: String, replaceMent: String): String
-- ImageView.setTint(color: Int)
+ImageView.setTint(color: Int)
+
+Int.toColorStateList()
+
+String.replaceLast(findText: String, replaceText: String): String
+String.isUpperCase(): Boolean
+String?.toEditable(): Editable
+
+EditText.showKeyboard()
+EditText.hideKeyboard()
+EditText.setEndDrawableClickEvent(action: (View) -> Unit)
+EditText.beforeTextChange(action: (s: CharSequence?, start: Int, count: Int, after: Int) -> Unit)
+EditText.afterTextChanged(action: (s: Editable?) -> Unit)
+EditText.onTextChanged(action: (s: CharSequence?, start: Int, before: Int, count: Int) -> Unit)
+
+TextView.clear()
+
+View.show()
+View.hide(isGone: Boolean = false)
+
+[operator] View.get(@IdRes id: Int): View
+[operator] TextView.plusAssign(text: String)
 ```
 
-# Utils
-## LayoutUtils
+-----
+
+# DataUtil
+
 ```kotlin
-- putMargin(layout: ViewGroup): FrameLayout
+readData(ctx: Context, name: String, _null: String?
+saveData(ctx: Context, name: String, value: String)
+clearData(ctx: Context)
 ```
 
-## NotificationUtils [[Help Page]](https://github.com/sungbin5304/NotificationManager)
+# DialogUtil
+
 ```kotlin
-- setGroupName(name: String)
-- createChannel(context: Context, name: String, description: String)
-- showNormalNotification(context: Context, id: Int, title: String, content: String, icon: Int)
-- showInboxStyleNotification(context: Context, id: Int, title: String, content: String, boxText: List<String>, icon: Int)
-- deleteNotification(context: Context, id: Int)
+show(ctx: Activity, title: String, message: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
+showOnce(ctx: Activity, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
+showLicense() // todo
 ```
 
-## DataUtils
+# DownloadUtil
+
 ```kotlin
-- readData(ctx: Context, name: String, _null: String): String
-- saveData(ctx: Context, name: String, value: String)
-- clearData(ctx: Context)
-```
- 
-## DialogUtils
-```kotlin
-- show(ctx: Context, title: String, message: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
-- showOnce(ctx: Context, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
-- showLicense() //todo
+download(path: String, url: String)
 ```
 
-## LogUtils [[More Guide]](https://github.com/sungbin5304/PrettyLogger)
-### Logging with Default Tag
+# Logger [[More Guide](https://github.com/sungbin5304/PrettyLogger)]
+
+![Preview](https://raw.githubusercontent.com/sungbin5304/PrettyLogger/master/images/PrettyLogger.png)
+
+## Logging with Default Tag
+
 ``` Kotlin
-- w(any: Any?)
-- v(any: Any?)
-- d(any: Any?)
-- e(any: Any?)
-- i(any: Any?)
-```
-### PrettyLogger is supported `Iterable`, `Array` and `Map` logging.
-``` Kotlin
-val map = HashMap<String, String>()
-map["A"] = "BCD"
-map["E"] = "FGH"
-map["I"] = "JKL"
-LogUtils.d("Map Content", map)
-LogUtils.i("Iterable Content", arrayListOf("T", "", "E", "", "S", "T", "", "above data is empty value."))
-LogUtils.e(null)
-LogUtils.w("This is my Pretty Log.")
-LogUtils.setTag("Custom Tag")
-LogUtils.v("Change Tag.")
-```
-![preview](https://github.com/sungbin5304/PrettyLogger/blob/master/images/PrettyLogger.png)
-
-## PermissionUtils
-```Kotlin
-- request(act: Activity, message: String?, permission: Array<String>)
-- requestReadNotification(act: Activity)
+w(any: Any?)
+v(any: Any?)
+d(any: Any?)
+e(any: Any?)
+i(any: Any?)
 ```
 
-## ColorUtils
-```Kotlin
-- setStatusBarColor(act: Activity, color: Int)
-- setNavigationBarColor(act: Activity, color: Int)
-- setStatusBarIconColorGray(act: Activity)
+> `Logger` is supported `Iterable`, `Array` and `Map` logging.
+
+# MarginUtil
+
+```kotlin
+put(layout: ViewGroup): FrameLayout
 ```
 
-## StorageUtils
-```Kotlin
-- sdcard
-- createFolder(name: String): Boolean
-- read(name: String, _null: String?): String?
-- save(name: String, content: String): Boolean
-- delete(name: String): Boolean
-- deleteAll(name: String): Boolean
-- getFileSize(file: File): String
+# MediaScanningUtil
+
+```kotlin
+scanning(context: Context, path: String)
 ```
 
-## ToastUtils
-```Kotlin
-- show(context: Context, message: String, duration: Int, type: Int)
+# NetworkUtil
 
-+ Duration List
-- SHORT
-- LONG
+```kotlin
+isNetworkAvailable(context: Context): Boolean
+```
 
-+ Type List
+# NotificationUtil
+
+```kotlin
+createChannel(context: Context, name: String, description: String)
+getManager(context: Context): NotificationManager
+showNormalNotification(context: Context, id: Int, title: String, content: String, icon: Int)
+showInboxStyleNotification(context: Context, id: Int, title: String, content: String, boxText: Array<String>, icon: Int)
+deleteNotification(context: Context, id: Int)
+```
+
+# PermissionUtil
+
+```kotlin
+request(act: Activity, message: String?, permission: Array<String>)
+requestReadNotification(act: Activity)
+```
+
+# StorageUtil
+
+```kotlin
+[getter] sdcard
+
+createFolder(path: String, autoInputSdcard: Boolean = false): Boolean
+createFile(path: String, autoInputSdcard: Boolean = false): Boolean
+getSize(size: Long): String
+getFileSize(file: File): String
+read(path: String, _null: String?, autoInputSdcard: Boolean = false): String?
+save(path: String, content: String, autoInputSdcard: Boolean = false): Boolean
+delete(path: String, autoInputSdcard: Boolean = false): Boolean
+deleteAll(path: String, autoInputSdcard: Boolean = false): Boolean
+```
+
+# TextViewUtil
+
+```kotlin
+setReadMore(type: ReadMoreType, view: TextView, text: String, max: Int, expendText: String = "...더보기", expendTextColor: Int = Color.parseColor("#9E9E9E"))
+```
+
+### ReadMoreType
+
+```kotlin
+- LINE
+- LENGTH
+```
+
+# ToastUtil
+
+```kotlin
+show(context: Context, message: String, duration: Int, type: Int)
+```
+
+### ToastUtil Option `(ex: ToastUtil.SHORT / ToastUtil.SUCCESS)`
+
+```
 - INFO
 - SUCCESS
 - WARNING
-- ERROR 
+- ERROR
+
+- SHORT
+- LONG
 ```
 
-## Utils
-```Kotlin
-- copy(ctx: Context, text: String, showToast: Boolean = true)
-- error(ctx: Context, e: Exception, at: String)
-- setUserAgent(agent: String)
-- getHtml(address: String): String?
-- makeRandomUUID(numberOnly: Boolean = true): String
-- getAppVersionName(act: Activity): String
-```
+# Util
 
-## StringUtils
 ```kotlin
-- toEditable(string: String): Editable (support string extensions; String.toEditable())
+getAppVersionName(act: Activity): String
+copy(context: Context, text: String, showToast: Boolean = true)
+error(ctx: Context, e: Exception, at: String)
+getHtml(address: String): String?
+makeRandomUUID(onlyNumber: Boolean = true): String
 ```
 
-## ReadMoreUtils
-```kotlin
-- setReadMoreLine(view: TextView, text: String, maxLine: Int, expanedText: String = "...더보기", expanedTextColor: Int = Color.parseColor("#9E9E9E"))
-- setReadMoreLength(view: TextView, text: String, maxLength: Int,expanedText: String = "...더보기", expanedTextColor: Int = Color.parseColor("#9E9E9E"))
-```
+-----
 
 # UI
-## TagableRoundImageView [[More Guide]](https://github.com/sungbin5304/TagableRoundImageView)
-### preview
-![image](https://raw.githubusercontent.com/sungbin5304/TagableRoundImageView/master/banner.png)
+
+## TagableRoundImageView [[More Guide](https://github.com/sungbin5304/TagableRoundImageView)]
+
+![banner](https://raw.githubusercontent.com/sungbin5304/TagableRoundImageView/master/banner.png)
+
+
 
 ### xml
+
 ```xml
 <com.sungbin.sungbintool.ui.TagableRoundImageView
         android:id="@+id/image"
@@ -193,11 +227,25 @@ LogUtils.v("Change Tag.")
         app:triv_tagGravity="end|bottom" />
 ```
 
-### `TagableRoundImageView` is supported GIF images.
+### all attribute
+
+| Attribute                 | Description                                                  | Default                            |
+| ------------------------- | :----------------------------------------------------------- | ---------------------------------- |
+| `triv_tagGravity`         | Set tag gravity (`top`, `bottom`, `left`, `right`, `start`, `end`) | `Gravity.END` and `Gravity.BOTTOM` |
+| `triv_tagTextStyle`       | Set tag text style (`italic`, `normal`)                      | `NORMAL`                           |
+| `triv_imageRadius`        | Set imageview radius                                         | `16dp`                             |
+| `triv_tagRadius`          | Set tag layout radius                                        | `2dp`                              |
+| `triv_tagPadding`         | Set tag layout padding                                       | `8dp`                              |
+| `triv_tagTextSize`        | Set tag text size                                            | `15dp`                             |
+| `triv_tagText`            | Set tag text                                                 | No value                           |
+| `triv_tagBackgroundColor` | Set tag layout background color                              | `Color.WHITE`                      |
+
+> `TagableRoundImageView` is supported GIF images.
 
 -----
 
 # Dimens
+
 - `margin_twice_half` (4dp)
 - `margin_half` (8dp)
 - `margin_default` (16dp)
@@ -210,6 +258,7 @@ LogUtils.v("Change Tag.")
 -----
 
 # Gradle Error
+
 If you error at gradle `More than one file was found with OS independent path 'META-INF/library_release.kotlin_module'` this, add below code at your gradle.
 ```gradle
 android {
@@ -234,7 +283,6 @@ android {
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-   ```
-
+```
 
 # Happy Coding :)

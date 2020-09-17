@@ -1,4 +1,4 @@
-# Deprecated version(v1 ~ v3) usage
+# Deprecated version(v1~v3) usage
 # Extensions
 ```kotlin
 - View.hide(isGone: Boolean = false)
