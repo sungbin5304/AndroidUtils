@@ -171,8 +171,8 @@ setReadMore(type: ReadMoreType, view: TextView, text: String, max: Int, expendTe
 ### ReadMoreType
 
 ```kotlin
-- LINE
-- LENGTH
+LINE
+LENGTH
 ```
 
 # ToastUtil
