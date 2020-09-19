@@ -70,6 +70,8 @@ View.hide(isGone: Boolean = false)
 
 RecyclerView.setFab(fab: View)
 
+doDelay(action: () -> Unit, ms: Int)
+
 [operator] View.get(@IdRes id: Int): View
 [operator] TextView.plusAssign(text: String)
 ```
