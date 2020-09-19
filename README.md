@@ -68,6 +68,8 @@ TextView.clear()
 View.show()
 View.hide(isGone: Boolean = false)
 
+RecyclerView.setFab(fab: View)
+
 [operator] View.get(@IdRes id: Int): View
 [operator] TextView.plusAssign(text: String)
 ```
