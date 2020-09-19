@@ -3,6 +3,7 @@ package com.sungbin.sungbintool.extensions
 import android.annotation.SuppressLint
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.content.res.ColorStateList
+import android.os.Build
 import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.TextWatcher
@@ -14,6 +15,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.IdRes
 import androidx.core.widget.ImageViewCompat
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.util.regex.Pattern
 
 
@@ -115,4 +119,30 @@ fun EditText.onTextChanged(action: (s: CharSequence?, start: Int, before: Int, c
             action.invoke(s, start, before, count)
         }
     })
+}
+
+fun RecyclerView.setFab(fab: View) {
+    if (fab is FloatingActionButton || fab is ExtendedFloatingActionButton) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            this.setOnScrollChangeListener { _, _, y, _, oldY ->
+                if (y < oldY) { // Up
+                    if (fab is FloatingActionButton) {
+                        fab.show()
+                    }
+                    else {
+                        (fab as ExtendedFloatingActionButton).extend()
+                    }
+                }
+
+                if (y > oldY) { // Down
+                    if (fab is FloatingActionButton) {
+                        fab.hide()
+                    }
+                    else {
+                        (fab as ExtendedFloatingActionButton).shrink()
+                    }
+                }
+            }
+        }
+    }
 }

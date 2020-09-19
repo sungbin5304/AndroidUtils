@@ -21,8 +21,8 @@ object Utils {
     private var USER_AGENT =
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36"
 
-    fun getAppVersionName(act: Activity) =
-        act.packageManager.getPackageInfo(act.packageName, 0).versionName
+    fun getAppVersionName(activity: Activity) =
+        activity.packageManager.getPackageInfo(activity.packageName, 0).versionName
 
     fun copy(ctx: Context, text: String, showToast: Boolean = true) {
         val clipboard = ctx.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager

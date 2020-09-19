@@ -17,7 +17,7 @@ object ToastUtil {
     fun show(
         context: Context,
         message: String,
-        duration: ToastLength,
+            duration: ToastLength,
         type: ToastType
     ) {
         val toast = Toast(context)
