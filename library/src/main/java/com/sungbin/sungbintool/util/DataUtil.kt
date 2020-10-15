@@ -8,14 +8,14 @@ object DataUtil {
         ctx.getSharedPreferences("pref", Context.MODE_PRIVATE).getString(name, _null)
 
     fun saveData(ctx: Context, name: String, value: String) {
-        ctx.getSharedPreferences("pref", Context.MODE_PRIVATE).edit().apply {
+        ctx.getSharedPreferences("pref", Context.MODE_PRIVATE).edit().run {
             putString(name, value)
             apply()
         }
     }
 
     fun clearData(ctx: Context) {
-        ctx.getSharedPreferences("pref", Context.MODE_PRIVATE).edit().apply {
+        ctx.getSharedPreferences("pref", Context.MODE_PRIVATE).edit().run {
             clear()
             apply()
         }

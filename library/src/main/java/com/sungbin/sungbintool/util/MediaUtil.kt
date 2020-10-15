@@ -5,7 +5,7 @@ import android.media.MediaScannerConnection
 import android.media.MediaScannerConnection.MediaScannerConnectionClient
 import android.net.Uri
 
-object MediaScanningUtil {
+object MediaUtil {
 
     fun scanning(context: Context, path: String) {
         var mediaScanner: MediaScannerConnection? = null

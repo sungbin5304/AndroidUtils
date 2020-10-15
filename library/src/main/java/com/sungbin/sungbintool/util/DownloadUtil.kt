@@ -10,13 +10,14 @@ import java.net.URL
 
 object DownloadUtil {
 
-    fun download(path: String, url: String) {
-        DownloadTask(path, url).execute()
+    fun download(path: String, url: String, downloadDoneAction: () -> Unit) {
+        DownloadTask(path, url, downloadDoneAction).execute()
     }
 
     private class DownloadTask(
         private val path: String,
-        private val url: String
+        private val url: String,
+        private val downloadDoneAction: () -> Unit
     ) :
         AsyncTask<Void?, Void?, Void?>() {
         override fun doInBackground(vararg params: Void?): Void? {
@@ -46,6 +47,7 @@ object DownloadUtil {
         }
 
         override fun onPostExecute(result: Void?) {
+            downloadDoneAction()
             return
         }
 

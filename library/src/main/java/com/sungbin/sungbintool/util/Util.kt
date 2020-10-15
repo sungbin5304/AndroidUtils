@@ -35,12 +35,13 @@ object Util {
         Log.e("Error", data)
     }
 
-    fun getHtml(address: String): String? {
+    fun getHtml(address: String, userAgent: String? = null): String? {
         return try {
             val url = URL(address)
             val con = url.openConnection()
-            if (con != null) {
+            con?.let {
                 con.connectTimeout = 5000
+                if (userAgent != null) con.addRequestProperty("User-Agent", userAgent)
                 con.useCaches = false
                 val isr = InputStreamReader(con.getInputStream())
                 val br = BufferedReader(isr)
