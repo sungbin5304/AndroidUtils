@@ -97,7 +97,7 @@ showLicense() // todo
 # DownloadUtil
 
 ```kotlin
-download(path: String, url: String)
+download(path: String, url: String, downloadDoneAction: () -> Unit)
 ```
 
 # Logger [[More Guide](https://github.com/sungbin5304/PrettyLogger)]
