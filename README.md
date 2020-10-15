@@ -116,13 +116,7 @@ i(any: Any?)
 
 > `Logger` is supported `Iterable`, `Array` and `Map` logging.
 
-# MarginUtil
-
-```kotlin
-put(layout: ViewGroup): FrameLayout
-```
-
-# MediaScanningUtil
+# MediaUtil
 
 ```kotlin
 scanning(context: Context, path: String)
