@@ -269,6 +269,13 @@ android {
 }
 ```
 
+### for `Gradle DSL`
+```kotlin
+packagingOptions {
+  exclude("META-INF/library_release.kotlin_module")
+}
+```
+
 # License
 ```
                     Copyright 2020 SungBin
