@@ -31,12 +31,12 @@ dependencies {
 
 # v4 Usage
 
-> goto [v1~v3](https://github.com/sungbin5304/AndroidUtils/blob/master/v1-3_usage.md) usage **[deprecated version]**
+> goto [v1~v3](https://github.com/sungbin5304/AndroidUtils/blob/master/v1-3_usage.md) usage **[removed now, working until 4.0.3 version]**
 
 # Listener
 
 ```kotlin
-OnSwipeListener(ctx: Context): View.OnTouchListener
+OnSwipeListener(context: Context): View.OnTouchListener
     - fun onSwipeLeftToRight()
     - fun onSwipeRightToLeft()
     - fun onSwipeBottomToTop()
@@ -54,6 +54,7 @@ Int.toColorStateList()
 
 String.replaceLast(findText: String, replaceText: String): String
 String.isUpperCase(): Boolean
+String.isLowerCase(): Boolean
 String?.toEditable(): Editable
 
 EditText.showKeyboard()
