@@ -1,7 +1,7 @@
 package com.sungbin.sungbintool.extensions
 
 import android.annotation.SuppressLint
-import android.content.Context.INPUT_METHOD_SERVICE
+import android.content.Context
 import android.content.res.ColorStateList
 import android.os.Build
 import android.text.Editable
@@ -24,6 +24,15 @@ import java.util.regex.Pattern
 /**
  * Created by SungBin on 2020-06-10.
  */
+
+lateinit var imm: InputMethodManager
+
+private fun getImm(context: Context): InputMethodManager {
+    if (!::imm.isInitialized) {
+        imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    }
+    return imm
+}
 
 fun ImageView.setTint(color: Int) = ImageViewCompat.setImageTintList(
     this, color.toColorStateList()
@@ -49,13 +58,11 @@ fun String.isUpperCase() = Pattern.matches("[A-Z]*$", this)
 fun String.isLowerCase() = Pattern.matches("[a-z]*$", this)
 
 fun EditText.showKeyboard() {
-    val imm = this.context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.showSoftInput(this, 0)
+    getImm(this.context).showSoftInput(this, 0)
 }
 
 fun EditText.hideKeyboard() {
-    val imm = this.context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.hideSoftInputFromWindow(this.windowToken, 0)
+    getImm(this.context).hideSoftInputFromWindow(this.windowToken, 0)
 }
 
 fun View.hide(isGone: Boolean = false) {
