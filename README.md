@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.sungbin5304:AndroidUtils:{version}'
+  implementation 'com.github.sungbin5304:AndroidUtils:4.0.3'
 }
 ```
 
