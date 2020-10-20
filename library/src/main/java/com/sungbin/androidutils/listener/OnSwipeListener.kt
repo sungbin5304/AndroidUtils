@@ -1,4 +1,4 @@
-package com.sungbin.sungbintool.listener
+package com.sungbin.androidutils.listener
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,13 +7,13 @@ import android.view.MotionEvent
 import android.view.View
 import kotlin.math.abs
 
-open class OnSwipeListener(ctx: Context) : View.OnTouchListener {
+open class OnSwipeListener(context: Context) : View.OnTouchListener {
     private val swipeThreshold = 100
     private val swipeVelocityThreshold = 100
     private val gestureDetector: GestureDetector
 
     init {
-        gestureDetector = GestureDetector(ctx, GestureListener())
+        gestureDetector = GestureDetector(context, GestureListener())
     }
 
     @SuppressLint("ClickableViewAccessibility")

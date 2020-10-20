@@ -1,4 +1,4 @@
-package com.sungbin.sungbintool.util
+package com.sungbin.androidutils.util
 
 
 /**

@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.sungbin.sungbintool.util
+package com.sungbin.androidutils.util
 
 import android.os.AsyncTask
 import java.io.FileOutputStream

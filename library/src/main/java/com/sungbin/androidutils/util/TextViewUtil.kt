@@ -1,4 +1,4 @@
-package com.sungbin.sungbintool.util
+package com.sungbin.androidutils.util
 
 import android.graphics.Color
 import android.text.SpannableString

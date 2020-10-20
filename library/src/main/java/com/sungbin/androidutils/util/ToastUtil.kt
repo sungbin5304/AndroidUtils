@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.sungbin.sungbintool.util
+package com.sungbin.androidutils.util
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,15 +9,15 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.sungbin.androidutils.extensions.get
 import com.sungbin.sungbintool.R
-import com.sungbin.sungbintool.extensions.get
 
 object ToastUtil {
     @SuppressLint("InflateParams")
     fun show(
         context: Context,
         message: String,
-            duration: ToastLength,
+        duration: ToastLength,
         type: ToastType
     ) {
         val toast = Toast(context)

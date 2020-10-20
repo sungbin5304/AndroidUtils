@@ -1,4 +1,4 @@
-package com.sungbin.sungbintool.extensions
+package com.sungbin.androidutils.extensions
 
 import android.annotation.SuppressLint
 import android.content.Context
