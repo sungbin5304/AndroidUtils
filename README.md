@@ -31,7 +31,7 @@ dependencies {
 
 # v4 Usage
 
-> goto [v1~v3](https://github.com/sungbin5304/AndroidUtils/blob/master/v1-3_usage.md) usage **[removed version, working until 4.0.3 version]**
+> goto [v1~v3](https://github.com/sungbin5304/AndroidUtils/blob/master/v1-3_usage.md) usage **[removed now, working until 4.0.3 version]**
 
 # Listener
 
