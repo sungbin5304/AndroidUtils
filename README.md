@@ -13,6 +13,13 @@ AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/UI-ANDROID-9cf"
 
 -----
 
+### Library package name is changed!
+
+
+<img src="https://user-images.githubusercontent.com/40740128/96566201-3c728d00-1300-11eb-8c17-a0263d8cc5bb.png" width="500dp" height="300dp" />
+
+`com.sungbin.sungbintool` -> `com.sungbin.androidutils`
+
 # Download
 
 ```Gradle
