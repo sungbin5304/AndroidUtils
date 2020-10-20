@@ -1,7 +1,6 @@
 package com.sungbin.sbt
 
 import android.app.Application
-import com.sungbin.sungbintool.tool.CrashReporter
 
 
 /**
@@ -9,10 +8,5 @@ import com.sungbin.sungbintool.tool.CrashReporter
  */
 
 class SBT : Application() {
-
-    override fun onCreate() {
-        super.onCreate()
-        CrashReporter.init(applicationContext)
-    }
 
 }

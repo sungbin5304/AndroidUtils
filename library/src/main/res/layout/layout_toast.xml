@@ -27,4 +27,5 @@
         android:layout_marginStart="@dimen/margin_default"
         android:textColor="#FFFFFF"
         tools:text="@string/desc_toast"/>
+
 </LinearLayout>

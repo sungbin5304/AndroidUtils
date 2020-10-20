@@ -26,11 +26,12 @@ import java.util.regex.Pattern
  */
 
 fun ImageView.setTint(color: Int) = ImageViewCompat.setImageTintList(
-    this,
-    ColorStateList.valueOf(
-        color
-    )
+    this, color.toColorStateList()
 )
+
+fun RecyclerView.toBottomScroll() {
+    this.scrollToPosition(this.adapter?.itemCount?.minus(1) ?: return)
+}
 
 fun Int.toColorStateList() = ColorStateList.valueOf(this)
 
@@ -128,8 +129,7 @@ fun RecyclerView.setFab(fab: View) {
                 if (y < oldY) { // Up
                     if (fab is FloatingActionButton) {
                         fab.show()
-                    }
-                    else {
+                    } else {
                         (fab as ExtendedFloatingActionButton).extend()
                     }
                 }
@@ -137,8 +137,7 @@ fun RecyclerView.setFab(fab: View) {
                 if (y > oldY) { // Down
                     if (fab is FloatingActionButton) {
                         fab.hide()
-                    }
-                    else {
+                    } else {
                         (fab as ExtendedFloatingActionButton).shrink()
                     }
                 }
