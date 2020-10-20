@@ -77,7 +77,7 @@ View.hide(isGone: Boolean = false)
 RecyclerView.setFab(fab: View)
 RecyclerView.toBottomScroll()
 
-doDelay(action: () -> Unit, ms: Int)
+doDelay(ms: Int, action: () -> Unit)
 
 [operator] View.get(@IdRes id: Int): View
 [operator] TextView.plusAssign(text: String)
@@ -208,7 +208,6 @@ copy(context: Context, text: String, showToast: Boolean = true)
 error(ctx: Context, e: Exception, at: String)
 getHtml(address: String): String?
 makeRandomUUID(onlyNumber: Boolean = true): String
-doDelay(action: () -> Unit, ms: Long)
 ```
 
 -----
