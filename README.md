@@ -69,6 +69,7 @@ View.show()
 View.hide(isGone: Boolean = false)
 
 RecyclerView.setFab(fab: View)
+RecyclerView.toBottomScroll()
 
 doDelay(action: () -> Unit, ms: Int)
 
