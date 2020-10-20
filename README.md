@@ -24,15 +24,13 @@ AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/UI-ANDROID-9cf"
 
 ```Gradle
 repositories {
-  mavenCentral()
-  google()
   maven { 
     url 'https://jitpack.io' 
   }
 }
 
 dependencies {
-  implementation 'com.github.sungbin5304:AndroidUtils:4.0.3'
+  implementation 'com.github.sungbin5304:AndroidUtils:{version}'
 }
 ```
 
