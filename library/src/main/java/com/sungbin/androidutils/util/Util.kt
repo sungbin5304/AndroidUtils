@@ -4,8 +4,6 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import com.sungbin.sungbintool.R
 import java.io.BufferedReader
@@ -60,10 +58,4 @@ object Util {
     }
 
     fun makeRandomUUID() = UUID.randomUUID().toString()
-
-    fun doDelay(action: () -> Unit, ms: Long) {
-        Handler(Looper.getMainLooper()).postDelayed({
-            action()
-        }, ms)
-    }
 }

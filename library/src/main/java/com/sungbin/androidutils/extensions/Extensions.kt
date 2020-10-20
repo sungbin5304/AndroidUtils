@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.TextWatcher
@@ -79,6 +81,12 @@ operator fun TextView.plusAssign(text: String) {
 
 fun TextView.clear() {
     this.text = ""
+}
+
+fun doDelay(ms: Long, action: () -> Unit) {
+    Handler(Looper.getMainLooper()).postDelayed({
+        action()
+    }, ms)
 }
 
 operator fun View.get(@IdRes id: Int) = this.findViewById<View>(id)!!
