@@ -28,5 +28,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
     // implementation project(':library')
-    implementation "com.github.sungbin5304:SBT:4.0.7"
+    implementation "com.github.sungbin5304:SBT:4.0.8"
 }
