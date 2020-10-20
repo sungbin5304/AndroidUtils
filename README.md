@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.sungbin5304:AndroidUtils:{version}'
+  implementation 'com.github.sungbin5304:AndroidUtils:4.0.3'
 }
 ```
 
@@ -69,6 +69,7 @@ View.show()
 View.hide(isGone: Boolean = false)
 
 RecyclerView.setFab(fab: View)
+RecyclerView.toBottomScroll()
 
 doDelay(action: () -> Unit, ms: Int)
 
