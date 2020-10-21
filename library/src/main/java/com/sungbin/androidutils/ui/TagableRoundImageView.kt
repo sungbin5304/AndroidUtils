@@ -94,7 +94,6 @@ class TagableRoundImageView : AppCompatImageView {
      * @param tagRadius radius for tag (Default: 2dp)
      * @param imageRadius radius for image (Default: 16dp)
      */
-    @Suppress("DEPRECATION")
     fun set(
         text: String, tagBackgroundColor: Int = this.tagBackgroundColor,
         tagTextSize: Int = this.tagTextSize, tagTextPadding: Int = this.tagTextPadding,
@@ -106,6 +105,14 @@ class TagableRoundImageView : AppCompatImageView {
             tagTextPadding, tagTextStyle, tagRadius
         )
         tag!!.setColorFilter(tagBackgroundColor, PorterDuff.Mode.SRC_IN)
+        this.imageRadius = imageRadius
+        tagBoundsSet = false
+        invalidate()
+    }
+
+    fun updateRadius(
+        imageRadius: Int
+    ) {
         this.imageRadius = imageRadius
         tagBoundsSet = false
         invalidate()

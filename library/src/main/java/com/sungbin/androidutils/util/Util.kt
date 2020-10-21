@@ -5,6 +5,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.util.Log
+import android.util.TypedValue
 import com.sungbin.sungbintool.R
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -12,6 +13,9 @@ import java.net.URL
 import java.util.*
 
 object Util {
+    fun dp2px(context: Context, dp: Float) =
+        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.resources.displayMetrics)
+
     fun getAppVersionName(act: Activity) =
         act.packageManager.getPackageInfo(act.packageName, 0).versionName
 
