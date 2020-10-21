@@ -3,11 +3,8 @@
     <a href="https://github.com/sungbin5304/
 AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache2-important"/></a>
     <a href="https://jitpack.io/#sungbin5304/SBT"><img alt="Title" src="https://jitpack.io/v/sungbin5304/SBT.svg"/></a>
-    <a href="https://github.com/sungbin5304/
-AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-ANDROID-blueviolet"/></a>
-    <a href="https://github.com/sungbin5304/
-AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/UI-ANDROID-9cf"/></a>
-    <a href="https://codebeat.co/projects/github-com-sungbin5304-androidutils-master"><img alt="codebeat badge" src="https://codebeat.co/badges/213185fa-52cb-43c6-9d69-86bd57e19c03" /></a><br/><br/>
+    <a href="https://codebeat.co/projects/github-com-sungbin5304-androidutils-master"><img alt="codebeat badge" src="https://codebeat.co/badges/213185fa-52cb-43c6-9d69-86bd57e19c03" /></a>
+    <a href="https://wakatime.com/badge/github/sungbin5304/AndroidUtils"><img alt="[time tracker]" src="https://wakatime.com/badge/github/sungbin5304/AndroidUtils.svg" /></a><br/><br/>
     <code>iOS</code> version will be open ;)
 </p><br>
 
@@ -77,7 +74,7 @@ View.hide(isGone: Boolean = false)
 RecyclerView.setFab(fab: View)
 RecyclerView.toBottomScroll()
 
-doDelay(action: () -> Unit, ms: Int)
+doDelay(ms: Int, action: () -> Unit)
 
 [operator] View.get(@IdRes id: Int): View
 [operator] TextView.plusAssign(text: String)
@@ -208,7 +205,6 @@ copy(context: Context, text: String, showToast: Boolean = true)
 error(ctx: Context, e: Exception, at: String)
 getHtml(address: String): String?
 makeRandomUUID(onlyNumber: Boolean = true): String
-doDelay(action: () -> Unit, ms: Long)
 ```
 
 -----
