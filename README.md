@@ -7,7 +7,8 @@ AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io
 AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/Utils-ANDROID-blueviolet"/></a>
     <a href="https://github.com/sungbin5304/
 AndroidUtils"><img alt="Title" src="https://img.shields.io/badge/UI-ANDROID-9cf"/></a>
-    <a href="https://codebeat.co/projects/github-com-sungbin5304-androidutils-master"><img alt="codebeat badge" src="https://codebeat.co/badges/213185fa-52cb-43c6-9d69-86bd57e19c03" /></a><br/><br/>
+    <a href="https://codebeat.co/projects/github-com-sungbin5304-androidutils-master"><img alt="codebeat badge" src="https://codebeat.co/badges/213185fa-52cb-43c6-9d69-86bd57e19c03" /></a>
+    <a href="https://wakatime.com/badge/github/sungbin5304/AndroidUtils"><img alt="[time tracker]" src="https://wakatime.com/badge/github/sungbin5304/AndroidUtils.svg" /></a><br/><br/>
     <code>iOS</code> version will be open ;)
 </p><br>
 
