@@ -89,7 +89,7 @@ getAppVersionName(act: Activity): String
 copy(context: Context, text: String, showToast: Boolean = true)
 error(ctx: Context, e: Exception, at: String)
 getHtml(address: String): String?
-makeRandomUUID(onlyNumber: Boolean = true): String
+makeRandomUUID(): String
 dp2px(context: Context, dp: Float): Float
 ```
 
