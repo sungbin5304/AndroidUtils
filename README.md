@@ -249,7 +249,6 @@ makeRandomUUID(onlyNumber: Boolean = true): String
 -----
 
 # Dimens
-
 - `margin_twice_half` (4dp)
 - `margin_half` (8dp)
 - `margin_default` (16dp)
@@ -272,7 +271,7 @@ android {
 }
 ```
 
-### for `Gradle DSL`
+### for `Gradle-DSL`
 ```kotlin
 packagingOptions {
   exclude("META-INF/library_release.kotlin_module")
