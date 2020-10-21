@@ -82,6 +82,17 @@ doDelay(ms: Int, action: () -> Unit)
 
 -----
 
+# Util
+
+```kotlin
+getAppVersionName(act: Activity): String
+copy(context: Context, text: String, showToast: Boolean = true)
+error(ctx: Context, e: Exception, at: String)
+getHtml(address: String): String?
+makeRandomUUID(onlyNumber: Boolean = true): String
+dp2px(context: Context, dp: Float): Float
+```
+
 # DataUtil
 
 ```kotlin
@@ -165,20 +176,17 @@ deleteAll(path: String, autoInputSdcard: Boolean = false): Boolean
 ```
 
 # TextViewUtil
-
 ```kotlin
 setReadMore(type: ReadMoreType, view: TextView, text: String, max: Int, expendText: String = "...더보기", expendTextColor: Int = Color.parseColor("#9E9E9E"))
 ```
 
 ### ReadMoreType
-
 ```kotlin
 LINE
 LENGTH
 ```
 
 # ToastUtil
-
 ```kotlin
 show(context: Context, message: String, duration: ToastLength, type: ToastType)
 ```
@@ -195,16 +203,6 @@ INFO
 SUCCESS
 WARNING
 ERROR
-```
-
-# Util
-
-```kotlin
-getAppVersionName(act: Activity): String
-copy(context: Context, text: String, showToast: Boolean = true)
-error(ctx: Context, e: Exception, at: String)
-getHtml(address: String): String?
-makeRandomUUID(onlyNumber: Boolean = true): String
 ```
 
 -----
