@@ -2,9 +2,11 @@ package com.sungbin.sbt
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.sungbin.androidutils.annotation.Logging
 import com.sungbin.androidutils.util.Util
 import kotlinx.android.synthetic.main.activity_main.*
 
+@Logging
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

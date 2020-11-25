@@ -60,7 +60,7 @@ class TagableDrawable(
 
     override fun getOpacity() = PixelFormat.UNKNOWN
 
-    override fun setAlpha(alpha: Int) {}
+    override fun setAlpha(alpha: Int) = Unit
 
     override fun draw(canvas: Canvas) {
         canvas.drawBitmap(

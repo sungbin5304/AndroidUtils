@@ -3,7 +3,6 @@ package com.sungbin.androidutils.extensions
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
-import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.text.Editable
@@ -41,7 +40,7 @@ fun ImageView.setTint(color: Int) = ImageViewCompat.setImageTintList(
 )
 
 fun RecyclerView.toBottomScroll() {
-    this.scrollToPosition(this.adapter?.itemCount?.minus(1) ?: return)
+    this.scrollToPosition(this.adapter.itemCount.minus(1) ?: return)
 }
 
 fun Int.toColorStateList() = ColorStateList.valueOf(this)
