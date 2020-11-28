@@ -1,36 +1,31 @@
 package com.sungbin.androidutils.util
 
 import android.app.Activity
-import android.content.DialogInterface
+import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import androidx.core.content.PermissionChecker
 import com.sungbin.sungbintool.R
 
 
 object PermissionUtil {
-    fun request(act: Activity, message: String?, permission: Array<String>) {
-        var isShowDialog = false
-        for (element in permission) {
-            if (ContextCompat.checkSelfPermission(
-                    act,
-                    element
-                ) == PackageManager.PERMISSION_DENIED
-            ) {
-                isShowDialog = true
-            }
-        }
-        if (isShowDialog) {
+
+    fun request(
+        activity: Activity,
+        message: String?,
+        permissions: Array<String>,
+        requestCode: Int = 1
+    ) {
+        if (checkPermissionsGrant(activity, permissions.toList())) {
             if (message.isNullOrBlank()) {
-                ActivityCompat.requestPermissions(act, permission, 1)
+                ActivityCompat.requestPermissions(activity, permissions, requestCode)
             } else {
                 DialogUtil.show(
-                    act,
-                    act.getString(R.string.need_permission),
+                    activity,
+                    activity.getString(R.string.need_permission),
                     message,
-                    DialogInterface.OnClickListener { _, _ ->
-                        ActivityCompat.requestPermissions(act, permission, 1)
+                    { _, _ ->
+                        ActivityCompat.requestPermissions(activity, permissions, requestCode)
                     })
             }
         }
@@ -40,4 +35,20 @@ object PermissionUtil {
         val intent = Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS")
         act.startActivity(intent)
     }
+
+    fun checkPermissionsGrant(context: Context, permissions: List<String>): Boolean {
+        var isAllGrant = true
+        permissions.map {
+            if (PermissionChecker.checkSelfPermission(
+                    context,
+                    it
+                ) == PermissionChecker.PERMISSION_DENIED
+            ) {
+                isAllGrant = false
+            }
+            return@map
+        }
+        return isAllGrant
+    }
+
 }
