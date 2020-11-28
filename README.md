@@ -156,8 +156,9 @@ deleteNotification(context: Context, id: Int)
 # PermissionUtil
 
 ```kotlin
-request(act: Activity, message: String?, permission: Array<String>)
-requestReadNotification(act: Activity)
+request(activity: Activity, message: String?, permission: Array<String>, requestCode: Int = 1)
+requestReadNotification(activity: Activity)
+checkPermissionsGrant(context: Context, permissions: List<String>): Boolean
 ```
 
 # StorageUtil
