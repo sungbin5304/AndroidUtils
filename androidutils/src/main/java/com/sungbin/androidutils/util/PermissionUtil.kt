@@ -16,18 +16,16 @@ object PermissionUtil {
         permissions: Array<String>,
         requestCode: Int = 1
     ) {
-        if (checkPermissionsGrant(activity, permissions.toList())) {
-            if (message.isNullOrBlank()) {
-                ActivityCompat.requestPermissions(activity, permissions, requestCode)
-            } else {
-                DialogUtil.show(
-                    activity,
-                    activity.getString(R.string.need_permission),
-                    message,
-                    { _, _ ->
-                        ActivityCompat.requestPermissions(activity, permissions, requestCode)
-                    })
-            }
+        if (message.isNullOrBlank()) {
+            ActivityCompat.requestPermissions(activity, permissions, requestCode)
+        } else {
+            DialogUtil.show(
+                activity,
+                activity.getString(R.string.need_permission),
+                message,
+                { _, _ ->
+                    ActivityCompat.requestPermissions(activity, permissions, requestCode)
+                })
         }
     }
 
@@ -36,7 +34,7 @@ object PermissionUtil {
         activity.startActivity(intent)
     }
 
-    fun checkPermissionsGrant(context: Context, permissions: List<String>): Boolean {
+    fun checkPermissionsAllGrant(context: Context, permissions: Array<String>): Boolean {
         var isAllGrant = true
         permissions.map {
             if (PermissionChecker.checkSelfPermission(
