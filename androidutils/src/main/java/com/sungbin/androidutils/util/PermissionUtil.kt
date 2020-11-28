@@ -31,9 +31,9 @@ object PermissionUtil {
         }
     }
 
-    fun requestReadNotification(act: Activity) {
+    fun requestReadNotification(activity: Activity) {
         val intent = Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS")
-        act.startActivity(intent)
+        activity.startActivity(intent)
     }
 
     fun checkPermissionsGrant(context: Context, permissions: List<String>): Boolean {
