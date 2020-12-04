@@ -76,7 +76,7 @@ RecyclerView.toBottomScroll()
 
 doDelay(ms: Int, action: () -> Unit)
 
-[operator] View.get(@IdRes id: Int): View
+[operator] <T : View> View.get(@IdRes id: Int, clazz: Class<T>): T
 [operator] TextView.plusAssign(text: String)
 ```
 
