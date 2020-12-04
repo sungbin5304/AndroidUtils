@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <com.sungbin.androidutils.ui.TagableRoundImageView
-        android:id="@+id/et"
+        android:id="@+id/triv"
         android:layout_width="230dp"
         android:layout_height="230dp"
         android:layout_centerInParent="true"
