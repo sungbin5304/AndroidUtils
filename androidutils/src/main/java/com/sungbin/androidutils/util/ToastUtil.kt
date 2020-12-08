@@ -22,9 +22,9 @@ object ToastUtil {
     ) {
         val toast = Toast(context)
         val toastLayout = LayoutInflater.from(context).inflate(R.layout.layout_toast, null, false)
-        val text = toastLayout[R.id.toast_text] as TextView
-        val layout = toastLayout[R.id.toast_type] as LinearLayout
-        val icon = layout[R.id.toast_icon] as ImageView
+        val text = toastLayout[R.id.toast_text, TextView::class.java]
+        val layout = toastLayout[R.id.toast_type, LinearLayout::class.java]
+        val icon = layout[R.id.toast_icon, ImageView::class.java]
         text.text = message
         when (type) {
             ToastType.INFO -> {
@@ -47,7 +47,6 @@ object ToastUtil {
         toast.apply {
             setDuration(if (duration == ToastLength.SHORT) Toast.LENGTH_SHORT else Toast.LENGTH_LONG)
             view = layout
-            show()
-        }
+        }.show()
     }
 }

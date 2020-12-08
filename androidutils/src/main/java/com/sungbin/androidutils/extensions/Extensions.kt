@@ -22,7 +22,6 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.util.regex.Pattern
 
-
 /**
  * Created by SungBin on 2020-06-10.
  */
@@ -84,25 +83,30 @@ fun TextView.clear() {
 }
 
 fun doDelay(ms: Long, action: () -> Unit) {
-    Handler(Looper.getMainLooper()).postDelayed({
-        action()
-    }, ms)
+    Handler(Looper.getMainLooper()).postDelayed(
+        {
+            action()
+        },
+        ms
+    )
 }
 
-operator fun View.get(@IdRes id: Int) = this.findViewById<View>(id)!!
+operator fun <T : View> View.get(@IdRes id: Int, clazz: Class<T>) = this.findViewById<T>(id)!!
 
 @SuppressLint("ClickableViewAccessibility")
 fun EditText.setEndDrawableClickEvent(action: (View) -> Unit) {
-    this.setOnTouchListener(View.OnTouchListener { view, event ->
-        if (event.action == MotionEvent.ACTION_UP) {
-            if (event.rawX >= this.right - this.compoundDrawables[2].bounds.width()
-            ) {
-                action(view)
-                return@OnTouchListener true
+    this.setOnTouchListener(
+        View.OnTouchListener { view, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                if (event.rawX >= this.right - this.compoundDrawables[2].bounds.width()
+                ) {
+                    action(view)
+                    return@OnTouchListener true
+                }
             }
+            false
         }
-        false
-    })
+    )
 }
 
 fun String?.toEditable() = SpannableStringBuilder(this.toString())
