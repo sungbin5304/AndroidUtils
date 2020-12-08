@@ -16,16 +16,18 @@ object PermissionUtil {
         permissions: Array<String>,
         requestCode: Int = 1
     ) {
-        if (message.isNullOrBlank()) {
-            ActivityCompat.requestPermissions(activity, permissions, requestCode)
-        } else {
-            DialogUtil.show(
-                activity,
-                activity.getString(R.string.need_permission),
-                message,
-                { _, _ ->
-                    ActivityCompat.requestPermissions(activity, permissions, requestCode)
-                })
+        if (!checkPermissionsAllGrant(activity, permissions)) {
+            if (message.isNullOrBlank()) {
+                ActivityCompat.requestPermissions(activity, permissions, requestCode)
+            } else {
+                DialogUtil.show(
+                    activity,
+                    activity.getString(R.string.need_permission),
+                    message,
+                    { _, _ ->
+                        ActivityCompat.requestPermissions(activity, permissions, requestCode)
+                    })
+            }
         }
     }
 
