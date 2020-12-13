@@ -166,14 +166,14 @@ checkPermissionsAllGrant(context: Context, permissions: List<String>): Boolean
 ```kotlin
 [getter] sdcard
 
-createFolder(path: String, autoInputSdcard: Boolean = false): Boolean
-createFile(path: String, autoInputSdcard: Boolean = false): Boolean
+createFolder(path: String): Boolean
+createFile(path: String): Boolean
 getSize(size: Long): String
 getFileSize(file: File): String
-read(path: String, _null: String?, autoInputSdcard: Boolean = false): String?
-save(path: String, content: String, autoInputSdcard: Boolean = false): Boolean
-delete(path: String, autoInputSdcard: Boolean = false): Boolean
-deleteAll(path: String, autoInputSdcard: Boolean = false): Boolean
+read(path: String, _null: String?): String?
+save(path: String, content: String): Boolean
+delete(path: String): Boolean
+deleteAll(path: String): Boolean
 ```
 
 # TextViewUtil
