@@ -39,10 +39,10 @@ dependencies {
 
 ```kotlin
 OnSwipeListener(context: Context): View.OnTouchListener
-    - fun onSwipeLeftToRight()
-    - fun onSwipeRightToLeft()
-    - fun onSwipeBottomToTop()
-    - fun onSwipeTopToBottom()
+    fun onSwipeLeftToRight()
+    fun onSwipeRightToLeft()
+    fun onSwipeBottomToTop()
+    fun onSwipeTopToBottom()
 ```
 
 -----
