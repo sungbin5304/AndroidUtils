@@ -76,6 +76,9 @@ RecyclerView.toBottomScroll()
 
 doDelay(ms: Int, action: () -> Unit)
 
+@RequiresApi(Build.VERSION_CODES.M)
+Icon.toBitmap(context: Context): Bitmap
+
 [operator] <T : View> View.get(@IdRes id: Int, clazz: Class<T>): T
 [operator] TextView.plusAssign(text: String)
 ```
