@@ -38,7 +38,7 @@ object NotificationUtil {
 
     fun showNormalNotification(
         context: Context, id: Int, title: String,
-        content: String, icon: Int
+        content: String, icon: Int, isOnGoing: Boolean
     ) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val builder = Notification.Builder(context, title)
@@ -46,7 +46,7 @@ object NotificationUtil {
                 .setContentText(content)
                 .setSmallIcon(icon)
                 .setAutoCancel(true)
-                .setOngoing(true)
+                .setOngoing(isOnGoing)
             getManager(context).notify(id, builder.build())
         } else {
             val builder = Notification.Builder(context)
@@ -54,7 +54,7 @@ object NotificationUtil {
                 .setContentText(content)
                 .setSmallIcon(icon)
                 .setAutoCancel(true)
-                .setOngoing(true)
+                .setOngoing(isOnGoing)
             getManager(context).notify(id, builder.build())
         }
     }
@@ -62,7 +62,8 @@ object NotificationUtil {
     fun showInboxStyleNotification(
         context: Context, id: Int,
         title: String, content: String,
-        boxText: Array<String>, icon: Int
+        boxText: Array<String>, icon: Int,
+        isOnGoing: Boolean
     ) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val builder = Notification.Builder(context, title)
@@ -70,7 +71,7 @@ object NotificationUtil {
                 .setContentText(content)
                 .setSmallIcon(icon)
                 .setAutoCancel(true)
-                .setOngoing(true)
+                .setOngoing(isOnGoing)
             val inboxStyle = Notification.InboxStyle()
             inboxStyle.setBigContentTitle(title)
             inboxStyle.setSummaryText(content)
@@ -88,7 +89,7 @@ object NotificationUtil {
                 .setContentText(content)
                 .setSmallIcon(icon)
                 .setAutoCancel(true)
-                .setOngoing(true)
+                .setOngoing(isOnGoing)
             val inboxStyle = Notification.InboxStyle()
             inboxStyle.setBigContentTitle(title)
             inboxStyle.setSummaryText(content)
@@ -100,6 +101,73 @@ object NotificationUtil {
             builder.style = inboxStyle
 
             getManager(context).notify(id, builder.build())
+        }
+    }
+
+    fun getNormalNotification(
+        context: Context, title: String,
+        content: String, icon: Int, isOnGoing: Boolean
+    ): Notification.Builder {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Notification.Builder(context, title)
+                .setContentTitle(title)
+                .setContentText(content)
+                .setSmallIcon(icon)
+                .setAutoCancel(true)
+                .setOngoing(isOnGoing)
+
+        } else {
+            Notification.Builder(context)
+                .setContentTitle(title)
+                .setContentText(content)
+                .setSmallIcon(icon)
+                .setAutoCancel(true)
+                .setOngoing(isOnGoing)
+        }
+    }
+
+    fun getInboxStyleNotification(
+        context: Context,
+        title: String, content: String,
+        boxText: Array<String>, icon: Int,
+        isOnGoing: Boolean
+    ): Notification.Builder {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val builder = Notification.Builder(context, title)
+                .setContentTitle(title)
+                .setContentText(content)
+                .setSmallIcon(icon)
+                .setAutoCancel(true)
+                .setOngoing(isOnGoing)
+
+            val inboxStyle = Notification.InboxStyle()
+            inboxStyle.setBigContentTitle(title)
+            inboxStyle.setSummaryText(content)
+
+            for (string in boxText) {
+                inboxStyle.addLine(string)
+            }
+
+            builder.style = inboxStyle
+            builder
+        } else {
+            val builder = Notification.Builder(context)
+                .setContentTitle(title)
+                .setContentText(content)
+                .setSmallIcon(icon)
+                .setAutoCancel(true)
+                .setOngoing(isOnGoing)
+
+            val inboxStyle = Notification.InboxStyle()
+            inboxStyle.setBigContentTitle(title)
+            inboxStyle.setSummaryText(content)
+
+            for (string in boxText) {
+                inboxStyle.addLine(string)
+            }
+
+            builder.style = inboxStyle
+            builder
         }
     }
 

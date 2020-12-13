@@ -1,1 +1,6 @@
-<manifest package="com.sungbin.sungbintool" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sungbin.sungbintool">
+
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+</manifest>

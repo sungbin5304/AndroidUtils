@@ -7,7 +7,7 @@ import android.os.Build
 import android.text.TextPaint
 
 
-class TagableDrawable(
+internal class TagableDrawable(
     text: String,
     tagBackgroundColor: Int, tagTextSize: Int,
     tagTextPadding: Int, tagTextStyle: Int,

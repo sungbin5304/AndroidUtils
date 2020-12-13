@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sungbin.androidutils.annotation.Logging
+import com.sungbin.androidutils.util.BatteryUtil
 import com.sungbin.androidutils.util.Logger
-import com.sungbin.androidutils.util.Util
 
 @Logging
 class MainActivity : AppCompatActivity() {
@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Logger.w("AAAAA", Util.readAssets(applicationContext, "test.txt"))
+        Logger.w("AAAAA", BatteryUtil.isIgnoringBatteryOptimization(applicationContext))
+        BatteryUtil.requestIgnoreBatteryOptimization(applicationContext)
     }
 }
