@@ -94,6 +94,13 @@ makeRandomUUID(): String
 dp2px(context: Context, dp: Float): Float
 ```
 
+# BatteryUtil
+
+```kotlin
+isIgnoringBatteryOptimization(context: Context): Boolean
+requestIgnoreBatteryOptimization(context: Context)
+```
+
 # DataUtil
 
 ```kotlin
@@ -149,8 +156,10 @@ isNetworkAvailable(context: Context): Boolean
 ```kotlin
 createChannel(context: Context, name: String, description: String)
 getManager(context: Context): NotificationManager
-showNormalNotification(context: Context, id: Int, title: String, content: String, icon: Int)
-showInboxStyleNotification(context: Context, id: Int, title: String, content: String, boxText: Array<String>, icon: Int)
+showNormalNotification(context: Context, id: Int, title: String, content: String, icon: Int, isOnGoing: Boolean)
+showInboxStyleNotification(context: Context, id: Int, title: String, content: String, boxText: Array<String>, icon: Int, isOnGoing: Boolean)
+getNormalNotification(context: Context, title: String, content: String, icon: Int, isOnGoing: Boolean): Notification.Builder
+getInboxStyleNotification(context: Context, title: String, content: String, boxText: Array<String>, icon: Int, isOnGoing: Boolean): Notification.Builder
 deleteNotification(context: Context, id: Int)
 ```
 
