@@ -89,6 +89,7 @@ getAppVersionName(act: Activity): String
 copy(context: Context, text: String, showToast: Boolean = true)
 error(ctx: Context, e: Exception, at: String)
 getHtml(address: String): String?
+readAssets(context: Context, name: String): String
 makeRandomUUID(): String
 dp2px(context: Context, dp: Float): Float
 ```
