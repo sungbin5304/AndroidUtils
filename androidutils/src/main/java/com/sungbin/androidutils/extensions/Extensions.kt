@@ -3,6 +3,8 @@ package com.sungbin.androidutils.extensions
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Icon
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
@@ -16,6 +18,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.IdRes
+import androidx.annotation.RequiresApi
 import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -110,6 +113,9 @@ fun EditText.setEndDrawableClickEvent(action: (View) -> Unit) {
 }
 
 fun String?.toEditable() = SpannableStringBuilder(this.toString())
+
+@RequiresApi(Build.VERSION_CODES.M)
+fun Icon.toBitmap(context: Context) = (this.loadDrawable(context) as BitmapDrawable).bitmap
 
 interface TextWatcherListener : TextWatcher {
     override fun afterTextChanged(s: Editable?) {}
