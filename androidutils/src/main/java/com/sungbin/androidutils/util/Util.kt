@@ -4,15 +4,16 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.os.StrictMode
 import android.util.Log
 import android.util.TypedValue
 import com.sungbin.sungbintool.R
-import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.URL
 import java.util.*
 
 object Util {
+
     fun dp2px(context: Context, dp: Float) =
         TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.resources.displayMetrics)
 
@@ -39,6 +40,8 @@ object Util {
 
     fun getHtml(address: String, userAgent: String? = null): String? {
         return try {
+            val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+            StrictMode.setThreadPolicy(policy)
             val url = URL(address)
             val con = url.openConnection()
             con?.let {
@@ -46,19 +49,18 @@ object Util {
                 if (userAgent != null) con.addRequestProperty("User-Agent", userAgent)
                 con.useCaches = false
                 val isr = InputStreamReader(con.getInputStream())
-                val br = BufferedReader(isr)
-                var string = br.readLine()
-                br.readLine()?.let {
-                    string += "\n$it"
-                }
-                br.close()
-                isr.close()
-                return string
+                return isr.buffered(1204 * 1024).use { it.readText() }
             }
             null
         } catch (ignored: Exception) {
             null
         }
+    }
+
+    fun readAssets(context: Context, name: String): String {
+        val assetManager = context.assets
+        val inputStream = assetManager.open(name)
+        return inputStream.bufferedReader().use { it.readText() }
     }
 
     fun makeRandomUUID() = UUID.randomUUID().toString()
