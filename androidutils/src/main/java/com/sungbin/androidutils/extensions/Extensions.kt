@@ -94,6 +94,25 @@ fun doDelay(ms: Long, action: () -> Unit) {
     )
 }
 
+fun <T> Iterable<T>.join(
+    separator: CharSequence = ", ",
+    prefix: CharSequence = "",
+    postfix: CharSequence = "",
+    limit: Int = -1,
+    truncated: CharSequence = "...",
+    transform: ((T) -> CharSequence)? = null
+): String {
+    return joinTo(
+        StringBuilder(),
+        separator,
+        prefix,
+        postfix,
+        limit,
+        truncated,
+        transform
+    ).toString()
+}
+
 operator fun <T : View> View.get(@IdRes id: Int, clazz: Class<T>) = this.findViewById<T>(id)!!
 
 @SuppressLint("ClickableViewAccessibility")
