@@ -39,10 +39,10 @@ dependencies {
 
 ```kotlin
 OnSwipeListener(context: Context): View.OnTouchListener
-    - fun onSwipeLeftToRight()
-    - fun onSwipeRightToLeft()
-    - fun onSwipeBottomToTop()
-    - fun onSwipeTopToBottom()
+    fun onSwipeLeftToRight()
+    fun onSwipeRightToLeft()
+    fun onSwipeBottomToTop()
+    fun onSwipeTopToBottom()
 ```
 
 -----
@@ -75,6 +75,9 @@ RecyclerView.setFab(fab: View)
 RecyclerView.toBottomScroll()
 
 doDelay(ms: Int, action: () -> Unit)
+
+@RequiresApi(Build.VERSION_CODES.M)
+Icon.toBitmap(context: Context): Bitmap
 
 [operator] <T : View> View.get(@IdRes id: Int, clazz: Class<T>): T
 [operator] TextView.plusAssign(text: String)
