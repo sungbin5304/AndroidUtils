@@ -68,6 +68,8 @@ EditText.onTextChanged(action: (s: CharSequence?, start: Int, before: Int, count
 
 TextView.clear()
 
+<T> Iterable<T>.join(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((T) -> CharSequence)? = null): String
+
 View.show()
 View.hide(isGone: Boolean = false)
 
