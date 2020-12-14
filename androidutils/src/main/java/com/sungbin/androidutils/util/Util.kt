@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.os.StrictMode
 import android.util.Log
 import android.util.TypedValue
 import com.sungbin.sungbintool.R
@@ -38,10 +37,9 @@ object Util {
         Log.e("Error", data)
     }
 
+    @Throws(Exception::class)
     fun getHtml(address: String, userAgent: String? = null): String? {
         return try {
-            val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
-            StrictMode.setThreadPolicy(policy)
             val url = URL(address)
             val con = url.openConnection()
             con?.let {
@@ -52,8 +50,8 @@ object Util {
                 return isr.buffered(1024 * 1024).use { it.readText() }
             }
             null
-        } catch (ignored: Exception) {
-            null
+        } catch (exception: Exception) {
+            throw exception
         }
     }
 
