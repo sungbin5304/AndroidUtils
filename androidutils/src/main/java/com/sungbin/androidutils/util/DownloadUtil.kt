@@ -10,40 +10,31 @@ import java.net.URL
 
 object DownloadUtil {
 
-    fun download(path: String, url: String, downloadDoneAction: () -> Unit) {
-        DownloadTask(path, url, downloadDoneAction).execute()
+    fun download(savePath: String, downloadUrl: String, downloadDoneAction: () -> Unit = {}) {
+        DownloadTask(savePath, downloadUrl, downloadDoneAction).execute()
     }
 
     private class DownloadTask(
-        private val path: String,
-        private val url: String,
+        private val savePath: String,
+        private val downloadUrl: String,
         private val downloadDoneAction: () -> Unit
-    ) :
-        AsyncTask<Void?, Void?, Void?>() {
+    ) : AsyncTask<Void?, Void?, Void?>() {
+
         override fun doInBackground(vararg params: Void?): Void? {
-            try {
-                val conn = URL(url).openConnection() as HttpURLConnection
+            return try {
+                val conn = URL(downloadUrl).openConnection() as HttpURLConnection
                 val len = conn.contentLength
                 val tmpByte = ByteArray(len)
                 val `is` = conn.inputStream
-                val fos = FileOutputStream(path)
-
-                while (true) {
-                    val read = `is`.read(tmpByte)
-                    if (read <= 0) {
-                        break
-                    }
-                    fos.write(tmpByte, 0, read)
-                }
-
+                val fos = FileOutputStream(savePath)
+                fos.buffered(2048 * 2048).use { it.write(tmpByte, 0, `is`.read(tmpByte)) }
                 `is`.close()
-                fos.close()
                 conn.disconnect()
-            } catch (e: Exception) {
-                e.printStackTrace()
+                null
+            } catch (exception: Exception) {
+                exception.printStackTrace()
+                null
             }
-
-            return null
         }
 
         override fun onPostExecute(result: Void?) {

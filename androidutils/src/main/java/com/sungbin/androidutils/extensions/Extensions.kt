@@ -94,22 +94,15 @@ fun doDelay(ms: Long, action: () -> Unit) {
     )
 }
 
-fun <T> Iterable<T>.join(
-    separator: CharSequence = ", ",
-    prefix: CharSequence = "",
-    postfix: CharSequence = "",
-    limit: Int = -1,
-    truncated: CharSequence = "...",
-    transform: ((T) -> CharSequence)? = null
-): String {
+fun <T> Iterable<T>.join(separator: CharSequence): String {
     return joinTo(
         StringBuilder(),
         separator,
-        prefix,
-        postfix,
-        limit,
-        truncated,
-        transform
+        "",
+        "",
+        -1,
+        "...",
+        null
     ).toString()
 }
 

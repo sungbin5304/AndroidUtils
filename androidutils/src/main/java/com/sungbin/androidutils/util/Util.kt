@@ -47,7 +47,7 @@ object Util {
                 if (userAgent != null) con.addRequestProperty("User-Agent", userAgent)
                 con.useCaches = false
                 val isr = InputStreamReader(con.getInputStream())
-                return isr.buffered(1024 * 1024).use { it.readText() }
+                return isr.buffered(2048 * 2048).use { it.readText() }
             }
             null
         } catch (exception: Exception) {
