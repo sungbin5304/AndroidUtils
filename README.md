@@ -68,7 +68,7 @@ EditText.onTextChanged(action: (s: CharSequence?, start: Int, before: Int, count
 
 TextView.clear()
 
-<T> Iterable<T>.join(separator: CharSequence = ", ", prefix: CharSequence = "", postfix: CharSequence = "", limit: Int = -1, truncated: CharSequence = "...", transform: ((T) -> CharSequence)? = null): String
+<T> Iterable<T>.join(separator: CharSequence): String
 
 View.show()
 View.hide(isGone: Boolean = false)
@@ -278,10 +278,8 @@ ERROR
 
 If you error at gradle `More than one file was found with OS independent path 'META-INF/library_release.kotlin_module'` this, add below code at your gradle.
 ```gradle
-android {
-  packagingOptions {
-      exclude 'META-INF/library_release.kotlin_module'
-  }
+packagingOptions {
+  exclude 'META-INF/library_release.kotlin_module'
 }
 ```
 
