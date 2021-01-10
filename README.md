@@ -59,6 +59,10 @@ String.isUpperCase(): Boolean
 String.isLowerCase(): Boolean
 String?.toEditable(): Editable
 
+EditText.isEmpty()
+EditText.isBlank()
+EditText.isNotEmpty()
+EditText.isNotBlank()
 EditText.showKeyboard()
 EditText.hideKeyboard()
 EditText.setEndDrawableClickEvent(action: (View) -> Unit)
