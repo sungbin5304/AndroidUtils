@@ -85,10 +85,6 @@ fun View.show() {
     this.visibility = View.VISIBLE
 }
 
-operator fun TextView.plusAssign(text: String) {
-    this.text = text
-}
-
 fun TextView.clear() {
     this.text = ""
 }
