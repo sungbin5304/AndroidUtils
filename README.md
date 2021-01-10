@@ -289,7 +289,7 @@ packagingOptions {
 ```
 
 ### for `Kotlin`
-```kotlin
+```gradle
 packagingOptions {
   exclude("META-INF/library_release.kotlin_module")
 }
