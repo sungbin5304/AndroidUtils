@@ -38,6 +38,14 @@ private fun getImm(context: Context): InputMethodManager {
     return imm
 }
 
+fun EditText.isBlank() = this.text.toString().isBlank()
+
+fun EditText.isEmpty() = this.text.toString().isEmpty()
+
+fun EditText.isNotBlank() = this.text.toString().isNotBlank()
+
+fun EditText.isNotEmpty() = this.text.toString().isNotEmpty()
+
 fun ImageView.setTint(color: Int) = ImageViewCompat.setImageTintList(
     this, color.toColorStateList()
 )
@@ -94,17 +102,15 @@ fun doDelay(ms: Long, action: () -> Unit) {
     )
 }
 
-fun <T> Iterable<T>.join(separator: CharSequence): String {
-    return joinTo(
-        StringBuilder(),
-        separator,
-        "",
-        "",
-        -1,
-        "...",
-        null
-    ).toString()
-}
+fun <T> Iterable<T>.join(separator: CharSequence) = joinTo(
+    StringBuilder(),
+    separator,
+    "",
+    "",
+    -1,
+    "...",
+    null
+).toString()
 
 operator fun <T : View> View.get(@IdRes id: Int, clazz: Class<T>) = this.findViewById<T>(id)!!
 
