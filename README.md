@@ -59,6 +59,10 @@ String.isUpperCase(): Boolean
 String.isLowerCase(): Boolean
 String?.toEditable(): Editable
 
+EditText.isEmpty()
+EditText.isBlank()
+EditText.isNotEmpty()
+EditText.isNotBlank()
 EditText.showKeyboard()
 EditText.hideKeyboard()
 EditText.setEndDrawableClickEvent(action: (View) -> Unit)
@@ -277,14 +281,15 @@ ERROR
 # Gradle Error
 
 If you error at gradle `More than one file was found with OS independent path 'META-INF/library_release.kotlin_module'` this, add below code at your gradle.
+### for `Groovy`
 ```gradle
 packagingOptions {
   exclude 'META-INF/library_release.kotlin_module'
 }
 ```
 
-### for `Gradle-DSL`
-```kotlin
+### for `Kotlin`
+```gradle
 packagingOptions {
   exclude("META-INF/library_release.kotlin_module")
 }
