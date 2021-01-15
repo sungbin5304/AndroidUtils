@@ -15,6 +15,7 @@ class FirstActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)
         findViewById<Button>(R.id.btn_go_second).setOnClickListener {
+            finish()
             startActivity(AutoIntent.SecondActivity(this))
         }
     }
