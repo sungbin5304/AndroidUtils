@@ -4,7 +4,7 @@ package com.sungbin.androidutils.annotation
  * Created by SungBin on 2021-01-15.
  */
 
-@Target(AnnotationTarget.CLASS)
+@Target(AnnotationTarget.VALUE_PARAMETER)
 @Retention(AnnotationRetention.SOURCE)
 @Repeatable
-annotation class Logging
+annotation class ContextChecker(val contextType: Int)
