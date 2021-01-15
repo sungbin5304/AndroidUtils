@@ -86,7 +86,6 @@ doDelay(ms: Int, action: () -> Unit)
 Icon.toBitmap(context: Context): Bitmap
 
 [operator] <T : View> View.get(@IdRes id: Int, clazz: Class<T>): T
-[operator] TextView.plusAssign(text: String)
 ```
 
 -----
