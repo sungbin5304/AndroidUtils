@@ -6,16 +6,15 @@ AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io
     <a href="https://codebeat.co/projects/github-com-sungbin5304-androidutils-master"><img alt="codebeat badge" src="https://codebeat.co/badges/213185fa-52cb-43c6-9d69-86bd57e19c03" /></a>
     <a href="https://wakatime.com/badge/github/sungbin5304/AndroidUtils"><img alt="[time tracker]" src="https://wakatime.com/badge/github/sungbin5304/AndroidUtils.svg" /></a><br/><br/>
     <code>iOS</code> version will be open ;)
-</p><br>
+</p>
 
 -----
 
 ### Library package name is changed!
 
-
 <img src="https://user-images.githubusercontent.com/40740128/96566201-3c728d00-1300-11eb-8c17-a0263d8cc5bb.png" width="500dp" height="300dp" />
 
-`com.sungbin.sungbintool` -> `com.sungbin.androidutils`
+`com.sungbin.sungbintool` -> `com.sungbin.androidutils` -> `me.sungbin.androidutils`
 
 # Download
 
@@ -97,7 +96,7 @@ getAppVersionName(act: Activity): String
 copy(context: Context, text: String, showToast: Boolean = true)
 error(ctx: Context, e: Exception, at: String)
 getHtml(address: String): String?
-readAssets(context: Context, name: String): String
+readAsset(context: Context, name: String): String
 makeRandomUUID(): String
 dp2px(context: Context, dp: Float): Float
 ```
