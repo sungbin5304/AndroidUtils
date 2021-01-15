@@ -4,6 +4,7 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
+
     defaultConfig {
         applicationId "com.sungbin.sbt"
         minSdkVersion 21
@@ -27,6 +28,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation project(':androidutils')
-    implementation project(':annotations')
     kapt project(':compiler')
 }
