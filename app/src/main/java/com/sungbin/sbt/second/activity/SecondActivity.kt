@@ -13,7 +13,6 @@ import me.sungbin.androidutils.annotation.Intentable
 
 @Intentable
 class SecondActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
@@ -21,5 +20,4 @@ class SecondActivity : AppCompatActivity() {
             startActivity(AutoIntent.FirstActivity(this))
         }
     }
-
 }
