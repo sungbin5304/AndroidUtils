@@ -25,13 +25,50 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.sungbin5304:AndroidUtils:{version}'
+  implementation 'com.github.sungbin5304.androidutils:androidutils:{version}'
+  kapt 'com.github.sungbin5304.androidutils:compiler:{version}'
 }
 ```
 
 # v4 Usage
 
 > goto [v1~v3](https://github.com/sungbin5304/AndroidUtils/blob/master/v1-3_usage.md) usage **[removed now, working until 4.0.3 version]**
+
+# Annotation
+## @ActivityContext
+> no runtime-function
+
+## @ApplicationContext
+> no runtime-function
+
+## @Intentable
+> Auto generation `Intent` for Class.
+
+### Target
+`@Target(AnnotationTarget.CLASS)`
+
+### Description
+Make a method that gets the `annotated class` and automatically gets the `intent` of that class with the following rule:
+```
+AutoIntent.{ClassName}(context: Context)
+```
+
+### Example
+```kotlin
+@Intentable
+class SecondActivity : AppCompatActivity() {
+  // do something
+}
+```
+```kotlin
+@Intentable
+class FirstActivity : AppCompatActivity() {
+  override fun onCreate(savedInstanceState: Bundle?) {
+    // do something
+    startActivity(AutoIntent.SecondActivity(this))
+  }
+}
+```
 
 # Listener
 ```kotlin
