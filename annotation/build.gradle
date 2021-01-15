@@ -22,3 +22,6 @@ compileTestKotlin {
         jvmTarget = "1.8"
     }
 }
+
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.sungbin5304'
