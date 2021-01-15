@@ -8,6 +8,8 @@ AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io
     <code>iOS</code> version will be open ;)
 </p><br>
 
+> `AnnotationProcessor`를 만드는 방법은 알았는데, 이걸 라이브러리로 만드는 방법을 모르겠다;
+
 -----
 
 ### Library package name is changed!
