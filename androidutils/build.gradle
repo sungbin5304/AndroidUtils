@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 30
@@ -29,5 +30,4 @@ dependencies {
     api project(':annotations')
 }
 
-apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.sungbin5304'

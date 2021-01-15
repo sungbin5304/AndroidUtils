@@ -1,5 +1,6 @@
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.github.dcendents.android-maven'
 
 kapt {
     generateStubs = true
@@ -25,5 +26,4 @@ dependencies {
 sourceCompatibility = "7"
 targetCompatibility = "7"
 
-apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.sungbin5304'
