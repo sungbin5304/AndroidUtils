@@ -30,7 +30,7 @@ dependencies {
 }
 ```
 
-# v4 Usage
+# v4~v5 Usage
 
 > goto [v1~v3](https://github.com/sungbin5304/AndroidUtils/blob/master/v1-3_usage.md) usage **[removed now, working until 4.0.3 version]**
 
