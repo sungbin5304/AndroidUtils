@@ -1,10 +1,9 @@
 package me.sungbin.androidutils.annotation
 
 /**
- * Created by SungBin on 2021-01-15.
+ * Created by SungBin on 2021-01-16.
  */
 
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.SOURCE)
-@Repeatable
-annotation class Logging
+annotation class Intentable
