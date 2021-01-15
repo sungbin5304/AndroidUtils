@@ -6,19 +6,17 @@ AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io
     <a href="https://codebeat.co/projects/github-com-sungbin5304-androidutils-master"><img alt="codebeat badge" src="https://codebeat.co/badges/213185fa-52cb-43c6-9d69-86bd57e19c03" /></a>
     <a href="https://wakatime.com/badge/github/sungbin5304/AndroidUtils"><img alt="[time tracker]" src="https://wakatime.com/badge/github/sungbin5304/AndroidUtils.svg" /></a><br/><br/>
     <code>iOS</code> version will be open ;)
-</p><br>
+</p>
 
 -----
 
 ### Library package name is changed!
 
-
 <img src="https://user-images.githubusercontent.com/40740128/96566201-3c728d00-1300-11eb-8c17-a0263d8cc5bb.png" width="500dp" height="300dp" />
 
-`com.sungbin.sungbintool` -> `com.sungbin.androidutils`
+`com.sungbin.sungbintool` -> `com.sungbin.androidutils` -> `me.sungbin.androidutils`
 
 # Download
-
 ```Gradle
 repositories {
   maven { 
@@ -36,7 +34,6 @@ dependencies {
 > goto [v1~v3](https://github.com/sungbin5304/AndroidUtils/blob/master/v1-3_usage.md) usage **[removed now, working until 4.0.3 version]**
 
 # Listener
-
 ```kotlin
 OnSwipeListener(context: Context): View.OnTouchListener
     fun onSwipeLeftToRight()
@@ -48,7 +45,6 @@ OnSwipeListener(context: Context): View.OnTouchListener
 -----
 
 # Extensions
-
 ```kotlin
 ImageView.setTint(color: Int)
 
@@ -91,42 +87,37 @@ Icon.toBitmap(context: Context): Bitmap
 -----
 
 # Util
-
 ```kotlin
-getAppVersionName(act: Activity): String
+getAppVersionName(activity: Activity): String
 copy(context: Context, text: String, showToast: Boolean = true)
-error(ctx: Context, e: Exception, at: String)
+error(context: Context, e: Exception, at: String)
 getHtml(address: String): String?
-readAssets(context: Context, name: String): String
-makeRandomUUID(): String
+readAsset(context: Context, name: String): String
+makeRandomUUID(onlyNumber: Int = false): String
 dp2px(context: Context, dp: Float): Float
 ```
 
 # BatteryUtil
-
 ```kotlin
 isIgnoringBatteryOptimization(context: Context): Boolean
 requestIgnoreBatteryOptimization(context: Context)
 ```
 
 # DataUtil
-
 ```kotlin
-readData(ctx: Context, name: String, _null: String?
-saveData(ctx: Context, name: String, value: String)
-clearData(ctx: Context)
+readData(context: Context, name: String, _null: String?
+saveData(context: Context, name: String, value: String)
+clearData(context: Context)
 ```
 
 # DialogUtil
-
 ```kotlin
-show(ctx: Activity, title: String, message: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
-showOnce(ctx: Activity, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
+show(activity: Activity, title: String, message: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
+showOnce(activity: Activity, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
 showLicense() // todo
 ```
 
 # DownloadUtil
-
 ```kotlin
 download(path: String, url: String, downloadDoneAction: () -> Unit)
 ```
@@ -136,7 +127,6 @@ download(path: String, url: String, downloadDoneAction: () -> Unit)
 ![Preview](https://raw.githubusercontent.com/sungbin5304/PrettyLogger/master/images/PrettyLogger.png)
 
 ## Logging with Default Tag
-
 ``` Kotlin
 w(any: Any?)
 v(any: Any?)
@@ -148,19 +138,16 @@ i(any: Any?)
 > `Logger` is supported `Iterable`, `Array` and `Map` logging.
 
 # MediaUtil
-
 ```kotlin
 scanning(context: Context, path: String)
 ```
 
 # NetworkUtil
-
 ```kotlin
 isNetworkAvailable(context: Context): Boolean
 ```
 
 # NotificationUtil
-
 ```kotlin
 createChannel(context: Context, name: String, description: String)
 getManager(context: Context): NotificationManager
@@ -172,7 +159,6 @@ deleteNotification(context: Context, id: Int)
 ```
 
 # PermissionUtil
-
 ```kotlin
 request(activity: Activity, message: String?, permission: Array<String>, requestCode: Int = 1)
 requestReadNotification(activity: Activity)
@@ -180,7 +166,6 @@ checkPermissionsAllGrant(context: Context, permissions: List<String>): Boolean
 ```
 
 # StorageUtil
-
 ```kotlin
 [getter] sdcard
 
@@ -232,10 +217,7 @@ ERROR
 
 ![banner](https://raw.githubusercontent.com/sungbin5304/TagableRoundImageView/master/banner.png)
 
-
-
 ### xml
-
 ```xml
 <com.sungbin.androidutils.ui.TagableRoundImageView
         android:id="@+id/image"
@@ -249,7 +231,6 @@ ERROR
 ```
 
 ### all attribute
-
 | Attribute                 | Description                                                  | Default                            |
 | ------------------------- | :----------------------------------------------------------- | ---------------------------------- |
 | `triv_tagGravity`         | Set tag gravity (`top`, `bottom`, `left`, `right`, `start`, `end`) | `Gravity.END` and `Gravity.BOTTOM` |
@@ -278,8 +259,8 @@ ERROR
 -----
 
 # Gradle Error
-
 If you error at gradle `More than one file was found with OS independent path 'META-INF/library_release.kotlin_module'` this, add below code at your gradle.
+
 ### for `Groovy`
 ```gradle
 packagingOptions {
