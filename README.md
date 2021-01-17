@@ -127,7 +127,7 @@ Icon.toBitmap(context: Context): Bitmap
 ```kotlin
 getAppVersionName(activity: Activity): String
 copy(context: Context, text: String, showToast: Boolean = true)
-error(context: Context, e: Exception, at: String)
+error(context: Context, exception: Exception, at: String)
 getHtml(address: String): String?
 readAsset(context: Context, name: String): String
 makeRandomUUID(onlyNumber: Int = false): String
