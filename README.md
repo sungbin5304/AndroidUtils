@@ -105,6 +105,7 @@ EditText.onTextChanged(action: (s: CharSequence?, start: Int, before: Int, count
 
 TextView.clear()
 
+<T> Array<T>.join(separator: CharSequence): String
 <T> Iterable<T>.join(separator: CharSequence): String
 
 View.show()
@@ -112,6 +113,16 @@ View.hide(isGone: Boolean = false)
 
 RecyclerView.setFab(fab: View)
 RecyclerView.toBottomScroll()
+
+@Deprecated("Custom Toast was Deprecated at Android R")
+Activity.toast(message: String, duration: ToastLength = ToastLength.SHORT, type: ToastType)
+Activity.toast(message: String, duration: Int = Toast.LENGTH_SHORT, onToastShown: (() -> Unit)? = null, onToastHidden: (() -> Unit)? = null)
+Activity.alert(title: String?, message: String, closeMessage: String = "", closeEvent: ((DialogInterface, Int) -> Unit)? = null)
+
+@Deprecated("Custom Toast was Deprecated at Android R")
+Fragment.toast(message: String, duration: ToastLength = ToastLength.SHORT, type: ToastType)
+Fragment.toast(message: String, duration: Int = Toast.LENGTH_SHORT, onToastShown: (() -> Unit)? = null, onToastHidden: (() -> Unit)? = null)
+Fragment.alert(title: String?, message: String, closeMessage: String = "", closeEvent: ((DialogInterface, Int) -> Unit)? = null)
 
 doDelay(ms: Int, action: () -> Unit)
 
@@ -151,28 +162,31 @@ clearData(context: Context)
 ```kotlin
 show(activity: Activity, title: String, message: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
 showOnce(activity: Activity, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
-showLicense() // todo
+showLicense(activity: Activity, title: String, projects: Array<Project>)
+```
+
+## Project
+`Project(val name: String, val link: String, val license: License)`
+
+## License
+### Default
+```
+MIT
+BSD
+Apache2
+GPL3
+LGPL3
+```
+
+### Custom
+```
+CUSTOM(name: String)
 ```
 
 # DownloadUtil
 ```kotlin
 download(path: String, url: String, downloadDoneAction: () -> Unit)
 ```
-
-# Logger [[More Guide](https://github.com/sungbin5304/PrettyLogger)]
-
-![Preview](https://raw.githubusercontent.com/sungbin5304/PrettyLogger/master/images/PrettyLogger.png)
-
-## Logging with Default Tag
-``` Kotlin
-w(any: Any?)
-v(any: Any?)
-d(any: Any?)
-e(any: Any?)
-i(any: Any?)
-```
-
-> `Logger` is supported `Iterable`, `Array` and `Map` logging.
 
 # MediaUtil
 ```kotlin
@@ -215,6 +229,21 @@ save(path: String, content: String): Boolean
 delete(path: String): Boolean
 deleteAll(path: String): Boolean
 ```
+
+# Logger [[More Guide](https://github.com/sungbin5304/PrettyLogger)]
+
+![Preview](https://raw.githubusercontent.com/sungbin5304/PrettyLogger/master/images/PrettyLogger.png)
+
+## Logging with Default Tag
+``` Kotlin
+w(any: Any?)
+v(any: Any?)
+d(any: Any?)
+e(any: Any?)
+i(any: Any?)
+```
+
+> `Logger` is supported `Iterable`, `Array` and `Map` logging.
 
 # TextViewUtil
 ```kotlin
