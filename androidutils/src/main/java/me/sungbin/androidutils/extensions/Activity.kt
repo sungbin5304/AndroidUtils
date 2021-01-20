@@ -3,6 +3,7 @@ package me.sungbin.androidutils.extensions
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.widget.Toast
 import me.sungbin.androidutils.util.toastutil.ToastLength
 import me.sungbin.androidutils.util.toastutil.ToastType
 import me.sungbin.androidutils.util.toastutil.ToastUtil
@@ -26,5 +27,19 @@ fun Activity.alert(
     dialog.show()
 }
 
+@Deprecated(
+    "Custom Toast was Deprecated at Android R",
+    ReplaceWith(
+        "toast(message)",
+        "me.sungbin.androidutils.util.toastutil.ToastUtil"
+    )
+)
 fun Activity.toast(message: String, duration: ToastLength = ToastLength.SHORT, type: ToastType) =
     ToastUtil.show(this, message, duration, type)
+
+fun Activity.toast(
+    message: String,
+    duration: Int = Toast.LENGTH_SHORT,
+    onToastShown: (() -> Unit)? = null,
+    onToastHidden: (() -> Unit)? = null
+) = ToastUtil.show(this, message, duration, onToastShown, onToastHidden)

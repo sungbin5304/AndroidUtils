@@ -9,8 +9,6 @@ import me.sungbin.androidutils.extensions.toast
 import me.sungbin.androidutils.util.DialogUtil
 import me.sungbin.androidutils.util.licensediaog.License
 import me.sungbin.androidutils.util.licensediaog.Project
-import me.sungbin.androidutils.util.toastutil.ToastLength
-import me.sungbin.androidutils.util.toastutil.ToastType
 
 /**
  * Created by SungBin on 2021-01-16.
@@ -26,11 +24,11 @@ class FirstActivity : AppCompatActivity() {
             startActivity(AutoIntent.SecondActivity(this))
         }
 
-        toast("AAA", ToastLength.SHORT, ToastType.SUCCESS)
+        toast("AAA")
         alert(null, "AAAA", "BBB") { _, _ ->
-            toast("BBBBB", ToastLength.SHORT, ToastType.SUCCESS)
+            toast("BBBBB")
         }
-
+        toast("AA")
         val custonLicense = License.CUSTOM("AA")
 
         DialogUtil.showLicense(
