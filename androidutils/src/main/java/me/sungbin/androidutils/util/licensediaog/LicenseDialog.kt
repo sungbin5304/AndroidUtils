@@ -2,6 +2,7 @@ package me.sungbin.androidutils.util.licensediaog
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.widget.ScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -24,10 +25,14 @@ internal class LicenseDialog(val activity: Activity) {
         val licenseRecyclerView = RecyclerView(activity).apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+            adapter = LicenseAdapter(values)
+        }
+        val scrollview = ScrollView(activity).apply {
+            addView(licenseRecyclerView)
         }
         val dialog = AlertDialog.Builder(activity)
         dialog.setTitle(title)
-        dialog.setView(licenseRecyclerView)
+        dialog.setView(scrollview)
         dialog.show()
     }
 }

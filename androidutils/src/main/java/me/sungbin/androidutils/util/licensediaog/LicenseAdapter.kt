@@ -1,12 +1,15 @@
 package me.sungbin.androidutils.util.licensediaog
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.NonNull
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import me.sungbin.sungbintool.R
 import me.sungbin.sungbintool.databinding.LayoutLicenseBinding
 import me.sungbin.sungbintool.databinding.LayoutLicenseContainerBinding
 
@@ -14,18 +17,23 @@ import me.sungbin.sungbintool.databinding.LayoutLicenseContainerBinding
  * Created by SungBin on 2021-01-20.
  */
 
-internal class RecyclerAdapter(
+internal class LicenseAdapter(
     private val projects: HashMap<License, Array<Item>>
-) : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<LicenseAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding: LayoutLicenseContainerBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        @SuppressLint("SetTextI18n")
         fun bindViewHolder(projects: HashMap<License, Array<Item>>) {
+            val context = binding.root.context
             fun openTab(address: String) {
-                binding.root.context.startActivity(
+                fun String.parseUri() =
+                    if (this.contains("http")) this.toUri() else "http://$this".toUri()
+
+                context.startActivity(
                     Intent(
                         Intent.ACTION_VIEW,
-                        address.toUri()
+                        address.parseUri()
                     )
                 )
             }
@@ -33,22 +41,30 @@ internal class RecyclerAdapter(
             binding.llContainerLicense.run {
                 projects.map { project ->
                     val licenseViewBinding =
-                        LayoutLicenseBinding.inflate(LayoutInflater.from(binding.root.context))
+                        LayoutLicenseBinding.inflate(LayoutInflater.from(context))
                     licenseViewBinding.tvLicenseName.apply {
                         text = project.key.name
                     }
                     licenseViewBinding.llContainerProject.run {
                         project.value.map { item ->
-                            val textview = TextView(binding.root.context).apply {
-                                text = item.name
-                                setOnClickListener {
-                                    openTab(item.link)
+                            addView(
+                                TextView(context).apply {
+                                    text = "\t\t- ${item.name}"
+                                    textSize = 20.toFloat()
+                                    setTextColor(
+                                        ContextCompat.getColor(
+                                            context,
+                                            R.color.colorBlack
+                                        )
+                                    )
+                                    setOnClickListener {
+                                        openTab(item.link)
+                                    }
                                 }
-                            }
-                            addView(textview)
+                            )
                         }
                     }
-                    addView(licenseViewBinding.root)
+                    addView(licenseViewBinding.svContainerMain)
                 }
             }
         }

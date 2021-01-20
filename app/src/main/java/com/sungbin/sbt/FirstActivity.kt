@@ -31,10 +31,63 @@ class FirstActivity : AppCompatActivity() {
             toast("BBBBB", ToastLength.SHORT, ToastType.SUCCESS)
         }
 
+        val custonLicense = License.CUSTOM("AA")
+
         DialogUtil.showLicense(
             this,
             "제발성공",
-            arrayOf(Project("TEST", "naver.com", License.CUSTOM("AA")))
+            arrayOf(
+                Project("TEST", "naver.com", custonLicense),
+                Project("TES154T", "naver.com", custonLicense),
+                Project("TEST123", "naver.com", custonLicense),
+                Project("AndroidUtils", "https://github.com/sungbin5304/AndroidUtils", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT),
+                Project("TEST2", "naver.com", License.MIT)
+            )
         )
     }
 }
