@@ -1,5 +1,4 @@
-package me.sungbin.androidutils.util
-
+package me.sungbin.androidutils.util.textviewutil
 
 /**
  * Created by SungBin on 2020-09-03.

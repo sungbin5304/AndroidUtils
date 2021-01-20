@@ -1,7 +1,7 @@
-package me.sungbin.androidutils.ui
+package me.sungbin.androidutils.ui.tagableroundimageview
 
 import android.content.Context
-import android.graphics.*
+import android.graphics.* // ktlint-disable no-wildcard-imports
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity
@@ -96,9 +96,12 @@ class TagableRoundImageView : AppCompatImageView {
      * @param imageRadius radius for image (Default: 16dp)
      */
     fun set(
-        text: String, tagBackgroundColor: Int = this.tagBackgroundColor,
-        tagTextSize: Int = this.tagTextSize, tagTextPadding: Int = this.tagTextPadding,
-        tagTextStyle: Int = this.tagTextStyle, tagRadius: Int = this.tagRadius,
+        text: String,
+        tagBackgroundColor: Int = this.tagBackgroundColor,
+        tagTextSize: Int = this.tagTextSize,
+        tagTextPadding: Int = this.tagTextPadding,
+        tagTextStyle: Int = this.tagTextStyle,
+        tagRadius: Int = this.tagRadius,
         imageRadius: Int = this.imageRadius
     ) {
         tag = TagableDrawable(

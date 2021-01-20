@@ -5,7 +5,6 @@
     android:id="@+id/toast_type"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
     android:background="@drawable/success_layout"
     android:paddingStart="@dimen/margin_default"
     android:paddingTop="@dimen/margin_half"

@@ -1,4 +1,4 @@
-package me.sungbin.androidutils.util
+package me.sungbin.androidutils.util.textviewutil
 
 import android.graphics.Color
 import android.text.SpannableString
@@ -12,8 +12,11 @@ import me.sungbin.sungbintool.R
 
 object TextViewUtil {
     fun setReadMore(
-        type: ReadMoreType, view: TextView, text: String,
-        max: Int, expendText: String = view.context.getString(R.string.show_more),
+        type: ReadMoreType,
+        view: TextView,
+        text: String,
+        max: Int,
+        expendText: String = view.context.getString(R.string.show_more),
         expendTextColor: Int = Color.parseColor("#9E9E9E")
     ) {
         when (type) {
@@ -35,7 +38,9 @@ object TextViewUtil {
     }
 
     private fun setReadMoreForLine(
-        view: TextView, text: String, maxLine: Int,
+        view: TextView,
+        text: String,
+        maxLine: Int,
         expendText: String,
         expendTextColor: Int
     ) {
@@ -82,7 +87,9 @@ object TextViewUtil {
     }
 
     private fun setReadMoreForLength(
-        view: TextView, text: String, maxLength: Int,
+        view: TextView,
+        text: String,
+        maxLength: Int,
         expendText: String,
         expendTextColor: Int
     ) {

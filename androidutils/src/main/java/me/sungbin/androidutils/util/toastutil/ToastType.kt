@@ -1,5 +1,4 @@
-package me.sungbin.androidutils.util
-
+package me.sungbin.androidutils.util.toastutil
 
 /**
  * Created by SungBin on 2020-09-17.

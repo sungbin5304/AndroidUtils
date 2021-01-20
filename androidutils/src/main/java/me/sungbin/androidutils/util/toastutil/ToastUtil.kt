@@ -1,6 +1,4 @@
-@file:Suppress("DEPRECATION")
-
-package me.sungbin.androidutils.util
+package me.sungbin.androidutils.util.toastutil
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -13,11 +11,13 @@ import me.sungbin.androidutils.extensions.get
 import me.sungbin.sungbintool.R
 
 object ToastUtil {
+    @Suppress("DEPRECATION")
     @SuppressLint("InflateParams")
+    @Deprecated("Custom Toast was Deprecated at Android R")
     fun show(
         context: Context,
         message: String,
-        duration: ToastLength,
+        duration: ToastLength = ToastLength.SHORT,
         type: ToastType
     ) {
         val toast = Toast(context)
@@ -47,6 +47,30 @@ object ToastUtil {
         toast.apply {
             setDuration(if (duration == ToastLength.SHORT) Toast.LENGTH_SHORT else Toast.LENGTH_LONG)
             view = layout
+        }.show()
+    }
+
+    fun show(
+        context: Context,
+        message: String,
+        duration: Int = Toast.LENGTH_SHORT,
+        onToastShown: (() -> Unit)? = null,
+        onToastHidden: (() -> Unit)? = null
+    ) {
+        Toast(context).apply {
+            setText(message)
+            setDuration(duration)
+            addCallback(object : Toast.Callback() {
+                override fun onToastShown() {
+                    super.onToastShown()
+                    onToastShown?.invoke()
+                }
+
+                override fun onToastHidden() {
+                    super.onToastHidden()
+                    onToastHidden?.invoke()
+                }
+            })
         }.show()
     }
 }

@@ -3,11 +3,15 @@ package me.sungbin.androidutils.util
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
+import me.sungbin.androidutils.util.licensediaog.LicenseDialog
+import me.sungbin.androidutils.util.licensediaog.Project
 import me.sungbin.sungbintool.R
 
 object DialogUtil {
     fun show(
-        activity: Activity, title: String, message: String,
+        activity: Activity,
+        title: String,
+        message: String,
         listener: DialogInterface.OnClickListener?,
         cancelable: Boolean = true
     ) {
@@ -20,8 +24,11 @@ object DialogUtil {
     }
 
     fun showOnce(
-        activity: Activity, title: String, message: String,
-        id: String, listener: DialogInterface.OnClickListener?,
+        activity: Activity,
+        title: String,
+        message: String,
+        id: String,
+        listener: DialogInterface.OnClickListener?,
         cancelable: Boolean = true
     ) {
         if (!DataUtil.readData(activity, "$id - dialog", "false")!!.toBoolean()) {
@@ -30,7 +37,7 @@ object DialogUtil {
         }
     }
 
-    fun showLicense() {
-        // todo: add license interface and dialog.
+    fun showLicense(activity: Activity, title: String, projects: Array<Project>) {
+        LicenseDialog(activity).create(title, projects)
     }
 }

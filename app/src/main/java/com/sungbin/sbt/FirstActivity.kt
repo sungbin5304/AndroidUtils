@@ -4,6 +4,13 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import me.sungbin.androidutils.annotation.Intentable
+import me.sungbin.androidutils.extensions.alert
+import me.sungbin.androidutils.extensions.toast
+import me.sungbin.androidutils.util.DialogUtil
+import me.sungbin.androidutils.util.licensediaog.License
+import me.sungbin.androidutils.util.licensediaog.Project
+import me.sungbin.androidutils.util.toastutil.ToastLength
+import me.sungbin.androidutils.util.toastutil.ToastType
 
 /**
  * Created by SungBin on 2021-01-16.
@@ -18,5 +25,16 @@ class FirstActivity : AppCompatActivity() {
             finish()
             startActivity(AutoIntent.SecondActivity(this))
         }
+
+        toast("AAA", ToastLength.SHORT, ToastType.SUCCESS)
+        alert(null, "AAAA", "BBB") { _, _ ->
+            toast("BBBBB", ToastLength.SHORT, ToastType.SUCCESS)
+        }
+
+        DialogUtil.showLicense(
+            this,
+            "제발성공",
+            arrayOf(Project("TEST", "naver.com", License.CUSTOM("AA")))
+        )
     }
 }

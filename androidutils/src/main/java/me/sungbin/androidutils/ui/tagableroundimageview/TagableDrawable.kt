@@ -1,14 +1,16 @@
-package me.sungbin.androidutils.ui
+package me.sungbin.androidutils.ui.tagableroundimageview
 
-import android.graphics.*
+import android.graphics.* // ktlint-disable no-wildcard-imports
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.text.TextPaint
 
 internal class TagableDrawable(
     text: String,
-    tagBackgroundColor: Int, tagTextSize: Int,
-    tagTextPadding: Int, tagTextStyle: Int,
+    tagBackgroundColor: Int,
+    tagTextSize: Int,
+    tagTextPadding: Int,
+    tagTextStyle: Int,
     tagRadius: Int
 ) : Drawable() {
     private val bitmap: Bitmap

@@ -6,10 +6,13 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.util.Log
 import android.util.TypedValue
-import me.sungbin.sungbintool.R
 import java.io.InputStreamReader
 import java.net.URL
-import java.util.*
+import java.util.UUID
+import me.sungbin.androidutils.util.toastutil.ToastLength
+import me.sungbin.androidutils.util.toastutil.ToastType
+import me.sungbin.androidutils.util.toastutil.ToastUtil
+import me.sungbin.sungbintool.R
 
 object Util {
     fun dp2px(context: Context, dp: Float) =
@@ -23,9 +26,7 @@ object Util {
         clipboard.setPrimaryClip(ClipData.newPlainText("label", text))
         if (showToast) ToastUtil.show(
             context,
-            context.getString(R.string.copy_clipboard),
-            ToastLength.SHORT,
-            ToastType.SUCCESS
+            context.getString(R.string.copy_clipboard)
         )
     }
 
