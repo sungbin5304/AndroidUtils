@@ -285,7 +285,7 @@ ERROR
 
 ### xml
 ```xml
-<com.sungbin.androidutils.ui.TagableRoundImageView
+<me.sungbin.androidutils.ui.tagableroundimageview.TagableRoundImageView
         android:id="@+id/image"
         android:layout_width="200dp"
         android:layout_height="200dp"
