@@ -11,6 +11,7 @@
         android:id="@+id/ll_container_license"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_default"
         android:orientation="vertical"
         tools:ignore="UselessLeaf" />
 
