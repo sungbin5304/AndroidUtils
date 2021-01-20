@@ -9,6 +9,8 @@ import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import java.util.Locale
+import java.util.SortedMap
 import me.sungbin.sungbintool.R
 import me.sungbin.sungbintool.databinding.LayoutLicenseBinding
 import me.sungbin.sungbintool.databinding.LayoutLicenseContainerBinding
@@ -24,7 +26,7 @@ internal class LicenseAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        fun bindViewHolder(projects: HashMap<License, Array<Item>>) {
+        fun bindViewHolder(_projects: HashMap<License, Array<Item>>) {
             val context = binding.root.context
             fun openTab(address: String) {
                 fun String.parseUri() =
@@ -38,6 +40,28 @@ internal class LicenseAdapter(
                 )
             }
 
+            fun sortProjectHashMap(projects: HashMap<License, Array<Item>>): SortedMap<License, Array<Item>> {
+                val sortedProjects = hashMapOf<License, Array<Item>>()
+                for (key in projects.keys) {
+                    val sortedItemArray = projects[key]!!
+                    sortedItemArray.sortWith(
+                        Comparator { item, item2 ->
+                            return@Comparator item.name.toLowerCase(Locale.getDefault())
+                                .compareTo(item2.name.toLowerCase(Locale.getDefault()))
+                        }
+                    )
+                    sortedProjects[key] = sortedItemArray
+                }
+                return sortedProjects.toSortedMap(
+                    Comparator { item, item2 ->
+                        return@Comparator item.name.toLowerCase(Locale.getDefault())
+                            .compareTo(item2.name.toLowerCase(Locale.getDefault()))
+                    }
+                )
+            }
+
+            val projects = sortProjectHashMap(_projects)
+
             binding.llContainerLicense.run {
                 projects.map { project ->
                     val licenseViewBinding =
@@ -49,7 +73,7 @@ internal class LicenseAdapter(
                         project.value.map { item ->
                             addView(
                                 TextView(context).apply {
-                                    text = "\t\t- ${item.name}"
+                                    text = "  - ${item.name}"
                                     textSize = 20.toFloat()
                                     setTextColor(
                                         ContextCompat.getColor(

@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import me.sungbin.androidutils.annotation.Intentable
-import me.sungbin.androidutils.extensions.alert
-import me.sungbin.androidutils.extensions.toast
 import me.sungbin.androidutils.util.DialogUtil
 import me.sungbin.androidutils.util.licensediaog.License
 import me.sungbin.androidutils.util.licensediaog.Project
@@ -24,67 +22,61 @@ class FirstActivity : AppCompatActivity() {
             startActivity(AutoIntent.SecondActivity(this))
         }
 
-        toast("AAA")
-        alert(null, "AAAA", "BBB") { _, _ ->
-            toast("BBBBB")
-        }
-        toast("AA")
-        val custonLicense = License.CUSTOM("AA")
-
         DialogUtil.showLicense(
             this,
-            "제발성공",
+            "오픈소스 라이선스",
             arrayOf(
-                Project("TEST", "naver.com", custonLicense),
-                Project("TES154T", "naver.com", custonLicense),
-                Project("TEST123", "naver.com", custonLicense),
-                Project("AndroidUtils", "https://github.com/sungbin5304/AndroidUtils", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT),
-                Project("TEST2", "naver.com", License.MIT)
+                Project("kotlin", "https://github.com/JetBrains/kotlin", License.Apache2),
+                Project(
+                    "androidx",
+                    "https://github.com/androidx/androidx",
+                    License.Apache2
+                ),
+                Project(
+                    "AndroidStudio Icon Assets",
+                    "http://www.apache.org/licenses/LICENSE-2.0.txt",
+                    License.Apache2
+                ),
+                Project(
+                    "SmoothBottomBar",
+                    "https://github.com/ibrahimsn98/SmoothBottomBar",
+                    License.MIT
+                ),
+                Project(
+                    "lottie-android",
+                    "https://github.com/airbnb/lottie-android",
+                    License.Apache2
+                ),
+                Project(
+                    "material-components-android",
+                    "https://github.com/material-components/material-components-android",
+                    License.Apache2
+                ),
+                Project(
+                    "flexbox-layout",
+                    "https://github.com/google/flexbox-layout",
+                    License.Apache2
+                ),
+                Project(
+                    "AndroidUtils",
+                    "https://github.com/sungbin5304/AndroidUtils",
+                    License.MIT
+                ),
+                Project(
+                    "CrashReporter",
+                    "https://github.com/MindorksOpenSource/CrashReporter",
+                    License.Apache2
+                ),
+                Project(
+                    "glide",
+                    "https://github.com/bumptech/glide/google/flexbox-layout",
+                    License.BSD
+                ),
+                Project(
+                    "constraintlayout",
+                    "https://github.com/androidx/constraintlayout",
+                    License.Apache2
+                )
             )
         )
     }
