@@ -25,8 +25,8 @@ repositories {
 }
 
 dependencies {
-  implementation 'com.github.sungbin5304.androidutils:androidutils:{version}'
-  kapt 'com.github.sungbin5304.androidutils:compiler:{version}'
+  implementation 'com.github.sungbin5304.SBT:androidutils:{version}'
+  kapt 'com.github.sungbin5304.SBT:compiler:{version}'
 }
 ```
 
