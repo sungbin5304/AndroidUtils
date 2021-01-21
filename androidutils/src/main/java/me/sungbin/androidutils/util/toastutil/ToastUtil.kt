@@ -53,24 +53,6 @@ object ToastUtil {
     fun show(
         context: Context,
         message: String,
-        duration: Int = Toast.LENGTH_SHORT,
-        onToastShown: (() -> Unit)? = null,
-        onToastHidden: (() -> Unit)? = null
-    ) {
-        Toast(context).apply {
-            setText(message)
-            setDuration(duration)
-            addCallback(object : Toast.Callback() {
-                override fun onToastShown() {
-                    super.onToastShown()
-                    onToastShown?.invoke()
-                }
-
-                override fun onToastHidden() {
-                    super.onToastHidden()
-                    onToastHidden?.invoke()
-                }
-            })
-        }.show()
-    }
+        duration: Int = Toast.LENGTH_SHORT
+    ) = Toast.makeText(context, message, duration).show()
 }

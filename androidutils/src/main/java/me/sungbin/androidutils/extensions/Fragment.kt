@@ -30,7 +30,5 @@ fun Fragment.toast(message: String, duration: ToastLength = ToastLength.SHORT, t
 
 fun Fragment.toast(
     message: String,
-    duration: Int = Toast.LENGTH_SHORT,
-    onToastShown: (() -> Unit)? = null,
-    onToastHidden: (() -> Unit)? = null
-) = ToastUtil.show(requireContext(), message, duration, onToastShown, onToastHidden)
+    duration: Int = Toast.LENGTH_SHORT
+) = ToastUtil.show(requireContext(), message, duration)

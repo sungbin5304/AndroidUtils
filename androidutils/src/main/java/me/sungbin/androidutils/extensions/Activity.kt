@@ -39,7 +39,5 @@ fun Activity.toast(message: String, duration: ToastLength = ToastLength.SHORT, t
 
 fun Activity.toast(
     message: String,
-    duration: Int = Toast.LENGTH_SHORT,
-    onToastShown: (() -> Unit)? = null,
-    onToastHidden: (() -> Unit)? = null
-) = ToastUtil.show(this, message, duration, onToastShown, onToastHidden)
+    duration: Int = Toast.LENGTH_SHORT
+) = ToastUtil.show(this, message, duration)
