@@ -10,7 +10,7 @@ AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io
 
 -----
 
-### Library package name is changed!
+### Library package name is changed again! (sorry)
 
 <img src="https://user-images.githubusercontent.com/40740128/96566201-3c728d00-1300-11eb-8c17-a0263d8cc5bb.png" width="500dp" height="300dp" />
 
