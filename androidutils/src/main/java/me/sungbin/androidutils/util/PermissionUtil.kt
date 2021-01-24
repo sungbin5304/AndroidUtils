@@ -37,15 +37,15 @@ object PermissionUtil {
 
     fun checkPermissionsAllGrant(context: Context, permissions: Array<String>): Boolean {
         var isAllGrant = true
-        permissions.map {
+        permissions.forEach {
             if (PermissionChecker.checkSelfPermission(
                     context,
                     it
                 ) == PermissionChecker.PERMISSION_DENIED
             ) {
                 isAllGrant = false
+                return@forEach
             }
-            return@map
         }
         return isAllGrant
     }

@@ -44,44 +44,44 @@ class TagableRoundImageView : AppCompatImageView {
         attrs: AttributeSet?
     ) : super(context, attrs) {
         clipPath = Path()
-        val a = context.obtainStyledAttributes(
+        val attr = context.obtainStyledAttributes(
             attrs,
             R.styleable.TagableRoundImageView,
             0,
             0
         )
-        tagTextGravity = a.getInt(
+        tagTextGravity = attr.getInt(
             R.styleable.TagableRoundImageView_triv_tagGravity,
             this.tagTextGravity
         )
-        tagTextStyle = a.getInt(
+        tagTextStyle = attr.getInt(
             R.styleable.TagableRoundImageView_triv_tagTextStyle,
             this.tagTextStyle
         )
-        tagBackgroundColor = a.getColor(
+        tagBackgroundColor = attr.getColor(
             R.styleable.TagableRoundImageView_triv_tagBackgroundColor,
             this.tagBackgroundColor
         )
-        tagTextSize = a.getDimensionPixelSize(
+        tagTextSize = attr.getDimensionPixelSize(
             R.styleable.TagableRoundImageView_triv_tagTextSize,
             this.tagTextSize
         )
-        tagTextPadding = a.getDimensionPixelSize(
+        tagTextPadding = attr.getDimensionPixelSize(
             R.styleable.TagableRoundImageView_triv_tagPadding,
             this.tagTextPadding
         )
-        imageRadius = a.getDimensionPixelSize(
+        imageRadius = attr.getDimensionPixelSize(
             R.styleable.TagableRoundImageView_triv_imageRadius,
             this.imageRadius
         )
-        tagTextPadding = a.getDimensionPixelSize(
+        tagTextPadding = attr.getDimensionPixelSize(
             R.styleable.TagableRoundImageView_triv_tagPadding,
             this.tagTextPadding
         )
-        tagText = a.getString(
+        tagText = attr.getString(
             R.styleable.TagableRoundImageView_triv_tagText
         )
-        a.recycle()
+        attr.recycle()
         tagText?.let { set(it) }
     }
 

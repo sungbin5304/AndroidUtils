@@ -12,9 +12,9 @@ object NetworkUtil {
         (context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).run {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 getNetworkCapabilities(activeNetwork)?.run {
-                    hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
-                            || hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
-                            || hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
+                    hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+                            hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                            hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
                 } ?: false
             } else {
                 val activeNetworkInfo = activeNetworkInfo

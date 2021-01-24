@@ -22,28 +22,28 @@ private fun getImm(context: Context): InputMethodManager {
     return imm
 }
 
-fun EditText.isBlank() = this.text.toString().isBlank()
+fun EditText.isBlank() = text.toString().isBlank()
 
-fun EditText.isEmpty() = this.text.toString().isEmpty()
+fun EditText.isEmpty() = text.toString().isEmpty()
 
-fun EditText.isNotBlank() = this.text.toString().isNotBlank()
+fun EditText.isNotBlank() = text.toString().isNotBlank()
 
-fun EditText.isNotEmpty() = this.text.toString().isNotEmpty()
+fun EditText.isNotEmpty() = text.toString().isNotEmpty()
 
 fun EditText.showKeyboard() {
-    getImm(this.context).showSoftInput(this, 0)
+    getImm(context).showSoftInput(this, 0)
 }
 
 fun EditText.hideKeyboard() {
-    getImm(this.context).hideSoftInputFromWindow(this.windowToken, 0)
+    getImm(context).hideSoftInputFromWindow(windowToken, 0)
 }
 
 @SuppressLint("ClickableViewAccessibility")
 fun EditText.setEndDrawableClickEvent(action: (View) -> Unit) {
-    this.setOnTouchListener(
+    setOnTouchListener(
         View.OnTouchListener { view, event ->
             if (event.action == MotionEvent.ACTION_UP) {
-                if (event.rawX >= this.right - this.compoundDrawables[2].bounds.width()
+                if (event.rawX >= right - compoundDrawables[2].bounds.width()
                 ) {
                     action(view)
                     return@OnTouchListener true
@@ -63,7 +63,7 @@ interface TextWatcherListener : TextWatcher {
 fun EditText.beforeTextChange(action: (s: CharSequence?, start: Int, count: Int, after: Int) -> Unit) {
     addTextChangedListener(object : TextWatcherListener {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            action.invoke(s, start, count, after)
+            action(s, start, count, after)
         }
     })
 }
@@ -71,7 +71,7 @@ fun EditText.beforeTextChange(action: (s: CharSequence?, start: Int, count: Int,
 fun EditText.afterTextChanged(action: (s: Editable?) -> Unit) {
     addTextChangedListener(object : TextWatcherListener {
         override fun afterTextChanged(s: Editable?) {
-            action.invoke(s)
+            action(s)
         }
     })
 }
@@ -79,7 +79,7 @@ fun EditText.afterTextChanged(action: (s: Editable?) -> Unit) {
 fun EditText.onTextChanged(action: (s: CharSequence?, start: Int, before: Int, count: Int) -> Unit) {
     addTextChangedListener(object : TextWatcherListener {
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            action.invoke(s, start, before, count)
+            action(s, start, before, count)
         }
     })
 }

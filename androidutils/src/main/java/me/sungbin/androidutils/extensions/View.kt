@@ -8,11 +8,13 @@ import androidx.annotation.IdRes
  */
 
 fun View.hide(isGone: Boolean = false) {
-    this.visibility = if (isGone) View.GONE else View.INVISIBLE
+    visibility = if (isGone) View.GONE else View.INVISIBLE
 }
 
 fun View.show() {
-    this.visibility = View.VISIBLE
+    visibility = View.VISIBLE
 }
 
-operator fun <T : View> View.get(@IdRes id: Int, clazz: Class<T>) = this.findViewById<T>(id)!!
+@Suppress("UNUSED_PARAMETER")
+inline operator fun <reified T : View> View.get(@IdRes id: Int, clazz: Class<T>) =
+    findViewById<T>(id)!!

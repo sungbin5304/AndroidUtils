@@ -33,8 +33,12 @@ object NotificationUtil {
         context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
     fun showNormalNotification(
-        context: Context, id: Int, title: String,
-        content: String, icon: Int, isOnGoing: Boolean
+        context: Context,
+        id: Int,
+        title: String,
+        content: String,
+        icon: Int,
+        isOnGoing: Boolean
     ) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val builder = Notification.Builder(context, title)
@@ -56,9 +60,12 @@ object NotificationUtil {
     }
 
     fun showInboxStyleNotification(
-        context: Context, id: Int,
-        title: String, content: String,
-        boxText: Array<String>, icon: Int,
+        context: Context,
+        id: Int,
+        title: String,
+        content: String,
+        boxText: Array<String>,
+        icon: Int,
         isOnGoing: Boolean
     ) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -101,8 +108,11 @@ object NotificationUtil {
     }
 
     fun getNormalNotification(
-        context: Context, title: String,
-        content: String, icon: Int, isOnGoing: Boolean
+        context: Context,
+        title: String,
+        content: String,
+        icon: Int,
+        isOnGoing: Boolean
     ): Notification.Builder {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             Notification.Builder(context, title)
@@ -111,7 +121,6 @@ object NotificationUtil {
                 .setSmallIcon(icon)
                 .setAutoCancel(true)
                 .setOngoing(isOnGoing)
-
         } else {
             Notification.Builder(context)
                 .setContentTitle(title)
@@ -124,8 +133,10 @@ object NotificationUtil {
 
     fun getInboxStyleNotification(
         context: Context,
-        title: String, content: String,
-        boxText: Array<String>, icon: Int,
+        title: String,
+        content: String,
+        boxText: Array<String>,
+        icon: Int,
         isOnGoing: Boolean
     ): Notification.Builder {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

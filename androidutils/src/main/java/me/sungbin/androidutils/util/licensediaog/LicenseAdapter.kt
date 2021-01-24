@@ -20,17 +20,17 @@ import me.sungbin.sungbintool.databinding.LayoutLicenseContainerBinding
  */
 
 internal class LicenseAdapter(
-    private val projects: HashMap<License, Array<Item>>
+    private val projects: HashMap<License, MutableList<Item>>
 ) : RecyclerView.Adapter<LicenseAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding: LayoutLicenseContainerBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        fun bindViewHolder(_projects: HashMap<License, Array<Item>>) {
+        fun bindViewHolder(_projects: HashMap<License, MutableList<Item>>) {
             val context = binding.root.context
             fun openTab(address: String) {
                 fun String.parseUri() =
-                    if (this.contains("http")) this.toUri() else "http://$this".toUri()
+                    if (contains("http")) toUri() else "http://$this".toUri()
 
                 context.startActivity(
                     Intent(
@@ -40,8 +40,8 @@ internal class LicenseAdapter(
                 )
             }
 
-            fun sortProjectHashMap(projects: HashMap<License, Array<Item>>): SortedMap<License, Array<Item>> {
-                val sortedProjects = hashMapOf<License, Array<Item>>()
+            fun sortProjectHashMap(projects: HashMap<License, MutableList<Item>>): SortedMap<License, MutableList<Item>> {
+                val sortedProjects = hashMapOf<License, MutableList<Item>>()
                 for (key in projects.keys) {
                     val sortedItemArray = projects[key]!!
                     sortedItemArray.sortWith(
@@ -63,14 +63,14 @@ internal class LicenseAdapter(
             val projects = sortProjectHashMap(_projects)
 
             binding.llContainerLicense.run {
-                projects.map { project ->
+                projects.forEach { project ->
                     val licenseViewBinding =
                         LayoutLicenseBinding.inflate(LayoutInflater.from(context))
                     licenseViewBinding.tvLicenseName.apply {
                         text = project.key.name
                     }
                     licenseViewBinding.llContainerProject.run {
-                        project.value.map { item ->
+                        project.value.forEach { item ->
                             addView(
                                 TextView(context).apply {
                                     text = "  - ${item.name}"

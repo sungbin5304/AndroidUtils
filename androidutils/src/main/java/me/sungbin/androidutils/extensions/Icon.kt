@@ -11,4 +11,4 @@ import androidx.annotation.RequiresApi
  */
 
 @RequiresApi(Build.VERSION_CODES.M)
-fun Icon.toBitmap(context: Context) = (this.loadDrawable(context) as BitmapDrawable).bitmap
+fun Icon.toBitmap(context: Context) = (loadDrawable(context) as BitmapDrawable).bitmap

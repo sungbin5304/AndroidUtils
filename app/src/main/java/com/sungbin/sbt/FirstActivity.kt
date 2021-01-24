@@ -2,8 +2,10 @@ package com.sungbin.sbt
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import me.sungbin.androidutils.annotation.Intentable
+import me.sungbin.androidutils.extensions.get
 import me.sungbin.androidutils.util.DialogUtil
 import me.sungbin.androidutils.util.licensediaog.License
 import me.sungbin.androidutils.util.licensediaog.Project
@@ -21,6 +23,9 @@ class FirstActivity : AppCompatActivity() {
             finish()
             startActivity(AutoIntent.SecondActivity(this))
         }
+
+        val layout = layoutInflater.inflate(R.layout.activity_first, LinearLayout(this))
+        val test = layout[R.id.btn_go_second, Button::class.java]
 
         DialogUtil.showLicense(
             this,

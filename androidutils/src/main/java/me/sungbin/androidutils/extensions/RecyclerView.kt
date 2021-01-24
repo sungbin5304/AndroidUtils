@@ -11,13 +11,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
  */
 
 fun RecyclerView.toBottomScroll() {
-    this.scrollToPosition(this.adapter?.itemCount?.minus(1) ?: return)
+    scrollToPosition(this.adapter?.itemCount?.minus(1) ?: return)
 }
 
 fun RecyclerView.setFab(fab: View) {
     if (fab is FloatingActionButton || fab is ExtendedFloatingActionButton) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            this.setOnScrollChangeListener { _, _, y, _, oldY ->
+            setOnScrollChangeListener { _, _, y, _, oldY ->
                 if (y < oldY) { // Up
                     if (fab is FloatingActionButton) {
                         fab.show()

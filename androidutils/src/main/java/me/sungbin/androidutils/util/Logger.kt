@@ -61,27 +61,24 @@ object Logger {
     }
 
     private fun Any?.getLogContent(): String {
-        var data: String
+        var data = ""
         when (this) {
             is Iterable<*> -> {
-                data = ""
-                for ((index, element) in this.withIndex()) {
+                for ((index, element) in withIndex()) {
                     data += "\n[$index] $element"
                 }
             }
             is Map<*, *> -> {
-                data = ""
-                for ((index, element) in this.asIterable().withIndex()) {
+                for ((index, element) in asIterable().withIndex()) {
                     data += "\n[$index] ${element.key} - ${element.value}"
                 }
             }
             is Array<*> -> {
-                data = ""
-                for ((index, element) in this.asIterable().withIndex()) {
+                for ((index, element) in asIterable().withIndex()) {
                     data += "\n[$index] $element"
                 }
             }
-            else -> data = this.toString()
+            else -> data = toString()
         }
         var logData = ""
         val splitData = data.replaceFirst("\n", "").split("\n")

@@ -13,7 +13,7 @@ object StorageUtil {
     @Suppress("DEPRECATION")
     val sdcard = Environment.getExternalStorageDirectory().absolutePath
 
-    private fun String.parsePath() = if (this.contains(sdcard)) this else "$sdcard/$this"
+    private fun String.parsePath() = if (contains(sdcard)) this else "$sdcard/$this"
 
     fun getSize(size: Long): String {
         if (size <= 0) return "0"

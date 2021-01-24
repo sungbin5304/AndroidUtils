@@ -11,15 +11,15 @@ import androidx.recyclerview.widget.RecyclerView
  */
 
 internal class LicenseDialog(val activity: Activity) {
-    fun create(title: String, projects: Array<Project>) {
+    fun create(title: String, projects: List<Project>) {
         fun Project.toItem() = Item(name, link)
 
-        val values = HashMap<License, Array<Item>>()
-        projects.map { project ->
+        val values = HashMap<License, MutableList<Item>>()
+        projects.forEach { project ->
             values[project.license]?.let {
-                values[project.license] = it.plus(project.toItem())
+                values[project.license] = it.plus(project.toItem()).toMutableList()
             } ?: run {
-                values[project.license] = arrayOf(project.toItem())
+                values[project.license] = mutableListOf(project.toItem())
             }
         }
         val licenseRecyclerView = RecyclerView(activity).apply {

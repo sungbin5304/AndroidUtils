@@ -12,7 +12,7 @@ object DialogUtil {
         activity: Activity,
         title: String,
         message: String,
-        listener: DialogInterface.OnClickListener?,
+        listener: DialogInterface.OnClickListener? = null,
         cancelable: Boolean = true
     ) {
         val dialog = AlertDialog.Builder(activity)
@@ -28,7 +28,7 @@ object DialogUtil {
         title: String,
         message: String,
         id: String,
-        listener: DialogInterface.OnClickListener?,
+        listener: DialogInterface.OnClickListener? = null,
         cancelable: Boolean = true
     ) {
         if (!DataUtil.readData(activity, "$id - dialog", "false")!!.toBoolean()) {
@@ -37,7 +37,7 @@ object DialogUtil {
         }
     }
 
-    fun showLicense(activity: Activity, title: String, projects: Array<Project>) {
+    fun showLicense(activity: Activity, title: String, projects: List<Project>) {
         LicenseDialog(activity).create(title, projects)
     }
 }

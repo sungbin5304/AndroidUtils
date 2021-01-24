@@ -7,5 +7,5 @@ import android.widget.TextView
  */
 
 fun TextView.clear() {
-    this.text = ""
+    text = ""
 }

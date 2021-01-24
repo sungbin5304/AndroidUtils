@@ -1,6 +1,5 @@
 package me.sungbin.androidutils.util
 
-import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -9,8 +8,6 @@ import android.util.TypedValue
 import java.io.InputStreamReader
 import java.net.URL
 import java.util.UUID
-import me.sungbin.androidutils.util.toastutil.ToastLength
-import me.sungbin.androidutils.util.toastutil.ToastType
 import me.sungbin.androidutils.util.toastutil.ToastUtil
 import me.sungbin.sungbintool.R
 
@@ -18,8 +15,8 @@ object Util {
     fun dp2px(context: Context, dp: Float) =
         TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.resources.displayMetrics)
 
-    fun getAppVersionName(act: Activity) =
-        act.packageManager.getPackageInfo(act.packageName, 0).versionName
+    fun getAppVersionName(context: Context) =
+        context.packageManager.getPackageInfo(context.packageName, 0).versionName
 
     fun copy(context: Context, text: String, showToast: Boolean = true) {
         val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -30,10 +27,10 @@ object Util {
         )
     }
 
-    fun error(ctx: Context, e: Exception, at: String) {
+    fun error(context: Context, e: Exception, at: String) {
         val data = "Error: $e\nLineNumber: ${e.stackTrace[0].lineNumber}\nAt: $at"
-        ToastUtil.show(ctx, data, ToastLength.LONG, ToastType.ERROR)
-        copy(ctx, data)
+        ToastUtil.show(context, data)
+        copy(context, data)
         Log.e("Error", data)
     }
 
