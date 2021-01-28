@@ -20,7 +20,7 @@
         tools:targetApi="m">
 
         <activity
-            android:name=".FirstActivity"
+            android:name=".TestRoom"
             android:label="@string/activity_first"
             android:theme="@style/AppTheme">
             <intent-filter>

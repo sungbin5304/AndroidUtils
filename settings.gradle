@@ -1,4 +1,2 @@
-include ':annotations'
-include ':compiler'
 include ':app', ':androidutils'
 rootProject.name = 'AndroidUtils'
