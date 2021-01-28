@@ -15,7 +15,7 @@ dependencies {
   implementation 'me.sungbin:androidutils:{version}'
 }
 ```
-# - Usage -
+# - Usage - [[old-readme]](https://github.com/sungbin5304/AndroidUtils/blob/master/jitpack-readme.md)
 # Listener
 ```kotlin
 OnSwipeListener(context: Context): View.OnTouchListener
