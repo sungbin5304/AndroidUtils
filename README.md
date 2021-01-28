@@ -2,74 +2,20 @@
 <p align="center">
     <a href="https://github.com/sungbin5304/
 AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-important"/></a>
-    <a href="https://jitpack.io/#sungbin5304/SBT"><img alt="Title" src="https://jitpack.io/v/sungbin5304/SBT.svg"/></a>
+    <a href='https://bintray.com/sungbin5304/maven/androidutils/_latestVersion'><img src='https://api.bintray.com/packages/sungbin5304/maven/androidutils/images/download.svg'></a>
     <a href="https://codebeat.co/projects/github-com-sungbin5304-androidutils-master"><img alt="codebeat badge" src="https://codebeat.co/badges/213185fa-52cb-43c6-9d69-86bd57e19c03" /></a>
-    <a href="https://wakatime.com/badge/github/sungbin5304/AndroidUtils"><img alt="[time tracker]" src="https://wakatime.com/badge/github/sungbin5304/AndroidUtils.svg" /></a><br/><br/>
     <code>iOS</code> version will be open ;)
 </p>
 
------
-
-### Library package name is changed again! **(sorry)**
-
-<img src="https://user-images.githubusercontent.com/40740128/96566201-3c728d00-1300-11eb-8c17-a0263d8cc5bb.png" width="500dp" height="300dp" />
-
-`com.sungbin.sungbintool` -> `com.sungbin.androidutils` -> `me.sungbin.androidutils`
+----
 
 # Download
 ```Gradle
-repositories {
-  maven { 
-    url 'https://jitpack.io' 
-  }
-}
-
 dependencies {
-  implementation 'com.github.sungbin5304.SBT:androidutils:{version}'
-  kapt 'com.github.sungbin5304.SBT:compiler:{version}'
+  implementation 'me.sungbin:androidutils:{version}'
 }
 ```
-
-# v4~v5 Usage
-
-> goto [v1~v3](https://github.com/sungbin5304/AndroidUtils/blob/master/v1-3_usage.md) usage **[removed now, working until 4.0.3 version]**
-
-# Annotation
-## @ActivityContext
-> no runtime-function
-
-## @ApplicationContext
-> no runtime-function
-
-## @Intentable
-> Auto generation `Intent` for Class.
-
-### Target
-`@Target(AnnotationTarget.CLASS)`
-
-### Description
-Make a method that gets the `annotated class` and automatically gets the `intent` of that class with the following rule:
-```
-AutoIntent.{ClassName}(context: Context)
-```
-
-### Example
-```kotlin
-@Intentable
-class SecondActivity : AppCompatActivity() {
-  // do something
-}
-```
-```kotlin
-@Intentable
-class FirstActivity : AppCompatActivity() {
-  override fun onCreate(savedInstanceState: Bundle?) {
-    // do something
-    startActivity(AutoIntent.SecondActivity(this))
-  }
-}
-```
-
+# - Usage -
 # Listener
 ```kotlin
 OnSwipeListener(context: Context): View.OnTouchListener
