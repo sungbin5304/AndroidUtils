@@ -62,12 +62,12 @@ RecyclerView.toBottomScroll()
 
 @Deprecated("Custom Toast was Deprecated at Android R")
 Activity.toast(message: String, duration: ToastLength = ToastLength.SHORT, type: ToastType)
-Activity.toast(message: String, duration: Int = Toast.LENGTH_SHORT, onToastShown: (() -> Unit)? = null, onToastHidden: (() -> Unit)? = null)
+Activity.toast(message: String, duration: Int = Toast.LENGTH_SHORT)
 Activity.alert(title: String?, message: String, closeMessage: String = "", closeEvent: ((DialogInterface, Int) -> Unit)? = null)
 
 @Deprecated("Custom Toast was Deprecated at Android R")
 Fragment.toast(message: String, duration: ToastLength = ToastLength.SHORT, type: ToastType)
-Fragment.toast(message: String, duration: Int = Toast.LENGTH_SHORT, onToastShown: (() -> Unit)? = null, onToastHidden: (() -> Unit)? = null)
+Fragment.toast(message: String, duration: Int = Toast.LENGTH_SHORT)
 Fragment.alert(title: String?, message: String, closeMessage: String = "", closeEvent: ((DialogInterface, Int) -> Unit)? = null)
 
 doDelay(ms: Int, action: () -> Unit)
@@ -108,7 +108,7 @@ clearData(context: Context)
 ```kotlin
 show(activity: Activity, title: String, message: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
 showOnce(activity: Activity, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
-showLicense(activity: Activity, title: String, projects: Array<Project>)
+showLicense(activity: Activity, title: String, projects: List<Project>)
 ```
 
 ## Project
