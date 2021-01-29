@@ -2,20 +2,74 @@
 <p align="center">
     <a href="https://github.com/sungbin5304/
 AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-important"/></a>
-    <a href='https://bintray.com/sungbin5304/maven/androidutils/_latestVersion'><img src='https://api.bintray.com/packages/sungbin5304/maven/androidutils/images/download.svg'></a>
-    <a href="https://codebeat.co/projects/github-com-sungbin5304-androidutils-master"><img alt="codebeat badge" src="https://codebeat.co/badges/213185fa-52cb-43c6-9d69-86bd57e19c03" /></a><br/>
-     <code>iOS</code> version will be open ;)
+    <a href="https://jitpack.io/#sungbin5304/SBT"><img alt="Title" src="https://jitpack.io/v/sungbin5304/SBT.svg"/></a>
+    <a href="https://codebeat.co/projects/github-com-sungbin5304-androidutils-master"><img alt="codebeat badge" src="https://codebeat.co/badges/213185fa-52cb-43c6-9d69-86bd57e19c03" /></a>
+    <a href="https://wakatime.com/badge/github/sungbin5304/AndroidUtils"><img alt="[time tracker]" src="https://wakatime.com/badge/github/sungbin5304/AndroidUtils.svg" /></a><br/><br/>
+    <code>iOS</code> version will be open ;)
 </p>
 
-----
+-----
+
+### Library package name is changed again! **(sorry)**
+
+<img src="https://user-images.githubusercontent.com/40740128/96566201-3c728d00-1300-11eb-8c17-a0263d8cc5bb.png" width="500dp" height="300dp" />
+
+`com.sungbin.sungbintool` -> `com.sungbin.androidutils` -> `me.sungbin.androidutils`
 
 # Download
 ```Gradle
+repositories {
+  maven { 
+    url 'https://jitpack.io' 
+  }
+}
+
 dependencies {
-  implementation 'me.sungbin:androidutils:{version}'
+  implementation 'com.github.sungbin5304.SBT:androidutils:{version}'
+  kapt 'com.github.sungbin5304.SBT:compiler:{version}'
 }
 ```
-# - Usage - [[old-readme]](https://github.com/sungbin5304/AndroidUtils/blob/master/jitpack-readme.md)
+
+# v4~v5 Usage
+
+> goto [v1~v3](https://github.com/sungbin5304/AndroidUtils/blob/master/v1-3_usage.md) usage **[removed now, working until 4.0.3 version]**
+
+# Annotation
+## @ActivityContext
+> no runtime-function
+
+## @ApplicationContext
+> no runtime-function
+
+## @Intentable
+> Auto generation `Intent` for Class.
+
+### Target
+`@Target(AnnotationTarget.CLASS)`
+
+### Description
+Make a method that gets the `annotated class` and automatically gets the `intent` of that class with the following rule:
+```
+AutoIntent.{ClassName}(context: Context)
+```
+
+### Example
+```kotlin
+@Intentable
+class SecondActivity : AppCompatActivity() {
+  // do something
+}
+```
+```kotlin
+@Intentable
+class FirstActivity : AppCompatActivity() {
+  override fun onCreate(savedInstanceState: Bundle?) {
+    // do something
+    startActivity(AutoIntent.SecondActivity(this))
+  }
+}
+```
+
 # Listener
 ```kotlin
 OnSwipeListener(context: Context): View.OnTouchListener
@@ -62,12 +116,12 @@ RecyclerView.toBottomScroll()
 
 @Deprecated("Custom Toast was Deprecated at Android R")
 Activity.toast(message: String, duration: ToastLength = ToastLength.SHORT, type: ToastType)
-Activity.toast(message: String, duration: Int = Toast.LENGTH_SHORT)
+Activity.toast(message: String, duration: Int = Toast.LENGTH_SHORT, onToastShown: (() -> Unit)? = null, onToastHidden: (() -> Unit)? = null)
 Activity.alert(title: String?, message: String, closeMessage: String = "", closeEvent: ((DialogInterface, Int) -> Unit)? = null)
 
 @Deprecated("Custom Toast was Deprecated at Android R")
 Fragment.toast(message: String, duration: ToastLength = ToastLength.SHORT, type: ToastType)
-Fragment.toast(message: String, duration: Int = Toast.LENGTH_SHORT)
+Fragment.toast(message: String, duration: Int = Toast.LENGTH_SHORT, onToastShown: (() -> Unit)? = null, onToastHidden: (() -> Unit)? = null)
 Fragment.alert(title: String?, message: String, closeMessage: String = "", closeEvent: ((DialogInterface, Int) -> Unit)? = null)
 
 doDelay(ms: Int, action: () -> Unit)
@@ -108,7 +162,7 @@ clearData(context: Context)
 ```kotlin
 show(activity: Activity, title: String, message: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
 showOnce(activity: Activity, title: String, message: String, id: String, listener: DialogInterface.OnClickListener?, cancelable: Boolean = true)
-showLicense(activity: Activity, title: String, projects: List<Project>)
+showLicense(activity: Activity, title: String, projects: Array<Project>)
 ```
 
 ## Project
@@ -288,6 +342,20 @@ packagingOptions {
 ```
 
 # License
-`AndroidUtils` license is under the [`MIT`](https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE).
+```
+                    Copyright 2020 SungBin
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+```
 
 # Happy Coding :)
