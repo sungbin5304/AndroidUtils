@@ -64,11 +64,13 @@ RecyclerView.toBottomScroll()
 Activity.toast(message: String, duration: ToastLength = ToastLength.SHORT, type: ToastType)
 Activity.toast(message: String, duration: Int = Toast.LENGTH_SHORT)
 Activity.alert(title: String?, message: String, closeMessage: String = "", closeEvent: ((DialogInterface, Int) -> Unit)? = null)
+Activity.startActivity<T>(isNewTask: Boolean = false, vararg extras: Pair<String, *>)
 
 @Deprecated("Custom Toast was Deprecated at Android R")
 Fragment.toast(message: String, duration: ToastLength = ToastLength.SHORT, type: ToastType)
 Fragment.toast(message: String, duration: Int = Toast.LENGTH_SHORT)
 Fragment.alert(title: String?, message: String, closeMessage: String = "", closeEvent: ((DialogInterface, Int) -> Unit)? = null)
+Fragment.startActivity<T>(isNewTask: Boolean = false, vararg extras: Pair<String, *>)
 
 doDelay(ms: Int, action: () -> Unit)
 
@@ -231,7 +233,7 @@ ERROR
 
 ### xml
 ```xml
-<me.sungbin.androidutils.ui.tagableroundimageview.TagableRoundImageView
+<me.sungbin.androidutils.tagableroundimageview.TagableRoundImageView
         android:id="@+id/image"
         android:layout_width="200dp"
         android:layout_height="200dp"
