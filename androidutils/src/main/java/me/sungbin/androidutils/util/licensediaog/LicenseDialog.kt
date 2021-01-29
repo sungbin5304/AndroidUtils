@@ -1,3 +1,11 @@
+/*
+ * Create by Sungbin Ji on 2021. 1. 30.
+ * Copyright (c) 2021. Sungbin Ji. All rights reserved.
+ *
+ * AndroidUtils license is under the MIT license.
+ * SEE LICENSE : https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE
+ */
+
 package me.sungbin.androidutils.util.licensediaog
 
 import android.app.Activity
@@ -6,11 +14,7 @@ import android.widget.ScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-/**
- * Created by SungBin on 2021-01-20.
- */
-
-internal class LicenseDialog(val activity: Activity) {
+internal class LicenseDialog(private val activity: Activity) {
     fun create(title: String, projects: List<Project>) {
         fun Project.toItem() = Item(name, link)
 

@@ -1,11 +1,15 @@
+/*
+ * Create by Sungbin Ji on 2021. 1. 30.
+ * Copyright (c) 2021. Sungbin Ji. All rights reserved.
+ *
+ * AndroidUtils license is under the MIT license.
+ * SEE LICENSE : https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE
+ */
+
 package me.sungbin.androidutils.extensions
 
 import android.view.View
 import androidx.annotation.IdRes
-
-/**
- * Created by SungBin on 2021-01-20.
- */
 
 fun View.hide(isGone: Boolean = false) {
     visibility = if (isGone) View.GONE else View.INVISIBLE

@@ -1,3 +1,11 @@
+/*
+ * Create by Sungbin Ji on 2021. 1. 30.
+ * Copyright (c) 2021. Sungbin Ji. All rights reserved. 
+ *
+ * AndroidUtils license is under the MIT license.
+ * SEE LICENSE : https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE
+ */
+
 package me.sungbin.androidutils.util
 
 import android.annotation.SuppressLint
@@ -9,6 +17,7 @@ import android.os.PowerManager
 import android.provider.Settings
 
 object BatteryUtil {
+
     fun isIgnoringBatteryOptimization(context: Context): Boolean {
         val pm = context.getSystemService(Context.POWER_SERVICE) as PowerManager
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

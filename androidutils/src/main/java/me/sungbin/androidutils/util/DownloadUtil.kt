@@ -1,3 +1,11 @@
+/*
+ * Create by Sungbin Ji on 2021. 1. 30.
+ * Copyright (c) 2021. Sungbin Ji. All rights reserved. 
+ *
+ * AndroidUtils license is under the MIT license.
+ * SEE LICENSE : https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE
+ */
+
 @file:Suppress("DEPRECATION")
 
 package me.sungbin.androidutils.util
@@ -8,6 +16,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 object DownloadUtil {
+
     fun download(savePath: String, downloadUrl: String, downloadDoneAction: () -> Unit = {}) {
         DownloadTask(savePath, downloadUrl, downloadDoneAction).execute()
     }

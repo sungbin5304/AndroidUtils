@@ -1,3 +1,11 @@
+/*
+ * Create by Sungbin Ji on 2021. 1. 30.
+ * Copyright (c) 2021. Sungbin Ji. All rights reserved.
+ *
+ * AndroidUtils license is under the MIT license.
+ * SEE LICENSE : https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE
+ */
+
 package me.sungbin.androidutils.util.licensediaog
 
 import android.annotation.SuppressLint
@@ -9,15 +17,11 @@ import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import me.sungbin.androidutils.R
+import me.sungbin.androidutils.databinding.LayoutLicenseBinding
+import me.sungbin.androidutils.databinding.LayoutLicenseContainerBinding
 import java.util.Locale
 import java.util.SortedMap
-import me.sungbin.sungbintool.R
-import me.sungbin.sungbintool.databinding.LayoutLicenseBinding
-import me.sungbin.sungbintool.databinding.LayoutLicenseContainerBinding
-
-/**
- * Created by SungBin on 2021-01-20.
- */
 
 internal class LicenseAdapter(
     private val projects: HashMap<License, MutableList<Item>>

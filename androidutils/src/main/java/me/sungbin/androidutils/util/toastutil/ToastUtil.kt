@@ -1,3 +1,11 @@
+/*
+ * Create by Sungbin Ji on 2021. 1. 30.
+ * Copyright (c) 2021. Sungbin Ji. All rights reserved. 
+ *
+ * AndroidUtils license is under the MIT license.
+ * SEE LICENSE : https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE
+ */
+
 package me.sungbin.androidutils.util.toastutil
 
 import android.annotation.SuppressLint
@@ -7,10 +15,10 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import me.sungbin.androidutils.extensions.get
-import me.sungbin.sungbintool.R
+import me.sungbin.androidutils.R
 
 object ToastUtil {
+
     @Suppress("DEPRECATION")
     @SuppressLint("InflateParams")
     @Deprecated("Custom Toast was Deprecated at Android R")
@@ -28,19 +36,19 @@ object ToastUtil {
         text.text = message
         when (type) {
             ToastType.INFO -> {
-                layout.setBackgroundResource(R.drawable.info_layout)
+                layout.setBackgroundResource(R.drawable.layout_info)
                 icon.setImageResource(R.drawable.ic_info_outline_white_24dp)
             }
             ToastType.SUCCESS -> {
-                layout.setBackgroundResource(R.drawable.success_layout)
+                layout.setBackgroundResource(R.drawable.layout_success)
                 icon.setImageResource(R.drawable.ic_check_white_24dp)
             }
             ToastType.WARNING -> {
-                layout.setBackgroundResource(R.drawable.warning_layout)
+                layout.setBackgroundResource(R.drawable.layout_warning)
                 icon.setImageResource(R.drawable.ic_pan_tool_white_24dp)
             }
             ToastType.ERROR -> {
-                layout.setBackgroundResource(R.drawable.error_layout)
+                layout.setBackgroundResource(R.drawable.layout_error)
                 icon.setImageResource(R.drawable.ic_clear_white_24dp)
             }
         }

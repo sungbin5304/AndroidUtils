@@ -5,18 +5,19 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.util.Log
 import android.util.TypedValue
+import me.sungbin.androidutils.R
+import me.sungbin.androidutils.util.toastutil.ToastUtil
 import java.io.InputStreamReader
 import java.net.URL
 import java.util.UUID
-import me.sungbin.androidutils.util.toastutil.ToastUtil
-import me.sungbin.sungbintool.R
 
 object Util {
+
     fun dp2px(context: Context, dp: Float) =
         TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.resources.displayMetrics)
 
     fun getAppVersionName(context: Context) =
-        context.packageManager.getPackageInfo(context.packageName, 0).versionName
+        context.packageManager.getPackageInfo(context.packageName, 0).versionName.toString()
 
     fun copy(context: Context, text: String, showToast: Boolean = true) {
         val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager

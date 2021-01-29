@@ -1,3 +1,11 @@
+/*
+ * Create by Sungbin Ji on 2021. 1. 30.
+ * Copyright (c) 2021. Sungbin Ji. All rights reserved.
+ *
+ * AndroidUtils license is under the MIT license.
+ * SEE LICENSE : https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE
+ */
+
 package me.sungbin.androidutils.util
 
 import android.os.Environment
@@ -10,6 +18,7 @@ import kotlin.math.log10
 import kotlin.math.pow
 
 object StorageUtil {
+
     @Suppress("DEPRECATION")
     val sdcard = Environment.getExternalStorageDirectory().absolutePath
 

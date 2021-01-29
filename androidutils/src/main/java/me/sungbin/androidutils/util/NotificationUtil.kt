@@ -1,3 +1,11 @@
+/*
+ * Create by Sungbin Ji on 2021. 1. 30.
+ * Copyright (c) 2021. Sungbin Ji. All rights reserved. 
+ *
+ * AndroidUtils license is under the MIT license.
+ * SEE LICENSE : https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE
+ */
+
 @file:Suppress("DEPRECATION")
 
 package me.sungbin.androidutils.util
@@ -11,6 +19,7 @@ import android.os.Build
 import androidx.core.app.NotificationManagerCompat
 
 object NotificationUtil {
+
     fun createChannel(context: Context, name: String, description: String) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             getManager(context).createNotificationChannelGroup(

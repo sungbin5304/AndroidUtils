@@ -1,3 +1,11 @@
+/*
+ * Create by Sungbin Ji on 2021. 1. 30.
+ * Copyright (c) 2021. Sungbin Ji. All rights reserved. 
+ *
+ * AndroidUtils license is under the MIT license.
+ * SEE LICENSE : https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE
+ */
+
 package me.sungbin.androidutils.util
 
 import android.app.Activity
@@ -5,10 +13,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.app.ActivityCompat
 import androidx.core.content.PermissionChecker
-import me.sungbin.sungbintool.R
-
+import me.sungbin.androidutils.R
 
 object PermissionUtil {
+
     fun request(
         activity: Activity,
         message: String?,
@@ -25,7 +33,8 @@ object PermissionUtil {
                     message,
                     { _, _ ->
                         ActivityCompat.requestPermissions(activity, permissions, requestCode)
-                    })
+                    }
+                )
             }
         }
     }
