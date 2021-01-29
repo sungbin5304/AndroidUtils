@@ -4,3 +4,4 @@
 # 1.1.0
 1. `Activity`, `Fragment` extension 1개씩 추가
 2. code clean-up
+3. Update copyright
