@@ -206,6 +206,7 @@ LENGTH
 
 # ToastUtil
 ```kotlin
+show(context: Context, message: String, duration: Int = Toast.LENGTH_SHORT)
 show(context: Context, message: String, duration: ToastLength, type: ToastType)
 ```
 
