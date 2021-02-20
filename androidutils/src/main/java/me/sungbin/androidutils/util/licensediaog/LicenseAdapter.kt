@@ -1,9 +1,9 @@
 /*
- * Create by Sungbin Ji on 2021. 1. 30.
+ * Create by Ji Sungbin on 2021. 1. 30.
  * Copyright (c) 2021. Sungbin Ji. All rights reserved.
  *
  * AndroidUtils license is under the MIT license.
- * SEE LICENSE : https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE
+ * SEE LICENSE : https://github.com/jisungbin/AndroidUtils/blob/master/LICENSE
  */
 
 package me.sungbin.androidutils.util.licensediaog
@@ -11,27 +11,29 @@ package me.sungbin.androidutils.util.licensediaog
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
-import me.sungbin.androidutils.R
-import me.sungbin.androidutils.databinding.LayoutLicenseBinding
-import me.sungbin.androidutils.databinding.LayoutLicenseContainerBinding
+import me.sungbin.androidutils.extensions.get
+import me.sungbin.sungbintool.R
 import java.util.Locale
 import java.util.SortedMap
 
 internal class LicenseAdapter(
     private val projects: HashMap<License, MutableList<Item>>
 ) : RecyclerView.Adapter<LicenseAdapter.ViewHolder>() {
-    inner class ViewHolder(private val binding: LayoutLicenseContainerBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val view: View) :
+        RecyclerView.ViewHolder(view) {
 
         @SuppressLint("SetTextI18n")
         fun bindViewHolder(_projects: HashMap<License, MutableList<Item>>) {
-            val context = binding.root.context
+            val context = view.context
             fun openTab(address: String) {
                 fun String.parseUri() =
                     if (contains("http")) toUri() else "http://$this".toUri()
@@ -66,14 +68,13 @@ internal class LicenseAdapter(
 
             val projects = sortProjectHashMap(_projects)
 
-            binding.llContainerLicense.run {
+            view[R.id.ll_container_license, LinearLayout::class.java].run {
                 projects.forEach { project ->
-                    val licenseViewBinding =
-                        LayoutLicenseBinding.inflate(LayoutInflater.from(context))
-                    licenseViewBinding.tvLicenseName.apply {
-                        text = project.key.name
-                    }
-                    licenseViewBinding.llContainerProject.run {
+                    val licenseViewBinding = LayoutInflater.from(context)
+                        .inflate(R.layout.layout_license, ScrollView(context))
+                    licenseViewBinding[R.id.tv_license_name, TextView::class.java].text =
+                        project.key.name
+                    licenseViewBinding[R.id.ll_container_project, LinearLayout::class.java].run {
                         project.value.forEach { item ->
                             addView(
                                 TextView(context).apply {
@@ -92,20 +93,20 @@ internal class LicenseAdapter(
                             )
                         }
                     }
-                    addView(licenseViewBinding.svContainerMain)
+                    addView(licenseViewBinding[R.id.sv_container_main, ScrollView::class.java])
                 }
             }
         }
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int) =
-        ViewHolder(
-            LayoutLicenseContainerBinding.inflate(
-                LayoutInflater.from(viewGroup.context),
-                viewGroup,
-                false
-            )
-        )
+    override fun onCreateViewHolder(
+        viewGroup: ViewGroup,
+        viewType: Int
+    ): LicenseAdapter.ViewHolder {
+        val layout = LayoutInflater.from(viewGroup.context)
+            .inflate(R.layout.layout_license_container, viewGroup)
+        return ViewHolder(layout)
+    }
 
     override fun onBindViewHolder(@NonNull viewholder: ViewHolder, position: Int) {
         viewholder.bindViewHolder(projects)

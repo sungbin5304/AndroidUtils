@@ -1,9 +1,9 @@
 /*
- * Create by Sungbin Ji on 2021. 1. 30.
+ * Create by Ji Sungbin on 2021. 1. 30.
  * Copyright (c) 2021. Sungbin Ji. All rights reserved. 
  *
  * AndroidUtils license is under the MIT license.
- * SEE LICENSE : https://github.com/sungbin5304/AndroidUtils/blob/master/LICENSE
+ * SEE LICENSE : https://github.com/jisungbin/AndroidUtils/blob/master/LICENSE
  */
 
 package me.sungbin.androidutils.util
@@ -13,26 +13,30 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.app.ActivityCompat
 import androidx.core.content.PermissionChecker
-import me.sungbin.androidutils.R
+import me.sungbin.sungbintool.R
 
 object PermissionUtil {
 
     fun request(
         activity: Activity,
         message: String?,
-        permissions: Array<String>,
+        permissions: List<String>,
         requestCode: Int = 1
     ) {
         if (!checkPermissionsAllGrant(activity, permissions)) {
             if (message.isNullOrBlank()) {
-                ActivityCompat.requestPermissions(activity, permissions, requestCode)
+                ActivityCompat.requestPermissions(activity, permissions.toTypedArray(), requestCode)
             } else {
                 DialogUtil.show(
                     activity,
                     activity.getString(R.string.need_permission),
                     message,
                     { _, _ ->
-                        ActivityCompat.requestPermissions(activity, permissions, requestCode)
+                        ActivityCompat.requestPermissions(
+                            activity,
+                            permissions.toTypedArray(),
+                            requestCode
+                        )
                     }
                 )
             }
@@ -44,7 +48,7 @@ object PermissionUtil {
         activity.startActivity(intent)
     }
 
-    fun checkPermissionsAllGrant(context: Context, permissions: Array<String>): Boolean {
+    fun checkPermissionsAllGrant(context: Context, permissions: List<String>): Boolean {
         var isAllGrant = true
         permissions.forEach {
             if (PermissionChecker.checkSelfPermission(
