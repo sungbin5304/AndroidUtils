@@ -12,7 +12,7 @@ AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io
 # Download
 ```Gradle
 dependencies {
-  implementation 'me.sungbin:androidutils:{version}'
+  coming soon
 }
 ```
 # - Usage - [[old-readme]](https://github.com/sungbin5304/AndroidUtils/blob/master/jitpack-readme.md)
