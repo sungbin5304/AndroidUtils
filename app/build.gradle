@@ -19,7 +19,6 @@ android {
             keyAlias "key0"
             keyPassword "ingan123"
         }
-
     }
 
     buildTypes {
