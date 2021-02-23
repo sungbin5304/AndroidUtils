@@ -2,7 +2,6 @@
 <p align="center">
     <a href="https://github.com/sungbin5304/
 AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-important"/></a>
-    <a href='https://bintray.com/sungbin5304/maven/androidutils/_latestVersion'><img src='https://api.bintray.com/packages/sungbin5304/maven/androidutils/images/download.svg'></a>
     <a href="https://codebeat.co/projects/github-com-sungbin5304-androidutils-master"><img alt="codebeat badge" src="https://codebeat.co/badges/213185fa-52cb-43c6-9d69-86bd57e19c03" /></a><br/>
      <code>iOS</code> version will be open ;)
 </p>
@@ -10,11 +9,8 @@ AndroidUtils/blob/master/LICENSE"><img alt="License" src="https://img.shields.io
 ----
 
 # Download
-```Gradle
-dependencies {
-  implementation 'me.sungbin:androidutils:{version}'
-}
-```
+coming soon
+
 # - Usage - [[old-readme]](https://github.com/sungbin5304/AndroidUtils/blob/master/jitpack-readme.md)
 # Listener
 ```kotlin
