@@ -11,7 +11,11 @@ AndroidUtils/blob/master/LICENSE"><img alt="license" src="https://img.shields.io
 
 # Download
 ```gradle
+repositories {
+    maven { url 'https://jitpack.io' }
+}
 
+implementation 'com.github.jisungbin:androidutils:${version}'
 ```
 
 # - Usage - [[old-readme]](https://github.com/sungbin5304/AndroidUtils/blob/master/jitpack-readme.md)
