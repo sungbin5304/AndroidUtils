@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 30
@@ -12,20 +13,9 @@ android {
         versionName "1.0"
     }
 
-    signingConfigs {
-        release {
-            storeFile file('SBT.jks')
-            storePassword "ingan123"
-            keyAlias "key0"
-            keyPassword "ingan123"
-        }
-    }
-
     buildTypes {
         release {
             minifyEnabled false
-            debuggable true
-            signingConfig signingConfigs.release
         }
     }
 
